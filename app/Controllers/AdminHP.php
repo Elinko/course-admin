@@ -6,6 +6,7 @@ class AdminHP extends BaseController
 	{
 
 		return view('admin-hp');
+
 	}
 
 	//--------------------------------------------------------------------
