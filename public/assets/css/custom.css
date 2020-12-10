@@ -1,0 +1,13 @@
+.text-center {
+  text-align: center;
+}
+
+#banner .actions li  {
+    width: 100%;
+}
+
+.multiple {
+  height: 100px;
+  background-color: #242943;
+  background-image: none;
+}
