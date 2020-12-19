@@ -9,6 +9,7 @@
 		<title>Roland Izsof</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/main.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css" />
 		<noscript><link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/noscript.css" /></noscript>
@@ -21,7 +22,7 @@
 					<a href="#menu">Menu</a>
 				</nav>
 			</header>
- 
+
 			<?= $this->renderSection('content') ?>
 
 			<!-- Footer -->
@@ -65,6 +66,7 @@
 			<script src="<?php echo base_url(); ?>/assets/js/jquery.scrollex.min.js"></script>
 			<script src="<?php echo base_url(); ?>/assets/js/browser.min.js"></script>
 			<script src="<?php echo base_url(); ?>/assets/js/breakpoints.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/js/bootstrap.min.js" async></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 			<script src="<?php echo base_url(); ?>/assets/js/util.js"></script>
 			<script src="<?php echo base_url(); ?>/assets/js/main.js"></script>

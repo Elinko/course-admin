@@ -39,34 +39,32 @@
 							<div class="col-4 col-12-medium">
 								<h3>Firma</h3>
 								<select class="multiple" name="demo-category" multiple id="demo-category">
-									<option value="">- Category -</option>
-									<option value="1">Manufacturing</option>
-									<option value="1">Shipping</option>
-									<option value="1">Administration</option>
-									<option value="1">Human Resources</option>
+									<?php foreach ($company as $key => $value): ?>
+										<option value="<?= $value['company_id'] ?>"><?= $value['name'] ?></option>
+
+									<?php endforeach; ?>
 								</select>
 							</div>
 							<div class="col-4 col-12-medium">
 								<h3>Školenie</h3>
 								<select class="multiple" name="demo-category" multiple id="demo-category">
-									<option value="">- Category -</option>
-									<option value="1">Manufacturing</option>
-									<option value="1">Shipping</option>
-									<option value="1">Administration</option>
-									<option value="1">Human Resources</option>
+									<?php foreach ($course as $key => $value): ?>
+										<option value="<?= $value['course_id'] ?>"><?= $value['name'] ?></option>
+									<?php endforeach; ?>
 								</select>
 							</div>
 							<div class="col-4 col-12-medium">
 								<h3>Zamestanec</h3>
 								<select class="multiple" name="demo-category" multiple id="demo-category">
-									<option value="">- Category -</option>
-									<option value="1">Manufacturing</option>
-									<option value="1">Shipping</option>
-									<option value="1">Administration</option>
-									<option value="1">Human Resources</option>
+									<?php foreach ($occupation as $key => $value): ?>
+										<option value="<?= $value['occupation'] ?>"><?= $value['occupation'] ?></option>
+									<?php endforeach; ?>
 								</select>
 							</div>
 						</div>
+						<br>
+						<br>
+						<br>
 						<div class="row">
 							<div class="col-4 col-12-medium">
 								<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" class="data-picker">

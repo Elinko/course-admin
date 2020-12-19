@@ -11,3 +11,25 @@
   background-color: #242943;
   background-image: none;
 }
+
+.modal-header button {
+  float: none;
+  height: auto;
+  line-height: 0;
+  outline: none;
+  font-size: 30px;
+}
+
+.modal.fade.in {
+   top: 50%;
+   transform: translateY(-50%);
+}
+  
+.modal-header {
+  padding: 9px ;
+  border-bottom: none;
+}
+
+form.validated {
+
+}
