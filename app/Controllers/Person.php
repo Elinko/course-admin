@@ -14,12 +14,27 @@ class Person extends BaseController
 		$builder2->select('occupation');
 		$data['occupation'] = $builder2->get()->getResultArray();
 
-
-
 		// var_dump($query[0]['name']);
 		return view('add-person', $data);
-
 	}
+
+	public function addPerson()
+	{
+		$db      = \Config\Database::connect();
+		$builder = $db->table('person');
+		$encrypter = \Config\Services::encrypter();
+
+		$data = [
+			'name' => $this->request->getVar('name'),
+			'birth' => $this->request->getVar('birth'),
+			'occupation' => $this->request->getVar('occupation'),
+			'address' => $this->request->getVar('address'),
+			'company_id' => $this->request->getVar('company_id'),
+		];
+
+		$save = $builder->insert($data);
+		return $this->response->setJSON($save);
+ 	}
 
 	public function update( $queri_id = null)
 	{
@@ -49,36 +64,5 @@ class Person extends BaseController
 		return $this->response->setJSON($save);
 
 	}
-
-	public function addCompany()
-	{
-		$db      = \Config\Database::connect();
-		$builder = $db->table('company');
-		$encrypter = \Config\Services::encrypter();
-
-		$data = [
-
-			'name' => $this->request->getVar('name'),
-			'ico' => $this->request->getVar('ico'),
-			'dic' => $this->request->getVar('dic'),
-			'email' => $this->request->getVar('email'),
-			'phone' => $this->request->getVar('phone'),
-			'address' => $this->request->getVar('address')
-			// 'ico'  => $encrypter->encrypt($this->request->getVar('ico')),
-			// 'dic'  => $encrypter->encrypt($this->request->getVar('dic')),
-			// 'email'  => $encrypter->encrypt($this->request->getVar('email')),
-			// 'phone'  => $encrypter->encrypt($this->request->getVar('phone')),
-			// 'address'  => $encrypter->encrypt($this->request->getVar('address'))
-		];
-
-		$save = $builder->insert($data);
-		// $ency = $encrypter->encrypt($this->request->getVar('ico'));
-		// echo  $ency . ' and decrutp';
-		//  $ency = $encrypter->decrypt($ency);
-		// echo  $ency . ' and decrutp';
-
-		return $this->response->setJSON($save);
-
- 	}
 
 }

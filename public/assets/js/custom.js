@@ -2,7 +2,8 @@
 	$( ".data-picker" ).datepicker({
      changeMonth: true,
      changeYear: true,
-     yearRange: "1930:2020"
+     yearRange: "1930:2020",
+		 dateFormat: 'yy-mm-dd'
  });
 
 	$('.myform').submit(function (e) {

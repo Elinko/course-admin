@@ -25,7 +25,7 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="birth">Dátum narodenia</label>
-										<input type="text" name="birth" id="birth" required value="" class="form-control data-picker">
+										<input type="text" name="birth" id="birth" required class="form-control data-picker">
 									</div>
 								</div>
 								<div class="col-12 col-12-xsmall">
@@ -47,7 +47,7 @@
 										<label for="occupation">Druh zamestnania</label>
 										<select name="occupation" id="occupation">
 											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>
-											
+
 											<?php foreach ($occupation as $key => $value): ?>
 												<option value="<?= $value['occupation'] ?>"><?= $value['occupation'] ?></option>
 											<?php endforeach; ?>
