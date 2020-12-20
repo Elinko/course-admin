@@ -1944,6 +1944,7 @@ input, select, textarea {
 		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
+    outline: none!important;
 	}
 
 	input[type="number"]:focus,

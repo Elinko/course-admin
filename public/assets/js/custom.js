@@ -1,5 +1,9 @@
 (function($) {
-	$( ".data-picker" ).datepicker();
+	$( ".data-picker" ).datepicker({
+     changeMonth: true,
+     changeYear: true,
+     yearRange: "1930:2020"
+ });
 
 	$('.myform').submit(function (e) {
 	    let form = $(this)
@@ -15,7 +19,7 @@
 							form.removeClass('validated');
 							$('#form-success').modal('show');
 							if(form.hasClass('update')){
-								setTimeout(function() { 
+								setTimeout(function() {
 									location.reload();
 								}, 3000);
 							} else {
@@ -34,6 +38,11 @@
 	    }
 
 	});
+
+	$('#add-occupation-type').on('click', function() {
+		$("#occupation").append(new Option($('#add-occupation-type-input').val(),$('#add-occupation-type-input').val()));
+		$('#add-occupation-type-input').val("")
+	})
 
 
 })(jQuery);
