@@ -23,6 +23,8 @@ class App extends BaseConfig
 	*/
 	public $baseURL = 'http://roli.localhost/';
 
+	// encrypt
+ 
 	/*
 	|--------------------------------------------------------------------------
 	| Index File

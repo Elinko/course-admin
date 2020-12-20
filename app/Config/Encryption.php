@@ -21,7 +21,7 @@ class Encryption extends BaseConfig
 	  | See the user guide for more info.
 	 */
 
-	public $key = '';
+	public $key = '345DFpoi34VoLe09T';
 
 	/*
 	  |--------------------------------------------------------------------------
@@ -32,5 +32,6 @@ class Encryption extends BaseConfig
 	  | The default driver, if you don't specify one, is 'OpenSSL'.
 	 */
 	public $driver = 'OpenSSL';
+
 
 }

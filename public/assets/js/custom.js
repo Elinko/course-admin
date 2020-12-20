@@ -8,15 +8,22 @@
 
 	    if (form[0].checkValidity()) {
 	      $.ajax({
-	          url: window.location.href + '/req',
+	          url: form.attr("action"),
 	          type: 'POST',
 	          data: form.serialize(),
 	          success: function (data) {
 							form.removeClass('validated');
 							$('#form-success').modal('show');
-							form[0].reset();
+							if(form.hasClass('update')){
+								setTimeout(function() { 
+									location.reload();
+								}, 3000);
+							} else {
+								form[0].reset();
+							}
 	          },
 	          error: function (data) {
+							$('#form-failed').modal('show');
 	            console.log(data.message)
 	          }
 	      });
