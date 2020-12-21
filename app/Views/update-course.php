@@ -13,7 +13,7 @@
 				<div class="row">
 					<div class="col-1">
 					</div>
-					<div class="col-9 col-12-small">
+					<div class="col-10 col-12-small">
 					 <form class="myform update" action="/Course/updateCourse"  method="post" novalidate="novalidate" >
 						 <input type="hidden" value="<?=$queri[0]['course_id']?>" name="course_id" id="course_id" required>
 						 <div class="row gtr-uniform">

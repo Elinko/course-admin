@@ -20,10 +20,8 @@ class Person extends BaseController
 
 	public function addPerson()
 	{
-		$db      = \Config\Database::connect();
+		$db      = db_connect();
 		$builder = $db->table('person');
-		$encrypter = \Config\Services::encrypter();
-
 		$data = [
 			'name' => $this->request->getVar('name'),
 			'birth' => $this->request->getVar('birth'),
@@ -39,25 +37,41 @@ class Person extends BaseController
 	public function update( $queri_id = null)
 	{
 		$db = db_connect();
-		$queri = $db->query("SELECT * FROM company WHERE company_id=$queri_id");
+		$queri = $db->query("SELECT * FROM person WHERE person_id=$queri_id");
 		$data['queri'] =  $queri->getResultArray();
 
-		return view('update-company', $data);
+		$builder = $db->table('company');
+		$builder->select('name, company_id');
+		$data['company'] = $builder->get()->getResultArray();
+
+		$builder2 = $db->table('person');
+		$builder2->select('occupation');
+		$data['occupation'] = $builder2->get()->getResultArray();
+
+		$builder3 = $db->table('certificate');
+		$data['certificate'] = $builder3->getWhere(['person_id' =>$queri_id])->getResultArray();
+
+		foreach ($data['certificate'] as $key => $value) {
+			$builder4 = $db->table('course');
+			$builder4 = $builder4->getWhere(['course_id' =>$value['course_id']])->getResultArray();
+			$data['certificate'][$key] += $builder4[0];
+		}
+
+		return view('update-person', $data);
 
 	}
 
-	public function updateCompany()
+	public function updatePerson()
 	{
 		$db = db_connect();
-		$builder = $db->table('company');
+		$builder = $db->table('person');
 		$data = [
-			'company_id' => $this->request->getVar('company_id'),
+			'person_id' => $this->request->getVar('person_id'),
 			'name' => $this->request->getVar('name'),
-			'ico' => $this->request->getVar('ico'),
-			'dic' => $this->request->getVar('dic'),
-			'email' => $this->request->getVar('email'),
-			'phone' => $this->request->getVar('phone'),
-			'address' => $this->request->getVar('address')
+			'birth' => $this->request->getVar('birth'),
+			'occupation' => $this->request->getVar('occupation'),
+			'address' => $this->request->getVar('address'),
+			'company_id' => $this->request->getVar('company_id')
 		];
 
 		$save = $builder->replace($data);

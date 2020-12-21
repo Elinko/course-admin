@@ -13,7 +13,7 @@
 				<div class="row">
 					<div class="col-1">
 					</div>
-					<div class="col-9 col-12-small">
+					<div class="col-10 col-12-small">
 					 <form class="myform" action="/course/addCourse"  method="post" novalidate="novalidate" >
 						 <div class="row gtr-uniform">
 								<div class="col-6 col-12-xsmall">

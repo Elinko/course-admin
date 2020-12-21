@@ -13,7 +13,7 @@
 				<div class="row">
 					<div class="col-1">
 					</div>
-					<div class="col-9 col-12-small">
+					<div class="col-10 col-12-small">
 					 <form class="myform update" action="/Company/updateCompany"  method="post" novalidate="novalidate" >
 						 <input type="hidden" value="<?=$queri[0]['company_id']?>" name="company_id" id="company_id" required>
 
@@ -52,7 +52,7 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label for="address">Adresa</label>
-										<textarea name="address" id="address" value="<?=$queri[0]['address']?>" placeholder="" rows="6"></textarea>
+										<textarea name="address" id="address" value="<?=$queri[0]['address']?>" placeholder="" rows="4"></textarea>
 									</div>
 								</div>
 								<!-- Break -->

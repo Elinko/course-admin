@@ -43,9 +43,8 @@ class Company extends BaseController
 
 	public function addCompany()
 	{
-		$db      = \Config\Database::connect();
+		$db      = db_connect();
 		$builder = $db->table('company');
-		$encrypter = \Config\Services::encrypter();
 
 		$data = [
 
