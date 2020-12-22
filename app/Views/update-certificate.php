@@ -8,49 +8,42 @@
 				<h1>Certifikát</h1>
 			</header>
 			<br>
+
 			<section>
-				<h2>Pridať certifikát pre <u><?=$person[0]['name']?></u> </h2>
+				<h2>Upraviť certifikát: &nbsp;<u><?=$queri[0]['name']?></u>&nbsp; pre: &nbsp;<u><?=$person[0]['name']?></u> </h2>
 				<div class="row">
 					<div class="col-1">
 					</div>
 					<div class="col-10 col-12-small">
-					 <form class="myform update" action="/Certificate/addCertificate"  method="post" novalidate="novalidate" >
-						 <input type="hidden" value="<?=$person[0]['person_id']?>" name="person_id" id="person_id" required>
+					 <form class="myform update" action="/Certificate/updateCertificate"  method="post" novalidate="novalidate" >
+						 <input type="hidden" value="<?=$queri[0]['certificate_id']?>" name="certificate_id" id="certificate_id" required>
+						 <input type="hidden" value="<?=$queri[0]['person_id']?>" name="person_id" id="person_id" required>
+						 <input type="hidden" value="<?=$queri[0]['course_id']?>" name="course_id" id="course_id" required>
 
 						 <div class="row gtr-uniform">
-								<div class="col-6 col-12-xsmall">
-									<div class="form-group">
-										<label for="course_id">Kurz</label>
-										<select name="course_id" id="course_id">
-											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>
-											<?php foreach ($course as $key => $value): ?>
-												<option value="<?= $value['course_id'] ?>"><?= $value['name'] ?></option>
-											<?php endforeach; ?>
-										</select>
-									</div>
-								</div>
+
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="evidence_num">Evidenčné číslo</label>
-										<input type="text" class="form-control" name="evidence_num" id="evidence_num" >
-									</div>
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<div class="form-group">
-										<label for="os">OS</label>
-										<input type="text" name="os" id="os"  class="form-control data-picker">
-									</div>
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<div class="form-group">
-										<label for="aop">AOP</label>
-										<input type="text" name="aop" id="aop"  class="form-control data-picker">
+										<input type="text" class="form-control"  value="<?=$queri[0]['evidence_num']?>" name="evidence_num" id="evidence_num" >
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="types">Skupina</label>
-										<input type="text" class="form-control" placeholder="A, B, DC" name="types" id="types" >
+										<input type="text" class="form-control" value="<?=$queri[0]['types']?>" placeholder="A, B, DC" name="types" id="types" >
+									</div>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<div class="form-group">
+										<label for="os">OS</label>
+										<input type="text" name="os" id="os" value="<?=$queri[0]['os']?>"  class="form-control data-picker">
+									</div>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<div class="form-group">
+										<label for="aop">AOP</label>
+										<input type="text" name="aop" id="aop" value="<?=$queri[0]['aop']?>"  class="form-control data-picker">
 									</div>
 								</div>
 							</div>
@@ -58,7 +51,7 @@
 								<!-- Break -->
 								<div class="col-12">
 									<br>
-									<input type="submit" value="Pridať" class="primary">
+									<input type="submit" value="Upraviť" class="primary">
 								</div>
 							</div>
 
@@ -96,7 +89,6 @@
 									<td><?= $value['types'];  ?></td>
 									<td><a href="/Certificate/update/<?= $value['certificate_id'];  ?>">Upraviť</a> </td>
 									<td><a href="#" data-toggle="modal" data-id="<?= $value['certificate_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>
-
 								</tr>
 							<?php endforeach; ?>
 
@@ -119,7 +111,7 @@
 	        </button>
 	      </div>
 	      <div class="modal-body text-center">
-					<form class="myform delete" action="/Certificate/deleteCertificate" data-person="<?= $person[0]['person_id']?>"  method="post" novalidate="novalidate" >
+					<form class="myform delete" action="/Certificate/deleteCertificate" data-person="<?=$person[0]['person_id']?>"  method="post" novalidate="novalidate" >
 						<input type="hidden" value="" name="certificate_id" id="delete-certificate_id" required>
 						<h2 class="text-dark">Naozaj chceš odstrániť tento certifikát?</h2>
 						<input type="submit" value="Odstrániť" class="button">

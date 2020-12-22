@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.text-dark {
+  color: #242943!important
+}
+
 #banner .actions li  {
     width: 100%;
 }
@@ -59,4 +63,14 @@ form.validated {
 
 a {
   text-decoration: none!important;
+}
+
+@media(max-width: 991px) {
+  .table-wrapper {
+    overflow-x: scroll;
+  }
+
+  .table-wrapper table {
+    min-width: 900px;
+  }
 }

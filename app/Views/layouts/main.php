@@ -17,7 +17,7 @@
 	<body class="is-preload">
 		<div id="wrapper">
 			<header id="header" class="reveal alt">
-				<a href="index.html" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+				<a href="/" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>

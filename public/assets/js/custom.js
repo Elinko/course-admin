@@ -22,7 +22,14 @@
 							if(form.hasClass('update')){
 								setTimeout(function() {
 									location.reload();
-								}, 3000);
+								}, 2000);
+							} else if(form.hasClass('delete')) {
+								let url = window.location.origin + '/Person/update/' + form.attr('data-person')
+								$('#form-success').modal('show');
+								setTimeout(function() {
+									location.replace(url)
+								}, 2000);
+
 							} else {
 								form[0].reset();
 							}
@@ -43,6 +50,11 @@
 	$('#add-occupation-type').on('click', function() {
 		$("#occupation").append(new Option($('#add-occupation-type-input').val(),$('#add-occupation-type-input').val()));
 		$('#add-occupation-type-input').val("")
+	})
+
+	$('.to-delete-certificate').on('click', function() {
+		$('#delete-certificate_id').val($(this).attr('data-id'))
+
 	})
 
 

@@ -42,27 +42,24 @@ class Certificate extends BaseController
 	public function update( $queri_id = null)
 	{
 		$db = db_connect();
-		$queri = $db->query("SELECT * FROM person WHERE person_id=$queri_id");
-		$data['queri'] =  $queri->getResultArray();
-
-		$builder = $db->table('company');
-		$builder->select('name, company_id');
-		$data['company'] = $builder->get()->getResultArray();
+		$queri = $db->table('certificate');
+		$data['queri'] =  $queri->getWhere(['certificate_id' =>$queri_id])->getResultArray();
+		$builder4 = $db->table('course');
+		$builder1 = $builder4->getWhere(['course_id' =>$data['queri'][0]['course_id']])->getResultArray();
+		$data['queri'][0] +=$builder1[0];
 
 		$builder2 = $db->table('person');
-		$builder2->select('occupation');
-		$data['occupation'] = $builder2->get()->getResultArray();
+		$data['person'] = $builder2->getWhere(['person_id' =>$data['queri'][0]['person_id']])->getResultArray();
 
 		$builder3 = $db->table('certificate');
-		$data['certificate'] = $builder3->getWhere(['person_id' =>$queri_id])->getResultArray();
+		$data['certificate'] = $builder3->getWhere(['person_id' =>$data['person'][0]['person_id']])->getResultArray();
 
 		foreach ($data['certificate'] as $key => $value) {
-			$builder4 = $db->table('course');
-			$builder4 = $builder4->getWhere(['course_id' =>$value['course_id']])->getResultArray();
-			$data['certificate'][$key] += $builder4[0];
+			$builder5 = $builder4->getWhere(['course_id' =>$value['course_id']])->getResultArray();
+			$data['certificate'][$key] += $builder5[0];
 		}
 
-		return view('update-person', $data);
+		return view('update-certificate', $data);
 
 	}
 
@@ -81,7 +78,33 @@ class Certificate extends BaseController
 
 		$save = $builder->insert($data);
 		return $this->response->setJSON($save);
+	}
 
+	public function updateCertificate()
+	{
+		$db = db_connect();
+		$builder = $db->table('certificate');
+		$data = [
+			'certificate_id' => $this->request->getVar('certificate_id'),
+			'person_id' => $this->request->getVar('person_id'),
+			'course_id' => $this->request->getVar('course_id'),
+			'evidence_num' => $this->request->getVar('evidence_num'),
+			'os' => $this->request->getVar('os'),
+			'aop' => $this->request->getVar('aop'),
+			'types' => $this->request->getVar('types')
+		];
+
+		$save = $builder->replace($data);
+		return $this->response->setJSON($save);
+	}
+
+	public function deleteCertificate()
+	{
+		$db = db_connect();
+		$builder = $db->table('certificate');
+
+		$save = $builder->delete(['certificate_id' => $this->request->getVar('certificate_id')]);
+		return $this->response->setJSON($save);
 	}
 
 }
