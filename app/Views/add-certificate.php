@@ -103,9 +103,7 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="text-center">
-					<a href="/Certificate/add/<?=$person[0]['person_id']?>" class="button primary">Pridať certifikát</a>
-				</div>
+			 
 			</section>
 		</div>
 	</div>
@@ -119,7 +117,7 @@
 	        </button>
 	      </div>
 	      <div class="modal-body text-center">
-					<form class="myform delete" action="/Certificate/deleteCertificate" data-person="<?= $person[0]['person_id']?>"  method="post" novalidate="novalidate" >
+					<form class="myform deleteCertificate" action="/Certificate/deleteCertificate" data-person="<?= $person[0]['person_id']?>"  method="post" novalidate="novalidate" >
 						<input type="hidden" value="" name="certificate_id" id="delete-certificate_id" required>
 						<h2 class="text-dark">Naozaj chceš odstrániť tento certifikát?</h2>
 						<input type="submit" value="Odstrániť" class="button">

@@ -5,7 +5,7 @@
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1>Firma</h1>
+				<h1><a href="/Company">Firma</a> </h1>
 			</header>
 			<br>
 			<section>
@@ -26,13 +26,13 @@
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
-										<label for="ico">ICO</label>
+										<label for="ico">IČO</label>
 										<input type="number" class="form-control" value="<?=$queri[0]['ico']?>" name="ico" id="ico" required>
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
-										<label for="dic">DIC</label>
+										<label for="dic">DIČ</label>
 										<input type="number" class="form-control" value="<?=$queri[0]['dic']?>" name="dic" id="dic" required>
 									</div>
 								</div>
@@ -55,11 +55,16 @@
 										<textarea name="address" id="address" value="<?=$queri[0]['address']?>" placeholder="" rows="4"></textarea>
 									</div>
 								</div>
+							</div>
+							<div class="row gtr-uniform">
 								<!-- Break -->
-								<div class="col-12">
-									<ul class="actions">
-										<li><input type="submit" value="Upraviť" class="primary"></li>
-									</ul>
+								<div class="col-6 col-12-xsmall">
+									<br>
+									<input type="submit" value="Upraviť" class="primary large">
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<br>
+									<a href="#" data-toggle="modal" data-id="<?=$queri[0]['company_id']?>>" class="to-delete-certificate button large" data-target="#delete-certi">Vymazať</a>
 								</div>
 							</div>
 					 </form>
@@ -68,7 +73,61 @@
 					</div>
 				</div>
 			</section>
+			<hr class="major">
+			<section>
+				<h2>Zoznam certifikátov <u><?=$person[0]['name']?></u> </h2>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Meno</th>
+								<th>Narodenie</th>
+								<th>Ev. číslo</th>
+								<th>Adresa</th>
+								<th>Zamestnanie</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($person as $key => $value):?>
+								<tr>
+									<td><?= $value['name'];  ?></td>
+									<td><?= $value['birth'];  ?></td>
+									<td><?= $value['address'];  ?></td>
+									<td><?= $value['occupation'];  ?></td>
+									<td><a href="/Person/update/<?= $value['person_id'];  ?>">Upraviť</a> </td>
+									<td><a href="#" data-toggle="modal" data-id="<?= $value['person_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>
+
+								</tr>
+							<?php endforeach; ?>
+
+						</tbody>
+					</table>
+				</div>
+				<div class="col-12 text-center">
+					<a href="/Person" class="button primary">Pridať zamestnanca</a>
+				</div>
+			</section>
 		</div>
+	</div>
+
+
+	<div class="modal fade" id="delete-certi" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header text-right">
+	         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body text-center">
+					<form class="myform deleteCompany" action="/Company/deleteCompany" method="post" novalidate="novalidate" >
+						<input type="hidden" value="" name="company_id" id="delete-certificate_id" required>
+						<h2 class="text-dark">Naozaj chceš odstrániť túto firmu?</h2>
+						<input type="submit" value="Odstrániť" class="button">
+					</form>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 
 <?= $this->include('partials/form-success') ?>

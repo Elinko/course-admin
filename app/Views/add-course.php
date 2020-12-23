@@ -5,7 +5,7 @@
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1>Kurz</h1>
+				<h1><a href="/Course">Kurz</a> </h1>
 			</header>
 			<br>
 			<section>
@@ -40,6 +40,32 @@
 
 
 					</div>
+				</div>
+			</section>
+			<hr class="major">
+			<section>
+				<h2>Zoznam kurzov </h2>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Meno kurzu</th>
+								<th>Doba</th>
+								<th>Upraviť</th>
+								<th>Vymazať</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($course as $key => $value):?>
+								<tr>
+									<td><?= $value['name'];  ?></td>
+									<td><?= $value['time'];  ?></td>
+									<td><a href="/Course/update/<?= $value['course_id'];  ?>">Upraviť</a> </td>
+									<td><a href="#" data-toggle="modal" data-id="<?= $value['course_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
 				</div>
 			</section>
 		</div>

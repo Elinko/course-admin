@@ -16,13 +16,13 @@
 					<div class="col-9 col-12-small">
 						<ul class="actions fit">
 							<li>
-								<a href="#" class="button fit large">Pridať firmu</a>
+								<a href="./Company/" class="button fit large">Pridať firmu</a>
 							</li>
 							<li>
-								<a href="#" class="button fit large">Pridať školenie</a>
+								<a href="/Course/" class="button fit large">Pridať školenie</a>
 							</li>
 							<li>
-								<a href="#" class="button fit large">Pridať osobu</a>
+								<a href="/Person/" class="button fit large">Pridať osobu</a>
 							</li>
 						</ul>
 					</div>

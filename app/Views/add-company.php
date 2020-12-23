@@ -5,7 +5,7 @@
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1>Firma</h1>
+				<h1><a href="#">Firma</a> </h1>
 			</header>
 			<br>
 			<section>
@@ -66,8 +66,65 @@
 					</div>
 				</div>
 			</section>
+			<hr class="major">
+			<section>
+				<h2>Zoznam firiem v DB </h2>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Meno</th>
+								<th>Telefón</th>
+								<th>E-mail</th>
+								<th>IČO</th>
+								<th>DIČ</th>
+								<th>Adresa</th>
+								<th>Upraviť</th>
+								<th>Vymazať</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($company as $key => $value):?>
+								<tr>
+									<td><?= $value['name'];  ?></td>
+									<td><?= $value['phone'];  ?></td>
+									<td><?= $value['email'];  ?></td>
+									<td><?= $value['ico'];  ?></td>
+									<td><?= $value['dic'];  ?></td>
+									<td><?= $value['address'];  ?></td>
+									<td><a href="/Company/update/<?= $value['company_id'];  ?>">Upraviť</a> </td>
+									<td><a href="#" data-toggle="modal" data-id="<?= $value['company_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>
+
+								</tr>
+							<?php endforeach; ?>
+
+						</tbody>
+					</table>
+				</div>
+			</section>
 		</div>
 	</div>
+
+
+	<div class="modal fade" id="delete-certi" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header text-right">
+	         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body text-center">
+					<form class="myform deleteCompany" action="/Company/deleteCompany" method="post" novalidate="novalidate" >
+						<input type="hidden" value="" name="company_id" id="delete-certificate_id" required>
+						<h2 class="text-dark">Naozaj chceš odstrániť túto firmu?</h2>
+						<input type="submit" value="Odstrániť" class="button">
+					</form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 
 <?= $this->include('partials/form-success') ?>
 

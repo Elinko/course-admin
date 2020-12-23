@@ -79,4 +79,16 @@ class Person extends BaseController
 
 	}
 
+	public function deletePerson()
+	{
+		$db = db_connect();
+		$builder = $db->table('certificate');
+		$save = $builder->delete(['person_id' => $this->request->getVar('person_id')]);
+
+		$builder2 = $db->table('person');
+		$builder2->delete(['person_id' => $this->request->getVar('person_id')]);
+
+		return $this->response->setJSON($save);
+	}
+
 }

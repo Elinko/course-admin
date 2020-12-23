@@ -6,17 +6,22 @@ class Company extends BaseController
 	public function index()
 	{
 		$db = db_connect();
+		$builder = $db->table('company');
+		$data['company'] =  $builder->get()->getResultArray();
 
 		// var_dump($query[0]['name']);
-		return view('add-company');
+		return view('add-company', $data);
 
 	}
 
 	public function update( $queri_id = null)
 	{
 		$db = db_connect();
-		$queri = $db->query("SELECT * FROM company WHERE company_id=$queri_id");
-		$data['queri'] =  $queri->getResultArray();
+		$builder = $db->table('company');
+		$data['queri'] = $builder->getWhere(['company_id' => $queri_id])->getResultArray();
+
+		$builder2 = $db->table('person');
+		$data['person'] = $builder2->getWhere(['company_id' => $queri_id])->getResultArray();
 
 		return view('update-company', $data);
 
@@ -45,7 +50,6 @@ class Company extends BaseController
 	{
 		$db      = db_connect();
 		$builder = $db->table('company');
-
 		$data = [
 
 			'name' => $this->request->getVar('name'),
@@ -54,21 +58,29 @@ class Company extends BaseController
 			'email' => $this->request->getVar('email'),
 			'phone' => $this->request->getVar('phone'),
 			'address' => $this->request->getVar('address')
-			// 'ico'  => $encrypter->encrypt($this->request->getVar('ico')),
-			// 'dic'  => $encrypter->encrypt($this->request->getVar('dic')),
-			// 'email'  => $encrypter->encrypt($this->request->getVar('email')),
-			// 'phone'  => $encrypter->encrypt($this->request->getVar('phone')),
-			// 'address'  => $encrypter->encrypt($this->request->getVar('address'))
 		];
 
 		$save = $builder->insert($data);
-		// $ency = $encrypter->encrypt($this->request->getVar('ico'));
-		// echo  $ency . ' and decrutp';
-		//  $ency = $encrypter->decrypt($ency);
-		// echo  $ency . ' and decrutp';
+		return $this->response->setJSON($save);
+ 	}
+
+	public function deleteCompany()
+	{
+		$db = db_connect();
+		$builder = $db->table('company');
+		$save = $builder->delete(['company_id' => $this->request->getVar('company_id')]);
+
+		$builder2 = $db->table('person');
+		$builder3 = $db->table('person');
+
+		$result = $builder3->select('person_id')->getWhere(['company_id' => $this->request->getVar('company_id')])->getResultArray();;
+		$builder2->delete(['company_id' => $this->request->getVar('company_id')]);
+
+		$builder4 = $db->table('certificate');
+		$builder4->delete(['person_id' => $result[0]['person_id']]);
+
 
 		return $this->response->setJSON($save);
-
- 	}
+	}
 
 }

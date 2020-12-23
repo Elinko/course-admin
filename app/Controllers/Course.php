@@ -6,24 +6,26 @@ class course extends BaseController
 	public function index()
 	{
 		$db = db_connect();
-
+		$builder = $db->table('course');
+		$data['course'] = $builder->get()->getResultArray();
 		// var_dump($query[0]['name']);
-		return view('add-course');
+		return view('add-course', $data);
 
 	}
 
 	public function update( $queri_id = null)
 	{
 		$db = db_connect();
-		$queri = $db->query("SELECT * FROM course WHERE course_id=$queri_id");
-		$data['queri'] =  $queri->getResultArray();
+		$builder = $db->table('course');
+		$data['queri'] = $builder->getWhere(['course_id' =>$queri_id])->getResultArray();
+
 
 		return view('update-course', $data);
 	}
 
 	public function addCourse()
 	{
-		$db      = \Config\Database::connect();
+		$db      = db_connect();
 		$builder = $db->table('course');
 
 		$data = [
@@ -46,6 +48,18 @@ class course extends BaseController
 		];
 
 		$save = $builder->replace($data);
+		return $this->response->setJSON($save);
+	}
+
+	public function deleteCourse()
+	{
+		$db = db_connect();
+		$builder = $db->table('certificate');
+		$save = $builder->delete(['course_id' => $this->request->getVar('course_id')]);
+
+		$builder2 = $db->table('course');
+		$builder2->delete(['course_id' => $this->request->getVar('course_id')]);
+
 		return $this->response->setJSON($save);
 	}
 

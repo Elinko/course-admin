@@ -46,8 +46,8 @@
 		<nav id="menu">
 			<div class="inner">
 				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="landing.html">Landing</a></li>
+					<li><a href="/Company">Firma</a></li>
+					<li><a href="/Course">Kurzy</a></li>
 					<li><a href="generic.html">Generic</a></li>
 					<li><a href="elements.html">Elements</a></li>
 				</ul>

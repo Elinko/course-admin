@@ -51,13 +51,6 @@ class Certificate extends BaseController
 		$builder2 = $db->table('person');
 		$data['person'] = $builder2->getWhere(['person_id' =>$data['queri'][0]['person_id']])->getResultArray();
 
-		$builder3 = $db->table('certificate');
-		$data['certificate'] = $builder3->getWhere(['person_id' =>$data['person'][0]['person_id']])->getResultArray();
-
-		foreach ($data['certificate'] as $key => $value) {
-			$builder5 = $builder4->getWhere(['course_id' =>$value['course_id']])->getResultArray();
-			$data['certificate'][$key] += $builder5[0];
-		}
 
 		return view('update-certificate', $data);
 

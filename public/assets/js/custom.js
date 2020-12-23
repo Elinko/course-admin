@@ -23,8 +23,15 @@
 								setTimeout(function() {
 									location.reload();
 								}, 2000);
-							} else if(form.hasClass('delete')) {
+							} else if(form.hasClass('deleteCertificate')) {
 								let url = window.location.origin + '/Person/update/' + form.attr('data-person')
+								$('#form-success').modal('show');
+								setTimeout(function() {
+									location.replace(url)
+								}, 2000);
+
+							}  else if(form.hasClass('deleteCompany')) {
+								let url = window.location.origin + '/Company/';
 								$('#form-success').modal('show');
 								setTimeout(function() {
 									location.replace(url)
@@ -48,8 +55,10 @@
 	});
 
 	$('#add-occupation-type').on('click', function() {
-		$("#occupation").append(new Option($('#add-occupation-type-input').val(),$('#add-occupation-type-input').val()));
-		$('#add-occupation-type-input').val("")
+		if($('#add-occupation-type-input').val()){
+			$("#occupation").append(new Option($('#add-occupation-type-input').val(),$('#add-occupation-type-input').val()));
+			$('#add-occupation-type-input').val("")
+		}
 	})
 
 	$('.to-delete-certificate').on('click', function() {

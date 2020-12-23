@@ -31,7 +31,7 @@
 								<div class="col-12 col-12-xsmall">
 									<div class="form-group">
 										<label for="company_id">Firma</label>
-										<select name="company_id" id="company_id">
+										<select name="company_id" id="company_id" required>
 											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>
 											<?php foreach ($company as $key => $value): ?>
 												<option value="<?= $value['company_id'] ?>"><?= $value['name'] ?></option>
@@ -47,7 +47,6 @@
 										<label for="occupation">Druh zamestnania</label>
 										<select name="occupation" id="occupation">
 											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>
-
 											<?php foreach ($occupation as $key => $value): ?>
 												<option value="<?= $value['occupation'] ?>"><?= $value['occupation'] ?></option>
 											<?php endforeach; ?>
@@ -57,8 +56,14 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="occupation-type">alebo Pridať</label>
-										<input type="text" class="form-control" name="occupation-type" id="add-occupation-type-input" >
-										<input type="button" class="primary small" id="add-occupation-type" name="" value="Pridať">
+										<div class="row gtr-uniform">
+											<div class="col-8">
+												<input type="text" class="form-control" name="occupation-type" id="add-occupation-type-input" >
+											</div>
+											<div class="col-4">
+												<input type="button" class="primary small" id="add-occupation-type" name="" value="Pridať">
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

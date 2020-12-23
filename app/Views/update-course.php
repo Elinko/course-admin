@@ -5,7 +5,7 @@
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1>Kurz</h1>
+				<h1><a href="/Course">Kurz</a> </h1> 
 			</header>
 			<br>
 			<section>
