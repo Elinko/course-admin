@@ -7,7 +7,7 @@
 			<header class="major">
 				<h1>Zamestnanec</h1>
 			</header>
-			<br>
+			<br>  
 			<section>
 				<h2>Pridať zamestnanca do Databázy</h2>
 				<div class="row">
@@ -34,7 +34,12 @@
 										<select name="company_id" id="company_id" required>
 											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>
 											<?php foreach ($company as $key => $value): ?>
-												<option value="<?= $value['company_id'] ?>"><?= $value['name'] ?></option>
+												<?php if($value['company_id'] == $current_company[0]['company_id']): ?>
+													<option selected value="<?= $value['company_id'] ?>"><?= $value['name'] ?></option>
+
+												<?php else: ?>
+													<option value="<?= $value['company_id'] ?>"><?= $value['name'] ?></option>
+												<?php endif; ?>
 											<?php endforeach; ?>
 											</select>
 									</div>

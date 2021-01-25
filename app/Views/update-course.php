@@ -5,11 +5,11 @@
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1><a href="/Course">Kurz</a> </h1> 
+				<h1><a href="/Course">Školenia</a> </h1>
 			</header>
 			<br>
 			<section>
-				<h2>Upraviť kurz <u><?=$queri[0]['name']?></u> </h2>
+				<h2>Upraviť školenie <u><?=$queri[0]['name']?></u> </h2>
 				<div class="row">
 					<div class="col-1">
 					</div>
@@ -20,7 +20,7 @@
 
 							 <div class="col-6 col-12-xsmall">
 								 <div class="form-group">
-									 <label for="name">Meno kurzu</label>
+									 <label for="name">Meno školenie</label>
 									 <input type="text" class="form-control"  value="<?=$queri[0]['name']?>"  name="name" id="name" required>
 								 </div>
 							 </div>

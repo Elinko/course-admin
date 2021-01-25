@@ -76,3 +76,46 @@ a {
     min-width: 900px;
   }
 }
+
+.collapsible {
+  background-color: rgba(212, 212, 255, 0.035);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  position: relative;
+}
+
+.collapsible h2 {
+  margin-bottom: 0;
+  padding-right: 25px;
+}
+
+.collapsible i {
+  position: absolute;
+  fill: white;
+  top: 50%;
+  right: 18px;
+  transition: 0.3s all;
+  font-size: 25px;
+  transform: translateY(-50%);
+}
+
+.collapsible.active, .collapsible:hover {
+  background-color: #242943;
+}
+
+.collapsible.active i {
+  transform:  translateY(-50%) rotate(180deg );
+}
+
+.content {
+  padding: 30px  18px 0;
+  display: none;
+  transition: 0.3s all;
+  overflow: hidden;
+  background-color: #242943;
+}

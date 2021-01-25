@@ -28,5 +28,6 @@ class Services extends CoreServices
 	//        return new \CodeIgniter\Example();
 	//    }
 
-  // $encrypter = \Config\Services::encrypter(); 
+  // $encrypter = \Config\Services::encrypter();
+ 
 }

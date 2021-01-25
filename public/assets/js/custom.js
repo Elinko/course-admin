@@ -30,12 +30,19 @@
 									location.replace(url)
 								}, 2000);
 
-							}  else if(form.hasClass('deleteCompany')) {
+							} else if(form.hasClass('deleteCompany')) {
 								let url = window.location.origin + '/Company/';
 								$('#form-success').modal('show');
 								setTimeout(function() {
 									location.replace(url)
 								}, 2000);
+
+							} else if(form.hasClass('logging')) {
+								let url = window.location.origin + '/AdminHP/';
+								$('#form-success').modal('show');
+								setTimeout(function() {
+									location.replace(url)
+								}, 1000);
 
 							} else {
 								form[0].reset();
@@ -63,8 +70,23 @@
 
 	$('.to-delete-certificate').on('click', function() {
 		$('#delete-certificate_id').val($(this).attr('data-id'))
-
 	})
+
+	// custom collapse
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+	  coll[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var content = this.nextElementSibling;
+	    if (content.style.display === "block") {
+	      content.style.display = "none";
+	    } else {
+	      content.style.display = "block";
+	    }
+	  });
+	}
 
 
 })(jQuery);

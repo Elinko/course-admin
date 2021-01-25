@@ -5,7 +5,7 @@
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1>Domovská stránka</h1>
+				<h1>Administrácia</h1>
 			</header>
 			<br>
 			<section>

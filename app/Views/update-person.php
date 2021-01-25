@@ -9,8 +9,12 @@
 			</header>
 			<br>
 			<section>
-				<h2>Upraviť zamestnanca <u><?=$queri[0]['name']?></u> </h2>
-				<div class="row">
+				<div class="collapsible">
+					<h2>Upraviť zamestnanca: <?=$queri[0]['name']?></h2>
+					<i class="fa fa-chevron-down" aria-hidden="true"></i>
+				</div>
+				<div class="content">
+					<div class="row">
 					<div class="col-1">
 					</div>
 					<div class="col-10 col-12-small">
@@ -101,10 +105,12 @@
 
 					</div>
 				</div>
+
+				</div>
 			</section>
 			<hr class="major">
 			<section>
-				<h2>Zoznam certifikátov <u><?=$queri[0]['name']?></u> </h2>
+				<h2>Zoznam certifikátov: <?=$queri[0]['name']?> </h2>
 				<div class="table-wrapper">
 					<table>
 						<thead>

@@ -3,11 +3,16 @@
 
 class Person extends BaseController
 {
-	public function index()
+	public function index($id = null)
 	{
 		$db = db_connect();
 		$builder = $db->table('company');
 		$builder->select('name, company_id');
+
+		$builder3 = $db->table('company')->getWhere(['company_id' =>$id])->getResultArray();;
+
+		$data['current_company'] = $builder3;
+
 		$data['company'] = $builder->get()->getResultArray();
 
 		$builder2 = $db->table('person');
@@ -86,7 +91,7 @@ class Person extends BaseController
 		$save = $builder->delete(['person_id' => $this->request->getVar('person_id')]);
 
 		$builder2 = $db->table('person');
-		$builder2->delete(['person_id' => $this->request->getVar('person_id')]);
+		$save2 = $builder2->delete(['person_id' => $this->request->getVar('person_id')]);
 
 		return $this->response->setJSON($save);
 	}

@@ -9,8 +9,13 @@
 			</header>
 			<br>
 			<section>
-				<h2>Upraviť firmu <u><?=$queri[0]['name']?></u> </h2>
-				<div class="row">
+				<div class="collapsible">
+					<h2 class="">Upraviť firmu:  <?=$queri[0]['name']?>  </h2>
+					<i class="fa fa-chevron-down" aria-hidden="true"></i>
+
+				</div>
+				<div class="content">
+					<div class="row">
 					<div class="col-1">
 					</div>
 					<div class="col-10 col-12-small">
@@ -72,19 +77,22 @@
 
 					</div>
 				</div>
+				</div>
+
 			</section>
 			<hr class="major">
 			<section>
-				<h2>Zoznam certifikátov <u><?=$person[0]['name']?></u> </h2>
+				<h2>Zoznam ludí vo firme: <?=$queri[0]['name']?> </h2>
 				<div class="table-wrapper">
 					<table>
 						<thead>
 							<tr>
 								<th>Meno</th>
 								<th>Narodenie</th>
-								<th>Ev. číslo</th>
 								<th>Adresa</th>
 								<th>Zamestnanie</th>
+								<th>Upraviť</th>
+								<th>Vymazať</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -104,7 +112,7 @@
 					</table>
 				</div>
 				<div class="col-12 text-center">
-					<a href="/Person" class="button primary">Pridať zamestnanca</a>
+					<a href="/Person/index/<?=$queri[0]['company_id']?>" class="button primary">Pridať zamestnanca</a>
 				</div>
 			</section>
 		</div>

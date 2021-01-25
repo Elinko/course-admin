@@ -5,11 +5,11 @@
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1><a href="/Course">Kurz</a> </h1>
+				<h1><a href="/Course">Školenie</a> </h1>
 			</header>
 			<br>
 			<section>
-				<h2>Pridať kurz do Databázy</h2>
+				<h2>Pridať školenie do Databázy</h2>
 				<div class="row">
 					<div class="col-1">
 					</div>
@@ -18,7 +18,7 @@
 						 <div class="row gtr-uniform">
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
-										<label for="name">Meno kurzu</label>
+										<label for="name">Meno školenia</label>
 										<input type="text" class="form-control" name="name" id="name" required>
 									</div>
 								</div>
@@ -44,12 +44,12 @@
 			</section>
 			<hr class="major">
 			<section>
-				<h2>Zoznam kurzov </h2>
+				<h2>Zoznam školení </h2>
 				<div class="table-wrapper">
 					<table>
 						<thead>
 							<tr>
-								<th>Meno kurzu</th>
+								<th>Meno školenia</th>
 								<th>Doba</th>
 								<th>Upraviť</th>
 								<th>Vymazať</th>
