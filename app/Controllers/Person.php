@@ -3,8 +3,15 @@
 
 class Person extends BaseController
 {
+
+
 	public function index($id = null)
 	{
+
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
+
 		$db = db_connect();
 		$builder = $db->table('company');
 		$builder->select('name, company_id');
@@ -41,6 +48,10 @@ class Person extends BaseController
 
 	public function update( $queri_id = null)
 	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
+		
 		$db = db_connect();
 		$queri = $db->query("SELECT * FROM person WHERE person_id=$queri_id");
 		$data['queri'] =  $queri->getResultArray();

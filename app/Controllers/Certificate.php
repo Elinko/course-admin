@@ -5,6 +5,9 @@ class Certificate extends BaseController
 {
 	public function index($queri_id = null)
 	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
 		$db = db_connect();
 		$builder = $db->table('course');
 		$data['course'] = $builder->get()->getResultArray();
@@ -19,6 +22,9 @@ class Certificate extends BaseController
 
 	public function add($queri_id = null)
 	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
 		$db = db_connect();
 		$builder = $db->table('course');
 		$data['course'] = $builder->get()->getResultArray();
@@ -41,6 +47,9 @@ class Certificate extends BaseController
 
 	public function update( $queri_id = null)
 	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
 		$db = db_connect();
 		$queri = $db->table('certificate');
 		$data['queri'] =  $queri->getWhere(['certificate_id' =>$queri_id])->getResultArray();

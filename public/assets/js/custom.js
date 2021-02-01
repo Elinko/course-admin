@@ -37,14 +37,16 @@
 									location.replace(url)
 								}, 2000);
 
-							} else if(form.hasClass('logging')) {
-								let url = window.location.origin + '/AdminHP/';
-								$('#form-success').modal('show');
+							}
+							else if(form.hasClass('logging')) {
+								let url = window.location.origin + data;
+								// $('#form-success').modal('show');
 								setTimeout(function() {
 									location.replace(url)
-								}, 1000);
+								}, 1000); 
 
-							} else {
+							}
+							 else {
 								form[0].reset();
 							}
 	          },

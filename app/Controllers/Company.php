@@ -5,6 +5,9 @@ class Company extends BaseController
 {
 	public function index()
 	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
 		$db = db_connect();
 		$builder = $db->table('company');
 		$data['company'] =  $builder->get()->getResultArray();
@@ -16,6 +19,10 @@ class Company extends BaseController
 
 	public function update( $queri_id = null)
 	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
+		
 		$db = db_connect();
 		$builder = $db->table('company');
 		$data['queri'] = $builder->getWhere(['company_id' => $queri_id])->getResultArray();

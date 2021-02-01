@@ -5,6 +5,10 @@ class course extends BaseController
 {
 	public function index()
 	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
+
 		$db = db_connect();
 		$builder = $db->table('course');
 		$data['course'] = $builder->get()->getResultArray();
@@ -15,6 +19,10 @@ class course extends BaseController
 
 	public function update( $queri_id = null)
 	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
+		
 		$db = db_connect();
 		$builder = $db->table('course');
 		$data['queri'] = $builder->getWhere(['course_id' =>$queri_id])->getResultArray();

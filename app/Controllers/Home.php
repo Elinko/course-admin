@@ -2,19 +2,24 @@
 
 class Home extends BaseController
 {
+
 	public function index()
 	{
 		// return view('home');
-	  $encrypter = \Config\Services::encrypter();
-		$tmp = $encrypter->encrypt('patrik');
-		// echo $tmp;
-		// echo '<br> and decrypt <br>';
-		// echo $encrypter->decrypt($tmp);
+	  // $encrypter = \Config\Services::encrypter();
+		// $tmp = $encrypter->encrypt('patrik');
+		// // echo $tmp;
+		// // echo '<br> and decrypt <br>';
+		// // echo $encrypter->decrypt($tmp);
 		return view('home');
 	}
 
 	public function register()
 	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
+		
 		return view('register-user');
 	}
 
@@ -27,7 +32,6 @@ class Home extends BaseController
 		$encrypter = \Config\Services::encrypter();
 
 		if( $builder[0]['user_password'] ==  md5(sha1($this->request->getVar('password'))) ) {
-			echo 'hesla sa zhoduju';
 
 			$builder2 = $db->table('company');
 			$data['company'] =  $builder2->get()->getResultArray();
@@ -38,25 +42,30 @@ class Home extends BaseController
 			$builder2 = $db->table('person');
 			$data['occupation'] =  $builder2->select('occupation')->get()->getResultArray();
 
-			$mysession = $this->setSession($builder[0]);
+			$this->setSession($builder[0], true);
 
-			// return view('admin-hp', $data);
-  
-			// var_dump( $builder);
+			// return view('admin-hp', $mysession);
+
+			return '/adminHP';
+
 		} else {
+
+			$this->setSession($builder[0], false);
+			return '/';
+
 		}
 
 	}
 
-	public function setSession($user)
+	public function setSession($user, $logged)
 	{
 		 $data = [
 			 'name' => $user['user_name'],
-			 'password' => $user['user_password'],
-			 'loggedIn' => true,
+			 'loggedIn' => $logged,
 		 ];
 
 		 session()->set($data);
+
 
 	}
 

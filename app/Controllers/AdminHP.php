@@ -4,6 +4,11 @@ class AdminHP extends BaseController
 {
 	public function index()
 	{
+
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
+
 		$db = db_connect();
 
 		$company = $db->query("SELECT company_id, name FROM company");
