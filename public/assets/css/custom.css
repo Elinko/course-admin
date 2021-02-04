@@ -119,3 +119,22 @@ a {
   overflow: hidden;
   background-color: #242943;
 }
+
+select[multiple] {
+  min-height: 135px;
+}
+
+@media print {
+
+  #result {
+    display: block;
+    font-size: 10pt;
+    }/* ... except the required div */
+}
+
+@page {
+  size: 11in 17in;
+  font-size: 9pt;
+
+  /* size: A4; */
+}

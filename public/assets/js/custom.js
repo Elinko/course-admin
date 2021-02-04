@@ -2,8 +2,9 @@
 	$( ".data-picker" ).datepicker({
      changeMonth: true,
      changeYear: true,
-     yearRange: "1930:2020",
-		 dateFormat: 'yy-mm-dd'
+     yearRange: "1920:2030",
+		 dateFormat: 'yy-mm-dd',
+		 defaultDate: 0
  });
 
 	$('.myform').submit(function (e) {
@@ -43,7 +44,7 @@
 								// $('#form-success').modal('show');
 								setTimeout(function() {
 									location.replace(url)
-								}, 1000); 
+								}, 1000);
 
 							}
 							 else {
@@ -90,5 +91,12 @@
 	  });
 	}
 
-
 })(jQuery);
+
+function printDiv(divName) {
+	 var printContents = document.getElementById(divName).innerHTML;
+	 var originalContents = document.body.innerHTML;
+	 document.body.innerHTML = printContents;
+	 window.print();
+	 document.body.innerHTML = originalContents;
+}
