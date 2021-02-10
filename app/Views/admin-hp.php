@@ -35,7 +35,7 @@
 					<div class="col-1">
 					</div>
 					<div class="col-9 col-12-small">
-						<form class="myform" action="/AdminHP/find" method="get">
+						<form class="myform" action="/AdminHP/search" method="get">
 							<div class="row">
 								<div class="col-4 col-12-medium">
 									<label for="company">Firma</label>
@@ -94,7 +94,7 @@
 						</div>
 
 						</form>
-						`<hr class="major">
+						<hr class="major">
 
 						<div class="" id="result">
 							ahoj ahoj

@@ -30,13 +30,9 @@ class AdminHP extends BaseController
 
 	}
 
-	public function find( $queri_id = null)
+	public function search( $queri_id = null)
 	{
-
-		$db      = db_connect();
-		$builder = $db->table('company');
 		$data = [
-
 			'company' => $this->request->getVar('company'),
 			'course_id' => $this->request->getVar('course_id'),
 			'occupation' => $this->request->getVar('occupation'),
@@ -46,13 +42,29 @@ class AdminHP extends BaseController
 		];
 
 		$db = db_connect();
+
+		if($data['sort'] == 'course') {
+			echo 'course' . $data['course_id'];
+			$builder = $db->table('certificate');
+			$result = $builder->join('person', 'certificate.person_id  = person.person_id ')->getWhere(['course_id' => $data['course_id']])->getResultArray();
+			// $builder->join('person', 'certificate.person_id  = person.person_id ');
+			// $result = $builder->get()->getResultArray();
+
+			var_dump($result);
+
+		} else {
+			echo 'person';
+
+		}
+
+		$db = db_connect();
 		$builder = $db->table('company');
 		$data['queri'] = $builder->getWhere(['company_id' => $queri_id])->getResultArray();
 
 		$builder2 = $db->table('person');
 		$data['person'] = $builder2->getWhere(['company_id' => $queri_id])->getResultArray();
 
-		return view('update-company', $data);
+		// return view('update-company', $data);
 
 	}
 
