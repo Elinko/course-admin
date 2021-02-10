@@ -41,9 +41,9 @@
 											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>
 											<?php foreach ($company as $key => $value): ?>
 												<?php if( $value['company_id'] == $queri[0]['company_id']): ?>
-													<option selected="selected" value="<?= $value['company_id'] ?>"><?= $value['name'] ?></option>
+													<option selected="selected" value="<?= $value['company_id'] ?>"><?= $value['company_name'] ?></option>
 												<?php else: ?>
-													<option value="<?= $value['company_id'] ?>"><?= $value['name'] ?></option>
+													<option value="<?= $value['company_id'] ?>"><?= $value['company_name'] ?></option>
 												<?php endif; ?>
 											<?php endforeach; ?>
 										</select>

@@ -22,7 +22,7 @@ class Company extends BaseController
 		if ((session()->get('loggedIn')) == null) {
 				return redirect()->to('/Home');
 		}
-		
+
 		$db = db_connect();
 		$builder = $db->table('company');
 		$data['queri'] = $builder->getWhere(['company_id' => $queri_id])->getResultArray();
@@ -40,12 +40,12 @@ class Company extends BaseController
 		$builder = $db->table('company');
 		$data = [
 			'company_id' => $this->request->getVar('company_id'),
-			'name' => $this->request->getVar('name'),
+			'company_name' => $this->request->getVar('name'),
 			'ico' => $this->request->getVar('ico'),
 			'dic' => $this->request->getVar('dic'),
 			'email' => $this->request->getVar('email'),
 			'phone' => $this->request->getVar('phone'),
-			'address' => $this->request->getVar('address')
+			'company_address' => $this->request->getVar('address')
 		];
 
 		$save = $builder->replace($data);
@@ -59,12 +59,12 @@ class Company extends BaseController
 		$builder = $db->table('company');
 		$data = [
 
-			'name' => $this->request->getVar('name'),
+			'company_name' => $this->request->getVar('name'),
 			'ico' => $this->request->getVar('ico'),
 			'dic' => $this->request->getVar('dic'),
 			'email' => $this->request->getVar('email'),
 			'phone' => $this->request->getVar('phone'),
-			'address' => $this->request->getVar('address')
+			'company_address' => $this->request->getVar('address')
 		];
 
 		$save = $builder->insert($data);

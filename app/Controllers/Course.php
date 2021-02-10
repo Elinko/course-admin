@@ -22,7 +22,7 @@ class course extends BaseController
 		if ((session()->get('loggedIn')) == null) {
 				return redirect()->to('/Home');
 		}
-		
+
 		$db = db_connect();
 		$builder = $db->table('course');
 		$data['queri'] = $builder->getWhere(['course_id' =>$queri_id])->getResultArray();
@@ -37,7 +37,7 @@ class course extends BaseController
 		$builder = $db->table('course');
 
 		$data = [
-			'name' => $this->request->getVar('name'),
+			'course_name' => $this->request->getVar('name'),
 			'time' => $this->request->getVar('time')
 		];
 
@@ -51,7 +51,7 @@ class course extends BaseController
 		$builder = $db->table('course');
 		$data = [
 			'course_id' => $this->request->getVar('course_id'),
-			'name' => $this->request->getVar('name'),
+			'course_name' => $this->request->getVar('name'),
 			'time' => $this->request->getVar('time')
 		];
 

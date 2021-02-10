@@ -46,6 +46,8 @@
 									location.replace(url)
 								}, 1000);
 
+							} else if(form.hasClass('search')) {
+
 							}
 							 else {
 								form[0].reset();

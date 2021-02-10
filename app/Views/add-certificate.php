@@ -24,7 +24,7 @@
 										<select name="course_id" id="course_id">
 											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>
 											<?php foreach ($course as $key => $value): ?>
-												<option value="<?= $value['course_id'] ?>"><?= $value['name'] ?></option>
+												<option value="<?= $value['course_id'] ?>"><?= $value['course_name'] ?></option>
 											<?php endforeach; ?>
 										</select>
 									</div>
@@ -103,7 +103,7 @@
 						</tbody>
 					</table>
 				</div>
-			 
+
 			</section>
 		</div>
 	</div>

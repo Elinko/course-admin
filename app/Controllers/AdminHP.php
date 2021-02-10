@@ -11,7 +11,7 @@ class AdminHP extends BaseController
 
 		$db = db_connect();
 
-		$company = $db->query("SELECT company_id, name FROM company");
+		$company = $db->query("SELECT company_id, company_name FROM company");
 		$data['company'] =  $company->getResultArray();
 
 		$course = $db->table('course')->orderBy('course_id', 'ASC');
@@ -33,7 +33,7 @@ class AdminHP extends BaseController
 	public function search( $queri_id = null)
 	{
 		$data = [
-			'company' => $this->request->getVar('company'),
+			'company_id' => $this->request->getVar('company_id'),
 			'course_id' => $this->request->getVar('course_id'),
 			'occupation' => $this->request->getVar('occupation'),
 			'date-from' => $this->request->getVar('date-from'),
@@ -44,11 +44,30 @@ class AdminHP extends BaseController
 		$db = db_connect();
 
 		if($data['sort'] == 'course') {
-			echo 'course' . $data['course_id'];
+  
 			$builder = $db->table('certificate');
-			$result = $builder->join('person', 'certificate.person_id  = person.person_id ')->getWhere(['course_id' => $data['course_id']])->getResultArray();
-			// $builder->join('person', 'certificate.person_id  = person.person_id ');
-			// $result = $builder->get()->getResultArray();
+			$builder->join('person', 'person.person_id = certificate.person_id ')
+							->join('company', 'company.company_id = person.company_id ')
+							->where(['os >' => $data['date-from']])
+							->where(['os <' => $data['date-to']]);
+
+			if($data['company_id']) {
+				$builder->whereIn('person.company_id' , $data['company_id']);
+			}
+
+			if($data['occupation']) {
+				$builder->whereIn('occupation' , $data['occupation']);
+			}
+
+			if($data['course_id']) {
+				$builder->whereIn('course_id' , $data['course_id']);
+			}
+			$builder->where(['os >' => $data['date-from']])
+							->where(['os <' => $data['date-to']])
+							->orderBy('company.company_id')
+							->orderBy('course_id');
+
+			$result = $builder->get()->getResultArray();
 
 			var_dump($result);
 

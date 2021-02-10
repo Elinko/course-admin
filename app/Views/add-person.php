@@ -40,7 +40,7 @@
 													<?php endif; ?>
 
 												<?php else: ?>
-													<option value="<?= $value['company_id'] ?>"><?= $value['name'] ?></option>
+													<option value="<?= $value['company_id'] ?>"><?= $value['company_name'] ?></option>
 												<?php endif; ?>
 											<?php endforeach; ?>
 											</select>
