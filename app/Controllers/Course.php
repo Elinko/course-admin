@@ -38,7 +38,8 @@ class course extends BaseController
 
 		$data = [
 			'course_name' => $this->request->getVar('name'),
-			'time' => $this->request->getVar('time')
+			'os_time' => $this->request->getVar('os_time'),
+			'aop_time' => $this->request->getVar('aop_time')
 		];
 
 		$save = $builder->insert($data);
@@ -52,7 +53,8 @@ class course extends BaseController
 		$data = [
 			'course_id' => $this->request->getVar('course_id'),
 			'course_name' => $this->request->getVar('name'),
-			'time' => $this->request->getVar('time')
+			'os_time' => $this->request->getVar('os_time'),
+			'aop_time' => $this->request->getVar('aop_time')
 		];
 
 		$save = $builder->replace($data);

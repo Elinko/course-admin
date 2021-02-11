@@ -120,6 +120,10 @@ a {
   background-color: #242943;
 }
 
+.search-result {
+  display: none;
+}
+
 select[multiple] {
   min-height: 135px;
 }
@@ -129,7 +133,11 @@ select[multiple] {
   #result {
     display: block;
     font-size: 10pt;
-    }/* ... except the required div */
+  }/* ... except the required div */
+
+  .no-print {
+    display: none;
+  }
 }
 
 @page {

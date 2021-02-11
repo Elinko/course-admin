@@ -47,7 +47,42 @@
 								}, 1000);
 
 							} else if(form.hasClass('search')) {
+								let result = JSON.parse(data)
 
+								if( result['type'] == 'course') {
+									let printWrap = $('.course-print')
+									printWrap.find('.generated').html(result['today']);
+									printWrap.find('.generated-until').html(result['generatedUntil']);
+									console.log('date', result['generatedUntil']);
+									console.log('today', result['today']);
+									console.log('today', result['data']);
+
+									$.each(result['data'], function( index, value ) {
+										let courseSection = printWrap.find('.template.course-section').clone();
+										courseSection.removeClass('template');
+										courseSection.find('.course_name').html(value['course'])
+
+										let a = 1;
+										$.each(value['row'], function( index, person ) {
+
+											let row = courseSection.find('.thbody tr').clone();
+											row.removeClass('template');
+											row.find('td:nth-child(1)').html(a);
+											row.find('td:nth-child(2)').html(person['name']);
+											row.find('td:nth-child(3)').html(person['birth']);
+											row.find('td:nth-child(4)').html(person['company_name']);
+											row.find('td:nth-child(5)').html(person['evidence_num']);
+											row.find('td:nth-child(6)').html(person['types']);
+											row.find('td:nth-child(7)').html(person['os']);
+											row.find('td:nth-child(8)').html(person['aop']);
+											$('.thbody').append(row);
+											a = a + 1;
+										});
+
+									});
+								}
+
+								$('.search-result').fadeIn();
 							}
 							 else {
 								form[0].reset();

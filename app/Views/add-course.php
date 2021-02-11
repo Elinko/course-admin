@@ -24,8 +24,14 @@
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
-										<label for="time">Doba trvania</label>
-										<input type="text" class="form-control" name="time" id="time" required>
+										<label for="os_time">Doba trvania OS</label>
+										<input type="text" class="form-control" name="os_time" id="os_time" required>
+									</div>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<div class="form-group">
+										<label for="aop_time">Doba trvania AOP</label>
+										<input type="text" class="form-control" name="aop_time" id="aop_time" required>
 									</div>
 								</div>
 
@@ -50,7 +56,8 @@
 						<thead>
 							<tr>
 								<th>Meno školenia</th>
-								<th>Doba</th>
+								<th>Doba OS</th>
+								<th>Doba AOP</th>
 								<th>Upraviť</th>
 								<th>Vymazať</th>
 							</tr>
@@ -58,10 +65,11 @@
 						<tbody>
 							<?php foreach ($course as $key => $value):?>
 								<tr>
-									<td><?= $value['name'];  ?></td>
-									<td><?= $value['time'];  ?></td>
+									<td><?= $value['course_name'];  ?></td>
+									<td><?= $value['os_time'];  ?></td>
+									<td><?= $value['aop_time'];  ?></td>
 									<td><a href="/Course/update/<?= $value['course_id'];  ?>">Upraviť</a> </td>
-									<td><a href="#" data-toggle="modal" data-id="<?= $value['course_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>
+									<td><a href="#" data-toggle="modal" data-id="<?= $value['course_id'];  ?>" class="to-delete-certificate" data-target="#delete-course">Vymazať</td>
 								</tr>
 							<?php endforeach; ?>
 						</tbody>
@@ -69,6 +77,25 @@
 				</div>
 			</section>
 		</div>
+	</div>
+
+	<div class="modal fade" id="delete-course" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header text-right">
+	         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body text-center">
+					<form class="myform deleteCertificate" action="/Course/deleteCourse" method="post" novalidate="novalidate" >
+						<input type="hidden" value="" name="course_id" id="delete-certificate_id" required>
+						<h2 class="text-dark">Naozaj chceš odstrániť toto skolenie?</h2>
+						<input type="submit" value="Odstrániť" class="button">
+					</form>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 
 <?= $this->include('partials/form-success') ?>

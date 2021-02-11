@@ -44,12 +44,15 @@ class AdminHP extends BaseController
 		$db = db_connect();
 
 		if($data['sort'] == 'course') {
-  
+
 			$builder = $db->table('certificate');
-			$builder->join('person', 'person.person_id = certificate.person_id ')
-							->join('company', 'company.company_id = person.company_id ')
-							->where(['os >' => $data['date-from']])
+			$builder->where(['os >' => $data['date-from']])
 							->where(['os <' => $data['date-to']]);
+
+			$builder->join('person', 'person.person_id = certificate.person_id ', 'inner')
+			->join('company', 'company.company_id = person.company_id ', 'inner')
+			->join('course', 'certificate.course_id = course.course_id', 'inner');
+
 
 			if($data['company_id']) {
 				$builder->whereIn('person.company_id' , $data['company_id']);
@@ -60,16 +63,40 @@ class AdminHP extends BaseController
 			}
 
 			if($data['course_id']) {
-				$builder->whereIn('course_id' , $data['course_id']);
+				$builder->whereIn('course.course_id' , $data['course_id']);
 			}
+
 			$builder->where(['os >' => $data['date-from']])
 							->where(['os <' => $data['date-to']])
 							->orderBy('company.company_id')
-							->orderBy('course_id');
+							->orderBy('course.course_id');
 
 			$result = $builder->get()->getResultArray();
 
-			var_dump($result);
+			$data2 = [];
+			$course='';
+			$i=-1;
+			foreach ($result as $key => $value) {
+				if($course != $value['course_id']) {
+					$i++;
+					$course = $value['course_id'];
+					$data2[$i]['row'][]=($value);
+					$data2[$i]['course']=($value['course_name']);
+				} else {
+					$data2[$i]['row'][]=($value);
+					$data2[$i]['course']=($value['course_name']);
+				}
+			}
+
+			// var_dump($data);
+			$result['generatedUntil'] = $data['date-to'];
+			$result['today'] = date("Y-m-d");
+			$result['type'] = $data['sort'];
+			$result['data'] = $data2;
+
+			$result = json_encode($result);
+
+			return($result);
 
 		} else {
 			echo 'person';

@@ -100,52 +100,57 @@
 				</div>
 			</section>
 			<section class="search-result">
-				<h1>Výsledky vyhľadávania</h1>
+				<h1>Výsledky vyhľadávania:</h1>
+				<input type="button" onclick="printDiv('result')" value="Vytlaciť PDF" />
 				<div class="row">
 					<div class="col-12 col-12-small">
-						<input type="button" onclick="printDiv('result')" value="Vytlaciť PDF" />
 						<br>
 						<br>
 						<div class="" id="result">
-
-							<h1>Potrebné školenia</h1>
-							<div class="row">
-								<div class="col-md-6">
-									<h4>Dátum vygenerovania: 7. decembra 2020</h4>
+							<div class="course-print">
+								<div class="row">
+									<div class="col-6 medium text-left">
+										<h4>Dátum vygenerovania: <span class="generated"></span> </h4>
+									</div>
+									<div class="col-6 medium text-right">
+										<h4>Vygenerované do: <span class="generated-until"></span> </h4>
+									</div>
 								</div>
-								<div class="col-md-6 text-right">
-									<h4>Vygenerované do: 30. júna 2021</h4> 
-								</div>
-							</div>
 
-							<h2 class="course_name">Php kurz</h2>
-							<div class="table-wrapper">
-								<table>
-									<thead>
-										<tr>
-											<th>Číslo</th>
-											<th>Meno</th>
-											<th>Narodenie</th>
-											<th>Evidentné č.</th>
-											<th>Skupina</th>
-											<th>Posl. OS</th>
-											<th>Posl. AOP</th>
-											<th>Zmena</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td>Joze uhercik</td>
-											<td>2020-12-11</td>
-											<td>ge98</td>
-											<td>b</td>
-											<td>2020-12-11 </td>
-											<td>2020-12-11 </td>
-											<td>Upraviť </td>
-										</tr>
-									</tbody>
-								</table>
+								<div class="template course-section">
+									<h2 class="course_name">Php kurz</h2>
+									<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Č.</th>
+												<th>Meno</th>
+												<th>Narodenie</th>
+												<th>Firma</th>
+												<th>Evidentné č.</th>
+												<th>Skupina</th>
+												<th>Posl. OS</th>
+												<th>Posl. AOP</th>
+												<th class="no-print">Zmena</th>
+											</tr>
+										</thead>
+										<tbody class="thbody">
+											<tr>
+												<td>1</td>
+												<td>Joze uhercik</td>
+												<td>2020-12-11</td>
+												<td>firmaa</td>
+												<td>ge98</td>
+												<td>b</td>
+												<td>2020-12-11 </td>
+												<td>2020-12-11 </td>
+												<td  class="no-print">Upraviť </td>
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+								</div>
 							</div>
 						</div>
 

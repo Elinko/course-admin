@@ -9,7 +9,7 @@
 			</header>
 			<br>
 			<section>
-				<h2>Upraviť školenie <u><?=$queri[0]['name']?></u> </h2>
+				<h2>Upraviť školenie <u><?=$queri[0]['course_name']?></u> </h2>
 				<div class="row">
 					<div class="col-1">
 					</div>
@@ -21,13 +21,19 @@
 							 <div class="col-6 col-12-xsmall">
 								 <div class="form-group">
 									 <label for="name">Meno školenie</label>
-									 <input type="text" class="form-control"  value="<?=$queri[0]['name']?>"  name="name" id="name" required>
+									 <input type="text" class="form-control"  value="<?=$queri[0]['course_name']?>"  name="name" id="name" required>
 								 </div>
 							 </div>
 							 <div class="col-6 col-12-xsmall">
 								 <div class="form-group">
-									 <label for="time">Doba trvania</label>
-									 <input type="text" class="form-control"  value="<?=$queri[0]['time']?>"  name="time" id="time" required>
+									 <label for="os_time">Doba trvania OS</label>
+									 <input type="text" class="form-control"  value="<?=$queri[0]['os_time']?>"  name="os_time" id="os_time" required>
+								 </div>
+							 </div>
+							 <div class="col-6 col-12-xsmall">
+								 <div class="form-group">
+									 <label for="aop_time">Doba trvania AOP</label>
+									 <input type="text" class="form-control" value="<?=$queri[0]['aop_time']?>" name="aop_time" id="aop_time" required>
 								 </div>
 							 </div>
 								<!-- Break -->
