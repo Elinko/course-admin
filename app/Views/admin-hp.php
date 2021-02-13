@@ -11,20 +11,14 @@
 			<section>
 				<h2>Pridávanie objektov do Databázy</h2>
 				<div class="row">
-					<div class="col-1">
-					</div>
-					<div class="col-9 col-12-small">
-						<ul class="actions fit">
-							<li>
-								<a href="./Company/" class="button fit large">Pridať firmu</a>
-							</li>
-							<li>
-								<a href="/Course/" class="button fit large">Pridať školenie</a>
-							</li>
-							<li>
-								<a href="/Person/" class="button fit large">Pridať osobu</a>
-							</li>
-						</ul>
+					<div class="col-12 col-12-small ">
+						<div class="d-flex d-flex-center admin-buttons">
+							<a href="./Company/" class="button large">Pridať firmu</a>
+							<a href="/Course/" class="button large">Pridať školenie</a>
+							<a href="/Person/" class="button large">Pridať osobu</a>
+
+						</div>
+						<br>
 					</div>
 				</div>
 			</section>
@@ -99,67 +93,119 @@
 					</div>
 				</div>
 			</section>
-			<section class="search-result">
-				<h1>Výsledky vyhľadávania:</h1>
-				<input type="button" onclick="printDiv('result')" value="Vytlaciť PDF" />
-				<div class="row">
-					<div class="col-12 col-12-small">
-						<br>
-						<br>
-						<div class="" id="result">
-							<div class="course-print">
-								<div class="row">
-									<div class="col-6 medium text-left">
-										<h4>Dátum vygenerovania: <span class="generated"></span> </h4>
-									</div>
-									<div class="col-6 medium text-right">
-										<h4>Vygenerované do: <span class="generated-until"></span> </h4>
-									</div>
-								</div>
-
-								<div class="template course-section">
-									<h2 class="course_name">Php kurz</h2>
-									<div class="table-wrapper">
-									<table>
-										<thead>
-											<tr>
-												<th>Č.</th>
-												<th>Meno</th>
-												<th>Narodenie</th>
-												<th>Firma</th>
-												<th>Evidentné č.</th>
-												<th>Skupina</th>
-												<th>Posl. OS</th>
-												<th>Posl. AOP</th>
-												<th class="no-print">Zmena</th>
-											</tr>
-										</thead>
-										<tbody class="thbody">
-											<tr>
-												<td>1</td>
-												<td>Joze uhercik</td>
-												<td>2020-12-11</td>
-												<td>firmaa</td>
-												<td>ge98</td>
-												<td>b</td>
-												<td>2020-12-11 </td>
-												<td>2020-12-11 </td>
-												<td  class="no-print">Upraviť </td>
-											</tr>
-										</tbody>
-									</table>
-
-								</div>
-								</div>
-							</div>
-						</div>
-
+			<div id="search-scroll">
+				<section class="search-result">
+					<div class="d-flex d-flex-align">
+						<h1>Výsledky vyhľadávania:</h1>
 						<input type="button" onclick="printDiv('result')" value="Vytlaciť PDF" />
+					</div>
+					<div class="row">
+						<div class="col-12 col-12-small">
+							<br>
+							<br>
+							<div class="" id="result">
+								<div class="course-print">
+									<div class="row">
+										<div class="col-6 medium text-left">
+											<h4>Dátum vygenerovania: <span class="generated"></span> </h4>
+										</div>
+										<div class="col-6 medium text-right">
+											<h4>Vygenerované do: <span class="generated-until"></span> </h4>
+										</div>
+									</div>
+									<div id="ifCompany"> 
+									</div>
+									<div class=" template course-section">
+										<h3 class="course_name">Php kurz </h3>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th>Č.</th>
+														<th>Meno</th>
+														<th>Narodenie</th>
+														<!-- <th>Firma</th> -->
+														<th>EV</th>
+														<th>Skupina</th>
+														<th>Posl. OS</th>
+														<th>Posl. AOP</th>
+														<th class="no-print">Zmena</th>
+													</tr>
+												</thead>
+												<tbody class="thbody">
+													<tr class="template personRow">
+														<td>1</td>
+														<td class="name">Jozekoooo</td>
+														<td class="birth">2020-12-11</td>
+														<!-- <td class="company_name">firmaa</td> -->
+														<td class="evidence_num">ge98</td>
+														<td class="types">b</td>
+														<td class="os">2020-12-11 </td>
+														<td class="aop">2020-12-11 </td>
+														<td  class="no-print"><a href="" target="_blank">Upraviť</a> </td>
+													</tr>
+												</tbody>
+											</table>
 
+										</div>
+									</div>
+								</div>
+								<div class="person-print">
+									<div class="row">
+										<div class="col-6 medium text-left">
+											<h4>Dátum vygenerovania: <span class="generated"></span> </h4>
+										</div>
+										<div class="col-6 medium text-right">
+											<h4>Vygenerované do: <span class="generated-until"></span> </h4>
+										</div>
+									</div>
+
+									<div class=" template course-section">
+										<h3 class="course_name">Meno cloveka</h3>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th>Č.</th>
+														<th>Školenie</th>
+														<th>Narodenie</th>
+														<!-- <th>Firma</th> -->
+														<th>EV.</th>
+														<th>Skupina</th>
+														<th>Posl. OS</th>
+														<th>Posl. AOP</th>
+														<th class="no-print">Zmena</th>
+													</tr>
+												</thead>
+												<tbody class="thbody">
+													<tr class="template personRow">
+														<td>1</td>
+														<td class="course">meno kurzu</td>
+														<td class="birth">2020-12-11</td>
+														<!-- <td class="company_name">firmaa</td> -->
+														<td class="evidence_num">ge98</td>
+														<td class="types">b</td>
+														<td class="os">2020-12-11 </td>
+														<td class="aop">2020-12-11 </td>
+														<td  class="no-print"><a href="" target="_blank">Upraviť</a> </td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<input type="button" onclick="printDiv('result')" value="Vytlaciť PDF" />
+
+						</div>
 					</div>
 				</div>
-				</div>
 			</section>
+
+			</div>
 
 		</div>
 	</div>

@@ -11,6 +11,12 @@ class Home extends BaseController
 		// // echo $tmp;
 		// // echo '<br> and decrypt <br>';
 		// // echo $encrypter->decrypt($tmp);
+		$data = [
+			'name' => 0,
+			'loggedIn' => 0,
+		];
+		session()->set($data);
+
 		return view('home');
 	}
 
@@ -19,7 +25,7 @@ class Home extends BaseController
 		if ((session()->get('loggedIn')) == null) {
 				return redirect()->to('/Home');
 		}
-		
+
 		return view('register-user');
 	}
 

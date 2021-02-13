@@ -1966,8 +1966,9 @@ input, select, textarea {
 		background-repeat: no-repeat;
 		background-position: calc(100% - 1rem) center;
 		height: 2.75em;
-		padding-right: 2.75em;
+		padding: 0.25em 1em;
 		text-overflow: ellipsis;
+		overflow-y: auto;
 	}
 
 		select option {

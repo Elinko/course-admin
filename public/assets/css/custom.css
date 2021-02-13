@@ -120,24 +120,95 @@ a {
   background-color: #242943;
 }
 
-.search-result {
+.search-result, .person-print, .course-print {
   display: none;
+}
+
+.search-result h1 {
+  margin: 0;
+  padding-right: 10px;
+}
+
+.search-result .template {
+  display: none;
+}
+
+.search-result h4 {
+  font-weight: 300;
+}
+
+.search-result h3 span {
+  font-weight: 300;
+  margin-left: 7px;
+}
+
+.search-result h4 span {
+  font-weight: 600;
 }
 
 select[multiple] {
   min-height: 135px;
 }
 
+.course-section table td {
+  padding: 0.5em 0.5em;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.d-flex-center {
+  justify-content: center;
+}
+
+.d-flex-align {
+  align-items: center;
+}
+
+
+
+.admin-buttons a {
+  margin: 15px;
+}
+
+@media(max-width: 992px ) {
+  #header {
+    position: fixed!important;
+    background: #242943!important;
+    z-index: 10;
+  }
+}
+
 @media print {
+  .course-section, table, .table-wrapper {
+    overflow: hidden;
+  }
+
+  .table-wrapper {
+     overflow: hidden;
+  }
 
   #result {
     display: block;
     font-size: 10pt;
-  }/* ... except the required div */
+  }
 
-  .no-print {
+  .no-print, .template {
     display: none;
   }
+
+  /* thead tr {
+    border-bottom: 1px solid #000;
+  } */
+
+
+  /* table td {
+    border-bottom: 1px solid #686868;
+  } */
+
 }
 
 @page {

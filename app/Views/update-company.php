@@ -98,9 +98,9 @@
 						<tbody>
 							<?php foreach ($person as $key => $value):?>
 								<tr>
-									<td><?= $value['name'];  ?></td>
+									<td><?= $value['company_name'];  ?></td>
 									<td><?= $value['birth'];  ?></td>
-									<td><?= $value['address'];  ?></td>
+									<td><?= $value['company_address'];  ?></td>
 									<td><?= $value['occupation'];  ?></td>
 									<td><a href="/Person/update/<?= $value['person_id'];  ?>">Upraviť</a> </td>
 									<td><a href="#" data-toggle="modal" data-id="<?= $value['person_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>

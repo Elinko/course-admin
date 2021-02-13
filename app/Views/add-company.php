@@ -86,12 +86,12 @@
 						<tbody>
 							<?php foreach ($company as $key => $value):?>
 								<tr>
-									<td><?= $value['name'];  ?></td>
+									<td><?= $value['company_name'];  ?></td>
 									<td><?= $value['phone'];  ?></td>
 									<td><?= $value['email'];  ?></td>
 									<td><?= $value['ico'];  ?></td>
 									<td><?= $value['dic'];  ?></td>
-									<td><?= $value['address'];  ?></td>
+									<td><?= $value['company_address'];  ?></td>
 									<td><a href="/Company/update/<?= $value['company_id'];  ?>">Upraviť</a> </td>
 									<td><a href="#" data-toggle="modal" data-id="<?= $value['company_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>
 

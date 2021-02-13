@@ -15,7 +15,7 @@
 	    if (form[0].checkValidity()) {
 	      $.ajax({
 	          url: form.attr("action"),
-	          type: 'POST',
+	          type: 'GET',
 	          data: form.serialize(),
 	          success: function (data) {
 							form.removeClass('validated');
@@ -48,41 +48,95 @@
 
 							} else if(form.hasClass('search')) {
 								let result = JSON.parse(data)
+								$('.course-print').hide();
+								$('.person-print').hide();
+
+
+								$('.course-section:not(.template)').remove();
 
 								if( result['type'] == 'course') {
 									let printWrap = $('.course-print')
 									printWrap.find('.generated').html(result['today']);
 									printWrap.find('.generated-until').html(result['generatedUntil']);
-									console.log('date', result['generatedUntil']);
-									console.log('today', result['today']);
-									console.log('today', result['data']);
 
 									$.each(result['data'], function( index, value ) {
+										// console.log('row1 ', index)
+
 										let courseSection = printWrap.find('.template.course-section').clone();
 										courseSection.removeClass('template');
-										courseSection.find('.course_name').html(value['course'])
+										courseSection.find('.course_name').html(value['course'] + '<span>(OS:' +value['os_time'] + ', AOP:'+ value['aop_time']+ ')</span>' )
 
 										let a = 1;
-										$.each(value['row'], function( index, person ) {
-
-											let row = courseSection.find('.thbody tr').clone();
+										$.each(value['row'], function( index2, person ) {
+											let row = courseSection.find('.template.personRow').clone();
+											console.log('row ', row)
+											courseSection.removeClass('template');
 											row.removeClass('template');
 											row.find('td:nth-child(1)').html(a);
-											row.find('td:nth-child(2)').html(person['name']);
-											row.find('td:nth-child(3)').html(person['birth']);
-											row.find('td:nth-child(4)').html(person['company_name']);
-											row.find('td:nth-child(5)').html(person['evidence_num']);
-											row.find('td:nth-child(6)').html(person['types']);
-											row.find('td:nth-child(7)').html(person['os']);
-											row.find('td:nth-child(8)').html(person['aop']);
-											$('.thbody').append(row);
+											row.find('td.name').html(person['name']);
+											row.find('td.birth').html(person['birth']);
+											// row.find('td.company_name').html(person['company_name']);
+											row.find('td.evidence_num').html(person['evidence_num']);
+											row.find('td.types').html(person['types']);
+											row.find('td.os').html(person['os']);
+											row.find('td.aop').html(person['aop']);
+											row.find('.no-print a').attr('href', '/Certificate/update/'+ person['certificate_id']);
+											courseSection.find('.thbody').append(row);
 											a = a + 1;
 										});
 
-									});
-								}
+										printWrap.append(courseSection)
 
-								$('.search-result').fadeIn();
+									});
+									printWrap.show();
+								} else {
+
+									let printWrap = $('.person-print');
+									printWrap.find('.generated').html(result['today']);
+									printWrap.find('.generated-until').html(result['generatedUntil']);
+									// console.log('date', result['generatedUntil']);
+									// console.log('today', result['today']);
+									// console.log('today', result['data']);
+
+									$.each(result['data'], function( index, value ) {
+										// console.log('row1 ', index)
+
+										let courseSection = printWrap.find('.template.course-section').clone();
+										courseSection.removeClass('template');
+										courseSection.find('.course_name').html(value['person'])
+
+										let a = 1;
+										$.each(value['row'], function( index2, person ) {
+											let row = courseSection.find('.template.personRow').clone();
+											console.log('row ', row)
+											courseSection.removeClass('template');
+											row.removeClass('template');
+											row.find('td:nth-child(1)').html(a);
+											row.find('td.course').html(person['course_name']+ '<span>(OS:' +value['os_time'] + ', AOP:'+ value['aop_time']+ ')</span>');
+											row.find('td.birth').html(person['birth']);
+											// row.find('td.company_name').html(person['company_name']);
+											row.find('td.evidence_num').html(person['evidence_num']);
+											row.find('td.types').html(person['types']);
+											row.find('td.os').html(person['os']);
+											row.find('td.aop').html(person['aop']);
+											row.find('.no-print a').attr('href', '/Certificate/update/'+ person['certificate_id']);
+											courseSection.find('.thbody').append(row);
+											a = a + 1;
+										});
+
+										printWrap.append(courseSection)
+									});
+									printWrap.show();
+
+								}
+								if( result['count_company']==1) {
+									// console.log('vvv ', result['data'][0]['row'][0]['company_name'])
+									$('#ifCompany').html('<h2>Firma: '+ result['data'][0]['row'][0]['company_name'] +'</h2>')
+								} else {
+									$('#ifCompany').html('')
+
+								}
+ 								$('.search-result').fadeIn();
 							}
 							 else {
 								form[0].reset();
@@ -107,6 +161,14 @@
 			$('#add-occupation-type-input').val("")
 		}
 	})
+
+	$('.search .primary').on('click', function() {
+		$('html, body').animate({
+			 scrollTop: $("#search-scroll").offset().top
+		}, 1000);
+	})
+
+
 
 	$('.to-delete-certificate').on('click', function() {
 		$('#delete-certificate_id').val($(this).attr('data-id'))

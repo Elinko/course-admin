@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Roland Izsof</title>
+		<title>Školenia - Roli</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/css/bootstrap.min.css" />
@@ -14,11 +14,14 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/main.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css" />
 		<noscript><link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/noscript.css" /></noscript>
+		<meta name="robots" content="noindex">
+		<meta name="googlebot" content="noindex">
+
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
 			<header id="header" class="reveal alt">
-				<a href="/" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+				<a href="/AdminHP" class="logo"><strong>Školenia</strong> <span>by Roli</span></a>
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>
@@ -29,6 +32,7 @@
 			<!-- Footer -->
 				<footer id="footer">
 					<div class="inner">
+						<br>
 						<ul class="icons text-center">
 							<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -47,16 +51,20 @@
 		<nav id="menu">
 			<div class="inner">
 				<ul class="links">
-					<li><a href="/Company">Firma</a></li>
+					<li><a href="/AdminHP">Domov</a></li>
+					<li><a href="/Company">Firmy</a></li>
 					<li><a href="/Course">Kurzy</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
+					<li><a href="/Person">Pridať zamestnanca</a></li>
+					<!-- <li><a href="generic.html">Generic</a></li>
+					<li><a href="elements.html">Elements</a></li> -->
 				</ul>
+
 				<ul class="actions stacked">
-					<li><a href="#" class="button primary fit">Get Started</a></li>
-					<li><a href="#" class="button fit">Log In</a></li>
+					<li><a href="/Home" class="button primary fit">Log OUT</a></li>
+					<!-- <li><a href="#" class="button fit">Log In</a></li> -->
 				</ul>
-			</div><a class="close" href="#menu">Close</a>
+			</div>
+			<a class="close" href="#menu">Close</a>
 		</nav>
 
 

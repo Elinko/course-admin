@@ -9,12 +9,12 @@ class Person extends BaseController
 	{
 
 		if ((session()->get('loggedIn')) == null) {
-				return redirect()->to('/Home');
+			return redirect()->to('/Home');
 		}
 
 		$db = db_connect();
 		$builder = $db->table('company');
-		$builder->select('name, company_id');
+		$builder->select('company_name, company_id');
 
 		$builder3 = $db->table('company')->getWhere(['company_id' =>$id])->getResultArray();;
 
@@ -51,7 +51,7 @@ class Person extends BaseController
 		if ((session()->get('loggedIn')) == null) {
 				return redirect()->to('/Home');
 		}
-		
+
 		$db = db_connect();
 		$queri = $db->query("SELECT * FROM person WHERE person_id=$queri_id");
 		$data['queri'] =  $queri->getResultArray();

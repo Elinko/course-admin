@@ -10,7 +10,7 @@
 			<br>
 
 			<section>
-				<h2>Upraviť certifikát: &nbsp;<u><?=$queri[0]['name']?></u>&nbsp; pre: &nbsp;<u><?=$person[0]['name']?></u> </h2>
+				<h2>Upraviť certifikát: &nbsp;<u><?=$queri[0]['course_name']?></u>&nbsp; pre: &nbsp;<u><?=$person[0]['name']?></u> </h2>
 				<div class="row">
 					<div class="col-1">
 					</div>
@@ -20,7 +20,7 @@
 						 <input type="hidden" value="<?=$queri[0]['person_id']?>" name="person_id" id="person_id" required>
 						 <input type="hidden" value="<?=$queri[0]['course_id']?>" name="course_id" id="course_id" required>
 
-						 <div class="row gtr-uniform">
+						 <div class="row ">
 
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
@@ -47,7 +47,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="row gtr-uniform">
+							<div class="row  ">
 								<!-- Break -->
 								<div class="col-6 col-12-xsmall">
 									<br>
