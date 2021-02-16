@@ -9,7 +9,7 @@
 			</header>
 			<br>
 			<section>
-				<h2>Pridať certifikát pre <u><?=$person[0]['name']?></u> </h2>
+				<h2>Pridať certifikát pre: <u><?=$person[0]['name']?></u> </h2>
 				<div class="row">
 					<div class="col-1">
 					</div>
@@ -21,8 +21,8 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="course_id">Kurz</label>
-										<select name="course_id" id="course_id">
-											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>
+										<select name="course_id" id="course_id" required>
+											<option selected disabled="disabled">Vyber zo zoznamu</option>
 											<?php foreach ($course as $key => $value): ?>
 												<option value="<?= $value['course_id'] ?>"><?= $value['course_name'] ?></option>
 											<?php endforeach; ?>
@@ -38,7 +38,7 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="os">OS</label>
-										<input type="text" name="os" id="os"  class="form-control data-picker">
+										<input type="text" name="os" id="os"  class="form-control data-picker" required>
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">
@@ -70,13 +70,14 @@
 			</section>
 			<hr class="major">
 			<section>
-				<h2>Zoznam certifikátov <u><?=$person[0]['name']?></u> </h2>
+				<h2>Zoznam certifikátov: <u><?=$person[0]['name']?></u> </h2>
 				<div class="table-wrapper">
 					<table>
 						<thead>
 							<tr>
 								<th>Meno kurzu</th>
-								<th>Doba</th>
+								<th>Doba OS</th>
+								<th>Doba AOP</th>
 								<th>Ev. číslo</th>
 								<th>OS</th>
 								<th>AOP</th>
@@ -88,8 +89,9 @@
 						<tbody>
 							<?php foreach ($certificate as $key => $value):?>
 								<tr>
-									<td><?= $value['name'];  ?></td>
-									<td><?= $value['time'];  ?></td>
+									<td><?= $value['course_name'];  ?></td>
+									<td><?= $value['os_time'];  ?></td>
+									<td><?= $value['aop_time'];  ?></td>
 									<td><?= $value['evidence_num'];  ?></td>
 									<td><?= $value['os'];  ?></td>
 									<td><?= $value['aop'];  ?></td>

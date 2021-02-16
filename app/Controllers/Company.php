@@ -81,11 +81,14 @@ class Company extends BaseController
 		$builder3 = $db->table('person');
 
 		$result = $builder3->select('person_id')->getWhere(['company_id' => $this->request->getVar('company_id')])->getResultArray();;
+
 		$builder2->delete(['company_id' => $this->request->getVar('company_id')]);
 
-		$builder4 = $db->table('certificate');
-		$builder4->delete(['person_id' => $result[0]['person_id']]);
+		if(!empty($result)) {
+			$builder4 = $db->table('certificate');
+			$builder4->delete(['person_id' => $result[0]['person_id']]);
 
+		}
 
 		return $this->response->setJSON($save);
 	}

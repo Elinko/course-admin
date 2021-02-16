@@ -8,8 +8,9 @@
       </div>
       <div class="modal-body text-center">
          <h2 style="color: #000;">Formulár úspešne odoslaný</h2>
-         <a href="/Company" class="button">Pridať firmu</a><br><br>
-         <a href="/Peson/add" class="button">Pridať zamestnanca</a>
+         <a href="/Company" class="button add-company">Pridať firmu</a><br><br>
+         <a href="/Peson/add" class="button add-person">Pridať osobu</a>
+         <a href="/Certificate/add/" class="button update-person" style="display:none;">Pridať certifikát</a>
 
       </div>
     </div>

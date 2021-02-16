@@ -5,7 +5,7 @@
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1>Školenie </h1>
+				<h1>Školenia </h1>
 			</header>
 			<br>
 			<section>

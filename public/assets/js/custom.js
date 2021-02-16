@@ -46,6 +46,16 @@
 									location.replace(url)
 								}, 1000);
 
+							}else if(form.hasClass('addPerson')) {
+								$('#form-success').modal('show');
+								let href = $('#form-success .update-person').attr('href');
+								href = href+data;
+								$('#form-success .update-person').attr('href', href)
+								$('#form-success .add-company').hide();
+								$('#form-success .add-person').hide();
+								$('#form-success .update-person').show();
+								form[0].reset();
+
 							} else if(form.hasClass('search')) {
 								let result = JSON.parse(data)
 								$('.course-print').hide();

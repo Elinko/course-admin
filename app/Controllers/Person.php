@@ -43,7 +43,12 @@ class Person extends BaseController
 		];
 
 		$save = $builder->insert($data);
-		return $this->response->setJSON($save);
+
+		$builder2 = $db->table('person');
+
+		$save = $builder2->getWhere(['name' =>$data['name'], 'birth' => $data['birth'] ])->getResultArray();
+
+		return $this->response->setJSON($save[0]['person_id']);
  	}
 
 	public function update( $queri_id = null)

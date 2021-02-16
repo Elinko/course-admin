@@ -22,9 +22,9 @@ class Home extends BaseController
 
 	public function register()
 	{
-		// if ((session()->get('loggedIn')) == null) {
-		// 		return redirect()->to('/Home');
-		// }
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
 
 		return view('register-user');
 	}
