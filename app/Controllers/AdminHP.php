@@ -162,7 +162,7 @@ class AdminHP extends BaseController
 			$result2['generatedUntil'] = $data['date-to'];
 			$result2['today'] = date("Y-m-d");
 			$result2['type'] = $data['sort'];
-			$result2['count_company'] = count($data['company_id']);
+			// $result2['count_company'] = count($data['company_id']);
 			$result2['data'] = $data2;
 
 			$result = json_encode($result2);

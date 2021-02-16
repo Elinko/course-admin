@@ -174,12 +174,13 @@ select[multiple] {
   margin: 15px;
 }
 
+#header {
+  position: fixed!important;
+  background: #242943!important;
+  z-index: 10;
+}
+
 @media(max-width: 992px ) {
-  #header {
-    position: fixed!important;
-    background: #242943!important;
-    z-index: 10;
-  }
 }
 
 @media print {

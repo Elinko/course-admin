@@ -1,16 +1,21 @@
-<?= $this->extend('layouts\main') ?>
+<?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
 
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1><a href="#">Firma</a> </h1>
+				<h1>Firma </h1>
 			</header>
 			<br>
 			<section>
-				<h2>Pridať firmu do Databázy</h2>
-				<div class="row">
+				<div class="collapsible">
+					<h2>Pridať firmu do Databázy</h2>
+					<i class="fa fa-chevron-down" aria-hidden="true"></i>
+
+				</div>
+				<div class="content">
+					<div class="row">
 					<div class="col-1">
 					</div>
 					<div class="col-10 col-12-small">
@@ -65,6 +70,8 @@
 
 					</div>
 				</div>
+				</div>
+
 			</section>
 			<hr class="major">
 			<section>

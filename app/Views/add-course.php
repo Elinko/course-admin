@@ -1,11 +1,11 @@
-<?= $this->extend('layouts\main') ?>
+<?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
 
 	<div id="main" class="main">
 		<div class="inner">
 			<header class="major">
-				<h1><a href="/Course">Školenie</a> </h1>
+				<h1>Školenie </h1>
 			</header>
 			<br>
 			<section>
@@ -31,7 +31,7 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="aop_time">Doba trvania AOP</label>
-										<input type="text" class="form-control" name="aop_time" id="aop_time" required>
+										<input type="text" class="form-control" name="aop_time" id="aop_time">
 									</div>
 								</div>
 

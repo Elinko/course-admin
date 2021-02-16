@@ -1,4 +1,4 @@
-<?= $this->extend('layouts\main') ?>
+<?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
 
@@ -116,7 +116,6 @@
 						<thead>
 							<tr>
 								<th>Meno kurzu</th>
-								<th>Doba</th>
 								<th>Ev. číslo</th>
 								<th>OS</th>
 								<th>AOP</th>
@@ -128,8 +127,8 @@
 						<tbody>
 							<?php foreach ($certificate as $key => $value):?>
 								<tr>
-									<td><?= $value['name'];  ?></td>
-									<td><?= $value['time'];  ?></td>
+									<td><?= $value['course_name']; ?> (OS: <?= $value['os_time'];  ?> AOP:<?= $value['aop_time'];  ?>)</td>
+
 									<td><?= $value['evidence_num'];  ?></td>
 									<td><?= $value['os'];  ?></td>
 									<td><?= $value['aop'];  ?></td>

@@ -1,4 +1,4 @@
-<?= $this->extend('layouts\main') ?>
+<?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
 
@@ -10,7 +10,7 @@
 			<br>
 			<section>
 				<div class="collapsible">
-					<h2 class="">Upraviť firmu:  <?=$queri[0]['name']?>  </h2>
+					<h2 class="">Upraviť firmu:  <?=$queri[0]['company_name']?>  </h2>
 					<i class="fa fa-chevron-down" aria-hidden="true"></i>
 
 				</div>
@@ -26,7 +26,7 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="name">Meno</label>
-										<input type="text" class="form-control" value="<?=$queri[0]['name']?>" name="name" id="name" required>
+										<input type="text" class="form-control" value="<?=$queri[0]['company_name']?>" name="name" id="name" required>
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">
@@ -57,7 +57,7 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label for="address">Adresa</label>
-										<textarea name="address" id="address" value="<?=$queri[0]['address']?>" placeholder="" rows="4"></textarea>
+										<textarea name="address" id="address" value="<?=$queri[0]['company_address']?>" placeholder="" rows="4"></textarea>
 									</div>
 								</div>
 							</div>
@@ -82,7 +82,7 @@
 			</section>
 			<hr class="major">
 			<section>
-				<h2>Zoznam ludí vo firme: <?=$queri[0]['name']?> </h2>
+				<h2>Zoznam ludí vo firme: <?=$queri[0]['company_name']?> </h2>
 				<div class="table-wrapper">
 					<table>
 						<thead>
@@ -98,9 +98,9 @@
 						<tbody>
 							<?php foreach ($person as $key => $value):?>
 								<tr>
-									<td><?= $value['company_name'];  ?></td>
+									<td><?= $value['name'];  ?></td>
 									<td><?= $value['birth'];  ?></td>
-									<td><?= $value['company_address'];  ?></td>
+									<td><?= $value['address'];  ?></td>
 									<td><?= $value['occupation'];  ?></td>
 									<td><a href="/Person/update/<?= $value['person_id'];  ?>">Upraviť</a> </td>
 									<td><a href="#" data-toggle="modal" data-id="<?= $value['person_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>

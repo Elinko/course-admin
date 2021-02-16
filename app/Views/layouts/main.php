@@ -33,15 +33,16 @@
 				<footer id="footer">
 					<div class="inner">
 						<br>
-						<ul class="icons text-center">
+						<!-- <ul class="icons text-center">
 							<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
 							<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
 							<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 							<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						</ul>
+						</ul> -->
 						<ul class="copyright text-center">
-							<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							<li>&copy; Copyright</li><li><a href="-">Domovská stránka</a></li>
+							<!-- <li>&copy; Copyright</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li> -->
 						</ul>
 					</div>
 				</footer>
@@ -53,7 +54,7 @@
 				<ul class="links">
 					<li><a href="/AdminHP">Domov</a></li>
 					<li><a href="/Company">Firmy</a></li>
-					<li><a href="/Course">Kurzy</a></li>
+					<li><a href="/Course">Školenie</a></li>
 					<li><a href="/Person">Pridať zamestnanca</a></li>
 					<!-- <li><a href="generic.html">Generic</a></li>
 					<li><a href="elements.html">Elements</a></li> -->

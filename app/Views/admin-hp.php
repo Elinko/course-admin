@@ -1,4 +1,4 @@
-<?= $this->extend('layouts\main') ?>
+<?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
 
@@ -26,9 +26,7 @@
 			<section>
 				<h2>Vyhľadávanie v Databáze</h2>
 				<div class="row">
-					<div class="col-1">
-					</div>
-					<div class="col-9 col-12-small">
+					<div class="col-12 col-12-small">
 						<form class="myform search" action="/AdminHP/search" method="get">
 							<div class="row">
 								<div class="col-4 col-12-medium">
@@ -113,7 +111,7 @@
 											<h4>Vygenerované do: <span class="generated-until"></span> </h4>
 										</div>
 									</div>
-									<div id="ifCompany"> 
+									<div id="ifCompany">
 									</div>
 									<div class=" template course-section">
 										<h3 class="course_name">Php kurz </h3>

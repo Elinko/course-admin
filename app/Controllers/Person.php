@@ -57,7 +57,7 @@ class Person extends BaseController
 		$data['queri'] =  $queri->getResultArray();
 
 		$builder = $db->table('company');
-		$builder->select('name, company_id');
+		$builder->select('company_name, company_id');
 		$data['company'] = $builder->get()->getResultArray();
 
 		$builder2 = $db->table('person');
