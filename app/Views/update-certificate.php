@@ -65,6 +65,45 @@
 					</div>
 				</div>
 			</section>
+			<hr class="major">
+			<section>
+				<h2>Zoznam certifikátov: <u><?=$person[0]['name']?></u> </h2>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Meno kurzu</th>
+								<th>Doba OS</th>
+								<th>Doba AOP</th>
+								<th>Ev. číslo</th>
+								<th>OS</th>
+								<th>AOP</th>
+								<th>Skupina</th>
+								<th>Upraviť</th>
+								<th>Vymazať</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($certificate as $key => $value):?>
+								<tr>
+									<td><?= $value['course_name'];  ?></td>
+									<td><?= $value['os_time'];  ?></td>
+									<td><?= $value['aop_time'];  ?></td>
+									<td><?= $value['evidence_num'];  ?></td>
+									<td><?= $value['os'];  ?></td>
+									<td><?= $value['aop'];  ?></td>
+									<td><?= $value['types'];  ?></td>
+									<td><a href="/Certificate/update/<?= $value['certificate_id'];  ?>">Upraviť</a> </td>
+									<td><a href="#" data-toggle="modal" data-id="<?= $value['certificate_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>
+
+								</tr>
+							<?php endforeach; ?>
+
+						</tbody>
+					</table>
+				</div>
+
+			</section>
 		</div>
 	</div>
 

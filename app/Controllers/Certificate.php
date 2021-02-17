@@ -34,12 +34,9 @@ class Certificate extends BaseController
 		$data['person'] = $builder2->getWhere(['person_id' => $queri_id])->getResultArray();
 
 		$builder3 = $db->table('certificate');
-		$data['certificate'] = $builder3->getWhere(['person_id' =>$queri_id])->getResultArray();
-		foreach ($data['certificate'] as $key => $value) {
-			$builder4 = $db->table('course');
-			$builder4 = $builder4->getWhere(['course_id' =>$value['course_id']])->getResultArray();
-			$data['certificate'][$key] += $builder4[0];
-		}
+		$builder3->getWhere(['person_id' =>$queri_id]);
+		$data['certificate'] = $builder3->join('course', 'certificate.course_id = course.course_id ', 'inner')->get()->getResultArray();
+
 
 		// var_dump($query[0]['name']);
 		return view('add-certificate', $data);
@@ -59,6 +56,10 @@ class Certificate extends BaseController
 
 		$builder2 = $db->table('person');
 		$data['person'] = $builder2->getWhere(['person_id' =>$data['queri'][0]['person_id']])->getResultArray();
+
+		$builder3 = $db->table('certificate');
+		$builder3->getWhere(['person_id' =>$queri_id]);
+		$data['certificate'] = $builder3->join('course', 'certificate.course_id = course.course_id ', 'inner')->get()->getResultArray();
 
 
 		return view('update-certificate', $data);
