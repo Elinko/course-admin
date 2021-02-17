@@ -55,7 +55,7 @@
 					<li><a href="/AdminHP">Domov</a></li>
 					<li><a href="/Company">Firmy</a></li>
 					<li><a href="/Course">Školenie</a></li>
-					<li><a href="/Person">Pridať zamestnanca</a></li>
+					<li><a href="/Person">Osoby</a></li>
 					<!-- <li><a href="generic.html">Generic</a></li>
 					<li><a href="elements.html">Elements</a></li> -->
 				</ul>
