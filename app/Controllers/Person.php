@@ -82,6 +82,29 @@ class Person extends BaseController
 
 	}
 
+	public function searchPerson( $queri_id = null)
+	{
+		if ((session()->get('loggedIn')) == null) {
+				return redirect()->to('/Home');
+		}
+
+		$data = [
+			'name' => $this->request->getVar('name')
+		];
+
+
+		$db = db_connect();
+		$builder = $db->table('person')->like('name', $data['name'], 'both')
+									->join('company', 'company.company_id = person.company_id ', 'inner')
+									->get()->getResultArray();
+		$data['persons'] =  $builder;
+
+		return json_encode($data);
+
+
+	}
+
+
 	public function updatePerson()
 	{
 		$db = db_connect();

@@ -10,7 +10,7 @@
 			<br>
 			<section>
 				<div class="collapsible">
-					<h2>Upraviť zamestnanca: <?=$queri[0]['name']?></h2>
+					<h2>Upraviť údaje: <?=$queri[0]['name']?></h2>
 					<i class="fa fa-chevron-down" aria-hidden="true"></i>
 				</div>
 				<div class="content">

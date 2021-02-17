@@ -19,7 +19,10 @@
 	          data: form.serialize(),
 	          success: function (data) {
 							form.removeClass('validated');
-							$('#form-success').modal('show');
+							if(!form.hasClass('searchPerson')) {
+								$('#form-success').modal('show');
+							}
+
 							if(form.hasClass('update')){
 								setTimeout(function() {
 									location.reload();
@@ -82,7 +85,7 @@
 											console.log('row ', row)
 											courseSection.removeClass('template');
 											row.removeClass('template');
-											row.find('td:nth-child(1)').html(a);
+											row.find('td:nth-child(1)').html(a+'.');
 											row.find('td.name').html(person['name']);
 											row.find('td.birth').html(person['birth']);
 											// row.find('td.company_name').html(person['company_name']);
@@ -121,7 +124,7 @@
 											console.log('row ', row)
 											courseSection.removeClass('template');
 											row.removeClass('template');
-											row.find('td:nth-child(1)').html(a);
+											row.find('td:nth-child(1)').html(a+'.');
 											row.find('td.course').html(person['course_name']+ '<span>(OS:' +value['os_time'] + ', AOP:'+ value['aop_time']+ ')</span>');
 											row.find('td.birth').html(person['birth']);
 											// row.find('td.company_name').html(person['company_name']);
@@ -147,6 +150,43 @@
 
 								}
  								$('.search-result').fadeIn();
+
+							} else if(form.hasClass('searchPerson')) {
+								console.log('searchPerson')
+								let result = JSON.parse(data)
+
+								$('.personRow:not(.template)').remove();
+
+								let printWrap = $('#result')
+								$('.searchInput').html(result['name']);
+
+								let courseSection = printWrap.find('.search-section');
+								let a = 1;
+
+								$.each(result['persons'], function( index, person ) {
+									// console.log('row1 ', index)
+										let row = courseSection.find('.template.personRow').clone();
+										row.removeClass('template');
+										row.find('td:nth-child(1)').html(a+'.');
+										row.find('td.name').html(person['name']);
+										row.find('td.company').html(person['company_name']);
+										// row.find('td.company_name').html(person['company_name']);
+										row.find('td.birth').html(person['birth']);
+										row.find('td.address').html(person['address']);
+										row.find('td.occupation').html(person['occupation']);
+										row.find('.no-print a').attr('href', '/Person/update/'+ person['person_id']);
+										courseSection.find('.thbody').append(row);
+										a = a + 1;
+
+
+								});
+
+ 								$('.search-result').fadeIn();
+								form[0].reset();
+								$('html, body').animate({
+									 scrollTop: $("#search-scroll").offset().top -50
+								}, 1000);
+
 							}
 							 else {
 								form[0].reset();

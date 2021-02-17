@@ -13,9 +13,9 @@
 				<div class="row">
 					<div class="col-12 col-12-small ">
 						<div class="d-flex d-flex-center admin-buttons">
-							<a href="./Company/" class="button large">&nbsp;&nbsp;&nbsp;&nbsp;Firmy&nbsp;&nbsp;&nbsp;&nbsp;</a>
-							<a href="/Course/" class="button large">Školenia</a>
-							<a href="/Person/" class="button large">Pridať osobu</a>
+							<a href="./Company/" class="button large">&nbsp;&nbsp;&nbsp;Firmy&nbsp;&nbsp;&nbsp;</a>
+							<a href="/Course/" class="button large">&nbsp;Školenia&nbsp;</a>
+							<a href="/Person/" class="button large">&nbsp;&nbsp;&nbsp;Osoby&nbsp;&nbsp;&nbsp;</a>
 
 						</div>
 						<br>
