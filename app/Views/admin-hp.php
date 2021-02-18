@@ -4,27 +4,22 @@
 
 	<div id="main" class="main">
 		<div class="inner">
-			<header class="major">
+			<header class="major text-center">
 				<h1>Administrácia</h1>
 			</header>
-			<br>
 			<section>
-				<h2>Pridávanie objektov do Databázy</h2>
 				<div class="row">
 					<div class="col-12 col-12-small ">
 						<div class="d-flex d-flex-center admin-buttons">
 							<a href="./Company/" class="button large">&nbsp;&nbsp;&nbsp;Firmy&nbsp;&nbsp;&nbsp;</a>
 							<a href="/Course/" class="button large">&nbsp;Školenia&nbsp;</a>
 							<a href="/Person/" class="button large">&nbsp;&nbsp;&nbsp;Osoby&nbsp;&nbsp;&nbsp;</a>
-
 						</div>
-						<br>
 					</div>
 				</div>
 			</section>
-			<br>
 			<section>
-				<h2>Vyhľadávanie v Databáze</h2>
+				<hr>
 				<div class="row">
 					<div class="col-12 col-12-small">
 						<form class="myform search" action="/AdminHP/search" method="get">

@@ -6,9 +6,7 @@
 		<div class="inner">
 			<header class="major">
 				<h1>Certifikát</h1>
-			</header>
-			<br>
-
+			</header> 
 			<section>
 				<h2>Upraviť certifikát: &nbsp;<u><?=$queri[0]['course_name']?></u>&nbsp; pre: &nbsp;<u><?=$person[0]['name']?></u> </h2>
 				<div class="row">

@@ -23,7 +23,8 @@ class Person extends BaseController
 		$data['company'] = $builder->get()->getResultArray();
 
 		$builder2 = $db->table('person');
-		$builder2->select('occupation');
+		$builder2->select('occupation')->distinct();
+		// var_dump(($builder2));
 		$data['occupation'] = $builder2->get()->getResultArray();
 
 		// var_dump($query[0]['name']);

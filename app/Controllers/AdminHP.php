@@ -145,7 +145,7 @@ class AdminHP extends BaseController
 			foreach ($result as $key => $value) {
 				if($person != $value['person_id']) {
 					$i++;
-					$person = $value['course_id'];
+					$person = $value['person_id'];
 					$data2[$i]['row'][]=($value);
 					$data2[$i]['person']=($value['name']);
 					$data2[$i]['os_time']=($value['os_time']);

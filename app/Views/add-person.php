@@ -55,7 +55,7 @@
 							<hr>
 							<div class="row gtr-uniform">
 								<div class="col-6 col-12-small">
-									<div class="form-group">
+									<div class="form-group"> 
 										<label for="occupation">Druh zamestnania</label>
 										<select name="occupation" id="occupation">
 											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>

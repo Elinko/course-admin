@@ -7,12 +7,10 @@
 			<header class="major">
 				<h1><a href="/Company">Firma</a> </h1>
 			</header>
-			<br>
 			<section>
 				<div class="collapsible">
 					<h2 class="">Upraviť firmu:  <?=$queri[0]['company_name']?>  </h2>
 					<i class="fa fa-chevron-down" aria-hidden="true"></i>
-
 				</div>
 				<div class="content">
 					<div class="row">
@@ -32,13 +30,25 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="ico">IČO</label>
-										<input type="number" class="form-control" value="<?=$queri[0]['ico']?>" name="ico" id="ico" required>
+										<input type="number" class="form-control" value="<?=$queri[0]['ico']?>" name="ico" id="ico" >
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="dic">DIČ</label>
-										<input type="number" class="form-control" value="<?=$queri[0]['dic']?>" name="dic" id="dic" required>
+										<input type="number" class="form-control" value="<?=$queri[0]['dic']?>" name="dic" id="dic" >
+									</div>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<div class="form-group">
+										<label for="ic_dph">IČ DPH</label>
+										<input type="number" class="form-control" value="<?=$queri[0]['ic_dph']?>"  name="ic_dph" id="ic_dph" >
+									</div>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<div class="form-group">
+										<label for="contact_person">Kontaktná osoba</label>
+										<input id="email" type="text" value="<?=$queri[0]['contact_person']?>" name="contact_person" class="form-control">
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">
@@ -57,7 +67,7 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label for="address">Adresa</label>
-										<textarea name="address" id="address" value="<?=$queri[0]['company_address']?>" placeholder="" rows="4"></textarea>
+										<textarea name="address" id="address"  placeholder="" rows="1"><?=$queri[0]['company_address']?></textarea>
 									</div>
 								</div>
 							</div>

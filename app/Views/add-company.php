@@ -7,7 +7,6 @@
 			<header class="major">
 				<h1>Firmy </h1>
 			</header>
-			<br>
 			<section>
 				<div class="collapsible">
 					<h2>Pridať firmu do Databázy</h2>
@@ -30,13 +29,25 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="ico">IČO</label>
-										<input type="number" class="form-control" name="ico" id="ico" required>
+										<input type="number" class="form-control" name="ico" id="ico">
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="dic">DIČ</label>
-										<input type="number" class="form-control" name="dic" id="dic" required>
+										<input type="number" class="form-control" name="dic" id="dic" >
+									</div>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<div class="form-group">
+										<label for="ic_dph">IČ DPH</label>
+										<input type="number" class="form-control" name="ic_dph" id="ic_dph" >
+									</div>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<div class="form-group">
+										<label for="contact_person">Kontaktná osoba</label>
+										<input id="email" type="text" name="contact_person" class="form-control">
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">
@@ -55,7 +66,7 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label for="address">Adresa</label>
-										<textarea name="address" id="address" placeholder="" rows="4"></textarea>
+										<textarea name="address" id="address" placeholder="" rows="1"></textarea>
 									</div>
 								</div>
 								<!-- Break -->
@@ -82,9 +93,11 @@
 							<tr>
 								<th>Meno</th>
 								<th>Telefón</th>
+								<th>K. osoba</th>
 								<th>E-mail</th>
 								<th>IČO</th>
 								<th>DIČ</th>
+								<th>IČ DPH</th>
 								<th>Adresa</th>
 								<th>Upraviť</th>
 								<th>Vymazať</th>
@@ -95,9 +108,11 @@
 								<tr>
 									<td><?= $value['company_name'];  ?></td>
 									<td><?= $value['phone'];  ?></td>
+									<td><?= $value['contact_person'];  ?></td>
 									<td><?= $value['email'];  ?></td>
 									<td><?= $value['ico'];  ?></td>
 									<td><?= $value['dic'];  ?></td>
+									<td><?= $value['ic_dph'];  ?></td>
 									<td><?= $value['company_address'];  ?></td>
 									<td><a href="/Company/update/<?= $value['company_id'];  ?>">Upraviť</a> </td>
 									<td><a href="#" data-toggle="modal" data-id="<?= $value['company_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>

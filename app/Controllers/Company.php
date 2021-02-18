@@ -43,6 +43,8 @@ class Company extends BaseController
 			'company_name' => $this->request->getVar('name'),
 			'ico' => $this->request->getVar('ico'),
 			'dic' => $this->request->getVar('dic'),
+			'contact_person' => $this->request->getVar('contact_person'),
+			'ic_dph' => $this->request->getVar('ic_dph'),
 			'email' => $this->request->getVar('email'),
 			'phone' => $this->request->getVar('phone'),
 			'company_address' => $this->request->getVar('address')
@@ -57,11 +59,12 @@ class Company extends BaseController
 	{
 		$db      = db_connect();
 		$builder = $db->table('company');
-		$data = [
-
+		$data = [ 
 			'company_name' => $this->request->getVar('name'),
 			'ico' => $this->request->getVar('ico'),
 			'dic' => $this->request->getVar('dic'),
+			'contact_person' => $this->request->getVar('contact_person'),
+			'ic_dph' => $this->request->getVar('ic_dph'),
 			'email' => $this->request->getVar('email'),
 			'phone' => $this->request->getVar('phone'),
 			'company_address' => $this->request->getVar('address')

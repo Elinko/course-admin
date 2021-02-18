@@ -6,8 +6,7 @@
 		<div class="inner">
 			<header class="major">
 				<h1>Školenia </h1>
-			</header>
-			<br>
+			</header> 
 			<section>
 				<h2>Pridať školenie do Databázy</h2>
 				<div class="row">

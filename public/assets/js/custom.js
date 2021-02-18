@@ -189,7 +189,10 @@
 
 							}
 							 else {
-								form[0].reset();
+								 setTimeout(function() {
+									 form[0].reset();
+									 location.reload();
+ 								}, 2000);
 							}
 	          },
 	          error: function (data) {

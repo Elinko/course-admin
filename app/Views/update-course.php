@@ -6,8 +6,7 @@
 		<div class="inner">
 			<header class="major">
 				<h1><a href="/Course">Školenia</a> </h1>
-			</header>
-			<br>
+			</header> 
 			<section>
 				<h2>Upraviť školenie <u><?=$queri[0]['course_name']?></u> </h2>
 				<div class="row">

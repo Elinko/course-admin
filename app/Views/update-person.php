@@ -6,8 +6,7 @@
 		<div class="inner">
 			<header class="major">
 				<h1>Zamestnanec</h1>
-			</header>
-			<br>
+			</header> 
 			<section>
 				<div class="collapsible">
 					<h2>Upraviť údaje: <?=$queri[0]['name']?></h2>
