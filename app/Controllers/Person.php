@@ -133,11 +133,6 @@ class Person extends BaseController
 		$builder2 = $db->table('person');
 		 $builder2->delete(['person_id' => $this->request->getVar('person_id')]);
 
-		if($save2) {
-			echo 'succes';
-		} else  {
-			echo 'error';
-		}
 
 		return $this->response->setJSON($save);
 	}
