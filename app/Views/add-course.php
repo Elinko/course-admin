@@ -6,7 +6,7 @@
 		<div class="inner">
 			<header class="major">
 				<h1>Školenia </h1>
-			</header> 
+			</header>
 			<section>
 				<h2>Pridať školenie do Databázy</h2>
 				<div class="row">
@@ -87,7 +87,7 @@
 	        </button>
 	      </div>
 	      <div class="modal-body text-center">
-					<form class="myform deleteCertificate" action="/Course/deleteCourse" method="post" novalidate="novalidate" >
+					<form class="myform" action="/Course/deleteCourse" method="post" novalidate="novalidate" >
 						<input type="hidden" value="" name="course_id" id="delete-certificate_id" required>
 						<h2 class="text-dark">Naozaj chceš odstrániť toto skolenie?</h2>
 						<input type="submit" value="Odstrániť" class="button">

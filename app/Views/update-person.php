@@ -6,7 +6,7 @@
 		<div class="inner">
 			<header class="major">
 				<h1>Zamestnanec</h1>
-			</header> 
+			</header>
 			<section>
 				<div class="collapsible">
 					<h2>Upraviť údaje: <?=$queri[0]['name']?></h2>
@@ -120,7 +120,6 @@
 								<th>AOP</th>
 								<th>Skupina</th>
 								<th>Upraviť</th>
-								<th>Vymazať</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -133,7 +132,6 @@
 									<td><?= $value['aop'];  ?></td>
 									<td><?= $value['types'];  ?></td>
 									<td><a href="/Certificate/update/<?= $value['certificate_id'];  ?>">Upraviť</a> </td>
-									<td><a href="/Certificate/delete/<?= $value['certificate_id'];  ?>">Vymazať</td>
 								</tr>
 							<?php endforeach; ?>
 

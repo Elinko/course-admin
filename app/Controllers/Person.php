@@ -131,7 +131,13 @@ class Person extends BaseController
 		$save = $builder->delete(['person_id' => $this->request->getVar('person_id')]);
 
 		$builder2 = $db->table('person');
-		$save2 = $builder2->delete(['person_id' => $this->request->getVar('person_id')]);
+		 $builder2->delete(['person_id' => $this->request->getVar('person_id')]);
+
+		if($save2) {
+			echo 'succes';
+		} else  {
+			echo 'error';
+		}
 
 		return $this->response->setJSON($save);
 	}

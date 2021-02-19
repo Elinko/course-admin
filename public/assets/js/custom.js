@@ -2,7 +2,7 @@
 	$( ".data-picker" ).datepicker({
      changeMonth: true,
      changeYear: true,
-     yearRange: "1920:2030",
+     yearRange: "1900:2100",
 		 dateFormat: 'yy-mm-dd',
 		 defaultDate: 0
  });
@@ -183,6 +183,7 @@
 
  								$('.search-result').fadeIn();
 								form[0].reset();
+								console.log('repsonsedata ', data)
 								$('html, body').animate({
 									 scrollTop: $("#search-scroll").offset().top -50
 								}, 1000);
@@ -226,6 +227,13 @@
 	$('.to-delete-certificate').on('click', function() {
 		$('#delete-certificate_id').val($(this).attr('data-id'))
 	})
+
+	$('.to-delete-person').on('click', function() {
+		$('#delete-person_id').val($(this).attr('data-id')) 
+		$('.todelete-name').html($(this).attr('data-name'))
+	})
+
+
 
 	// custom collapse
 	var coll = document.getElementsByClassName("collapsible");

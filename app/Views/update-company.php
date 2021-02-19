@@ -113,7 +113,7 @@
 									<td><?= $value['address'];  ?></td>
 									<td><?= $value['occupation'];  ?></td>
 									<td><a href="/Person/update/<?= $value['person_id'];  ?>">Upraviť</a> </td>
-									<td><a href="#" data-toggle="modal" data-id="<?= $value['person_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>
+									<td><a href="#" data-toggle="modal" data-id="<?= $value['person_id'];  ?>" data-name="<?= $value['name'];  ?>" class="to-delete-person" data-target="#delete-person">Vymazať</td>
 
 								</tr>
 							<?php endforeach; ?>
@@ -147,6 +147,26 @@
 	    </div>
 	  </div>
 	</div>
+
+	<div class="modal fade" id="delete-person" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header text-right">
+					 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<form class="myform deletePerson" action="/Person/deletePerson" method="post" novalidate="novalidate" >
+						<input type="hidden" value="" name="person_id" id="delete-person_id">
+						<h2 class="text-dark">Naozaj chceš odstrániť osobu <br> <span class="todelete-name"></span> ?</h2>
+						<input type="submit" value="Odstrániť" class="button">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 <?= $this->include('partials/form-success') ?>
 

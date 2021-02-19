@@ -93,11 +93,11 @@
 							<tr>
 								<th>Meno</th>
 								<th>Telefón</th>
-								<th>K. osoba</th>
+								<th>K.&nbsp;osoba</th>
 								<th>E-mail</th>
 								<th>IČO</th>
 								<th>DIČ</th>
-								<th>IČ DPH</th>
+								<th>IČ&nbsp;DPH</th>
 								<th>Adresa</th>
 								<th>Upraviť</th>
 								<th>Vymazať</th>

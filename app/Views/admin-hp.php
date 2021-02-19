@@ -114,7 +114,7 @@
 											<table>
 												<thead>
 													<tr>
-														<th>Č.</th>
+														<th>P.č.</th>
 														<th>Meno</th>
 														<th>Narodenie</th>
 														<!-- <th>Firma</th> -->
@@ -159,7 +159,7 @@
 											<table>
 												<thead>
 													<tr>
-														<th>Č.</th>
+														<th>P.č.</th> 
 														<th>Školenie</th>
 														<th>Narodenie</th>
 														<!-- <th>Firma</th> -->
