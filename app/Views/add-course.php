@@ -24,7 +24,7 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="os_time">Doba trvania OS</label>
-										<input type="text" class="form-control" name="os_time" id="os_time" required>
+										<input type="text" class="form-control" name="os_time" id="os_time">
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">

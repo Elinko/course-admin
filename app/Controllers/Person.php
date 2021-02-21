@@ -4,14 +4,37 @@
 class Person extends BaseController
 {
 
-
-	public function index($id = null)
+	public function index($id =null )
 	{
-
 		if ((session()->get('loggedIn')) == null) {
 			return redirect()->to('/Home');
 		}
 
+		$db = db_connect();
+		$builder = $db->table('company');
+		$builder->select('company_name, company_id');
+
+		$builder3 = $db->table('company')->getWhere(['company_id' =>$id])->getResultArray();;
+
+		$data['current_company'] = $builder3;
+
+		$data['company'] = $builder->get()->getResultArray();
+
+		$builder2 = $db->table('person');
+		$builder2->select('occupation')->distinct();
+		// var_dump(($builder2));
+		$data['occupation'] = $builder2->get()->getResultArray();
+
+		// var_dump($query[0]['name']);
+		return view('add-person', $data);
+	}
+
+	public function indexCompany($id =null  )
+	{
+		if ((session()->get('loggedIn')) == null) {
+			return redirect()->to('/Home');
+		}
+ 
 		$db = db_connect();
 		$builder = $db->table('company');
 		$builder->select('company_name, company_id');

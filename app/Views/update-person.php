@@ -23,7 +23,7 @@
 						 <div class="row gtr-uniform">
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
-										<label for="name">Meno</label>
+										<label for="name">Meno priezvisko</label>
 										<input type="text" class="form-control" name="name" value="<?=$queri[0]['name']?>" id="name" required>
 									</div>
 								</div>
@@ -74,7 +74,7 @@
 											<div class="col-8">
 												<input type="text" class="form-control" name="occupation-type" id="add-occupation-type-input" >
 											</div>
-											<div class="col-4">
+											<div class="col-4 actions">
 												<input type="button" class="primary small" id="add-occupation-type" name="" value="Pridať">
 											</div>
 										</div>
@@ -88,7 +88,7 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label for="address">Adresa</label>
-										<textarea name="address" id="address" placeholder="" rows="4"><?= $queri[0]['address']  ?></textarea>
+										<textarea name="address" id="address" placeholder="" rows="1"><?= $queri[0]['address']  ?></textarea>
 									</div>
 								</div>
 								<!-- Break -->

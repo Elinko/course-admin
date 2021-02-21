@@ -1,11 +1,17 @@
 (function($) {
-	$( ".data-picker" ).datepicker({
-     changeMonth: true,
-     changeYear: true,
-     yearRange: "1900:2100",
-		 dateFormat: 'yy-mm-dd',
-		 defaultDate: 0
- });
+	// $( ".data-picker" ).datepicker({
+ //     // changeMonth: true,
+ //     changeYear: true,
+ //     // yearRange: "1900:2100",
+ //
+	// 	 dateFormat: 'dd-mm-yy',
+	// 	 defaultDate: 0
+ // });
+
+ $(".data-picker").datepicker({
+	 startView: 2
+	 })
+
 
 	$('.myform').submit(function (e) {
 	    let form = $(this)
@@ -229,7 +235,7 @@
 	})
 
 	$('.to-delete-person').on('click', function() {
-		$('#delete-person_id').val($(this).attr('data-id')) 
+		$('#delete-person_id').val($(this).attr('data-id'))
 		$('.todelete-name').html($(this).attr('data-name'))
 	})
 
@@ -251,7 +257,9 @@
 	  });
 	}
 
+
 })(jQuery);
+
 
 function printDiv(divName) {
 	 var printContents = document.getElementById(divName).innerHTML;

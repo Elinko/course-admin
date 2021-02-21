@@ -2597,6 +2597,12 @@ input, select, textarea {
 			font-size: 0.6em;
 		}
 
+		.button.smallest {
+			height: 2.25em;
+			line-height: 1em;
+	    padding: 0 1.0em;
+		}
+
 		input[type="submit"].large,
 		input[type="reset"].large,
 		input[type="button"].large,

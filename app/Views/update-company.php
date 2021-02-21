@@ -73,7 +73,7 @@
 							</div>
 							<div class="row gtr-uniform">
 								<!-- Break -->
-								<div class="col-6 col-12-xsmall">
+								<div class="col-6 col-12-xsmall actions">
 									<br>
 									<input type="submit" value="Upraviť" class="primary large">
 								</div>
@@ -122,7 +122,7 @@
 					</table>
 				</div>
 				<div class="col-12 text-center">
-					<a href="/Person/index/<?=$queri[0]['company_id']?>" class="button primary">Pridať zamestnanca</a>
+					<a href="/Person/indexCompany/<?=$queri[0]['company_id']?>" class="button primary">Pridať zamestnanca</a>
 				</div>
 			</section>
 		</div>
@@ -141,7 +141,9 @@
 					<form class="myform deleteCompany" action="/Company/deleteCompany" method="post" novalidate="novalidate" >
 						<input type="hidden" value="" name="company_id" id="delete-certificate_id" required>
 						<h2 class="text-dark">Naozaj chceš odstrániť túto firmu?</h2>
-						<input type="submit" value="Odstrániť" class="button">
+						<div class="actions">
+							<input type="submit" value="Odstrániť" class="button">
+						</div>
 					</form>
 	      </div>
 	    </div>
@@ -160,7 +162,10 @@
 					<form class="myform deletePerson" action="/Person/deletePerson" method="post" novalidate="novalidate" >
 						<input type="hidden" value="" name="person_id" id="delete-person_id">
 						<h2 class="text-dark">Naozaj chceš odstrániť osobu <br> <span class="todelete-name"></span> ?</h2>
-						<input type="submit" value="Odstrániť" class="button">
+						<div class="actions">
+							<input type="submit" value="Odstrániť" class="button">
+						</div>
+						
 					</form>
 				</div>
 			</div>

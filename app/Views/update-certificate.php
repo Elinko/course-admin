@@ -6,7 +6,7 @@
 		<div class="inner">
 			<header class="major">
 				<h1>Certifikát</h1>
-			</header> 
+			</header>
 			<section>
 				<h2>Upraviť certifikát: &nbsp;<u><?=$queri[0]['course_name']?></u>&nbsp; pre: &nbsp;<u><?=$person[0]['name']?></u> </h2>
 				<div class="row">
@@ -47,7 +47,7 @@
 							</div>
 							<div class="row  ">
 								<!-- Break -->
-								<div class="col-6 col-12-xsmall">
+								<div class="col-6 col-12-xsmall actions">
 									<br>
 									<input type="submit" value="Upraviť" class="primary large">
 								</div>
@@ -117,7 +117,9 @@
 					<form class="myform deleteCertificate" action="/Certificate/deleteCertificate" data-person="<?=$person[0]['person_id']?>"  method="post" novalidate="novalidate" >
 						<input type="hidden" value="" name="certificate_id" id="delete-certificate_id" required>
 						<h2 class="text-dark">Naozaj chceš odstrániť tento certifikát?</h2>
-						<input type="submit" value="Odstrániť" class="button">
+						<div class="actions">
+							<input type="submit" value="Odstrániť" class="button">
+						</div>
 					</form>
 	      </div>
 	    </div>

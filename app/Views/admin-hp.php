@@ -73,7 +73,7 @@
 								</div>
 							</div>
 							<div class="col-4 col-12-medium">
-								<div class="form-group">
+								<div class="form-group actions">
 									<br>
 									<input type="submit" value="Vyhľadať" class="primary large">
 								</div>
@@ -115,7 +115,7 @@
 												<thead>
 													<tr>
 														<th>P.č.</th>
-														<th>Meno</th>
+														<th>Meno priezvisko</th>
 														<th>Narodenie</th>
 														<!-- <th>Firma</th> -->
 														<th>EV</th>
@@ -159,7 +159,7 @@
 											<table>
 												<thead>
 													<tr>
-														<th>P.č.</th> 
+														<th>P.č.</th>
 														<th>Školenie</th>
 														<th>Narodenie</th>
 														<!-- <th>Firma</th> -->

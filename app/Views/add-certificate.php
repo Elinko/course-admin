@@ -6,7 +6,7 @@
 		<div class="inner">
 			<header class="major">
 				<h1>Certifikát</h1>
-			</header> 
+			</header>
 			<section>
 				<h2>Pridať certifikát pre: <u><?=$person[0]['name']?></u> </h2>
 				<div class="row">
@@ -37,7 +37,7 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="os">OS</label>
-										<input type="text" name="os" id="os"  class="form-control data-picker" required>
+										<input type="text" name="os" id="os"  class="form-control data-picker">
 									</div>
 								</div>
 								<div class="col-6 col-12-xsmall">
@@ -55,7 +55,7 @@
 							</div>
 							<div class="row gtr-uniform">
 								<!-- Break -->
-								<div class="col-12">
+								<div class="col-12 actions">
 									<br>
 									<input type="submit" value="Pridať" class="primary">
 								</div>

@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/css/bootstrap.min.css" />
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/main.css?v1.13" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/datepicker.css?v1.13" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css?v1.13" />
 		<noscript><link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/noscript.css" /></noscript>
 		<meta name="robots" content="noindex">
@@ -77,9 +78,10 @@
 			<script src="<?php echo base_url(); ?>/assets/js/browser.min.js"></script>
 			<script src="<?php echo base_url(); ?>/assets/js/breakpoints.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/js/bootstrap.min.js" async></script>
-			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+			<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 			<script src="<?php echo base_url(); ?>/assets/js/util.js"></script>
 			<script src="<?php echo base_url(); ?>/assets/js/main.js"></script>
+			<script src="<?php echo base_url(); ?>/assets/js/datepicker.min.js"></script>
 			<script src="<?php echo base_url(); ?>/assets/js/custom.js?v1.12"></script>
 
 

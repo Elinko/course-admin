@@ -7,14 +7,13 @@
 			<header class="major">
 				<h1>Osoby</h1>
 			</header>
-			<br>
 			<section>
-				<div class="collapsible">
+				<div class="collapsible <?php if(isset($current_company[0])) {echo 'active';} ?>">
 					<h2>Pridať osobu do Databázy</h2>
 					<i class="fa fa-chevron-down" aria-hidden="true"></i>
 
 				</div>
-				<div class="content">
+				<div class="content" <?php if(isset($current_company[0])){echo 'style="display:block"';} ?>>
 					<div class="row">
 					<div class="col-1">
 					</div>
@@ -23,16 +22,18 @@
 						 <div class="row gtr-uniform">
 								<div class="col-6 col-12-small">
 									<div class="form-group">
-										<label for="name">Meno</label>
+										<label for="name">Meno priezvisko</label>
 										<input type="text" class="form-control" name="name" id="name" required>
 									</div>
 								</div>
 								<div class="col-6 col-12-small">
 									<div class="form-group">
 										<label for="birth">Dátum narodenia</label>
-										<input type="text" name="birth" id="birth" required class="form-control data-picker">
+										<input type="text" name="birth" id="birth" required data-toggle="datepicker" class="form-control data-picker">
 									</div>
 								</div>
+
+
 								<div class="col-12 col-12-small">
 									<div class="form-group">
 										<label for="company_id">Firma</label>
@@ -41,7 +42,7 @@
 											<?php foreach ($company as $key => $value): ?>
 												<?php if(isset($current_company[0])): ?>
 													<?php if($value['company_id'] == $current_company[0]['company_id']): ?>
-														<option selected value="<?= $value['company_id'] ?>"><?= $value['name'] ?></option>
+														<option selected value="<?= $value['company_id'] ?>"><?= $value['company_name'] ?></option>
 													<?php endif; ?>
 
 												<?php else: ?>
@@ -55,7 +56,7 @@
 							<hr>
 							<div class="row gtr-uniform">
 								<div class="col-6 col-12-small">
-									<div class="form-group"> 
+									<div class="form-group">
 										<label for="occupation">Druh zamestnania</label>
 										<select name="occupation" id="occupation">
 											<option selected="true" disabled="disabled">Vyber zo zoznamu</option>
@@ -66,14 +67,18 @@
 									</div>
 								</div>
 								<div class="col-6 col-12-small">
-									<div class="form-group">
-										<label for="occupation-type">alebo Pridať</label>
-										<div class="row gtr-uniform">
-											<div class="col-8 col-12-medium">
+									<div class="row">
+										<div class="col-8 col-12-medium">
+											<div class="form-group">
+												<label for="occupation-type">alebo Pridať</label>
 												<input type="text" class="form-control" name="occupation-type" id="add-occupation-type-input" >
 											</div>
-											<div class="col-4 col-12-medium">
-												<input type="button" class="primary small" id="add-occupation-type" name="" value="Pridať">
+										</div>
+										<div class="col-4 col-12-medium">
+											<div class="form-group">
+												<label for="occupation-type">&nbsp; </label>
+
+												<input type="button" class="button small smallest" id="add-occupation-type" name="" value="Pridať">
 											</div>
 										</div>
 									</div>
@@ -86,13 +91,13 @@
 								<div class="col-12">
 									<div class="form-group">
 										<label for="address">Adresa</label>
-										<textarea name="address" id="address" placeholder="" rows="4"></textarea>
+										<textarea name="address" id="address" placeholder="" rows="1"></textarea>
 									</div>
 								</div>
 								<!-- Break -->
 								<div class="col-12">
 									<ul class="actions">
-										<li><input type="submit" value="Pridať" class="primary"></li>
+										<li><input type="submit" value="Pridať osobu" class="primary"></li>
 									</ul>
 								</div>
 							</div>
@@ -160,8 +165,8 @@
 											<table>
 												<thead>
 													<tr>
-														<th>Č.</th>
-														<th>Meno</th>
+														<th>P.č.</th>
+														<th>Meno priezvisko</th>
 														<th>Firma</th>
 														<th>Narodenie</th>
 														<th>Adresa</th>
