@@ -116,8 +116,8 @@
 							<tr>
 								<th>Meno kurzu</th>
 								<th>Ev. číslo</th>
-								<th>OS</th>
-								<th>AOP</th>
+								<th class="time">Posl.&nbsp;OS</th>
+								<th class="time">Posl.&nbsp;AOP</th>
 								<th>Skupina</th>
 								<th>Upraviť</th>
 							</tr>

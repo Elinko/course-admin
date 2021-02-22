@@ -114,14 +114,14 @@
 											<table>
 												<thead>
 													<tr>
-														<th>P.č.</th>
+														<th class="pc">P.č.</th>
 														<th>Meno&nbsp;priezvisko</th>
-														<th>Dát.&nbsp;nar.</th>
+														<th class="time">Dát.&nbsp;nar.</th>
 														<!-- <th>Firma</th> -->
 														<th>EV</th>
 														<th>Skupina</th>
-														<th>Posl.&nbsp;OS</th>
-														<th>Posl.&nbsp;AOP</th>
+														<th class="time">Posl.&nbsp;OS</th>
+														<th class="time">Posl.&nbsp;AOP</th>
 														<th class="no-print">Zmena</th>
 													</tr>
 												</thead>
@@ -159,14 +159,13 @@
 											<table>
 												<thead>
 													<tr>
-														<th>P.č.</th>
+														<th class="pc">P.č.</th>
 														<th>Školenie</th>
-														<th>Dát.&nbsp;nar.</th>
-														<!-- <th>Firma</th> -->
+														<th class="time">Dát.&nbsp;nar.</th>
 														<th>EV.</th>
 														<th>Skupina</th>
-														<th>Posl.&nbsp;OS</th>
-														<th>Posl.&nbsp;AOP</th>
+														<th class="time">Posl.&nbsp;OS</th>
+														<th class="time">Posl.&nbsp;AOP</th>
 														<th class="no-print">Zmena</th>
 													</tr>
 												</thead>
@@ -175,7 +174,6 @@
 														<td>1</td>
 														<td class="course">meno kurzu</td>
 														<td class="birth">2020-12-11</td>
-														<!-- <td class="company_name">firmaa</td> -->
 														<td class="evidence_num">ge98</td>
 														<td class="types">b</td>
 														<td class="os">2020-12-11 </td>

@@ -98,7 +98,7 @@
 						<thead>
 							<tr>
 								<th>Meno</th>
-								<th>Narodenie</th>
+								<th class="time">Dát.&nbsp;nar.</th>
 								<th>Adresa</th>
 								<th>Zamestnanie</th>
 								<th>Upraviť</th>

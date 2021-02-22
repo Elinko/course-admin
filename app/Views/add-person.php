@@ -165,10 +165,10 @@
 											<table>
 												<thead>
 													<tr>
-														<th>P.č.</th>
+														<th class="pc">P.č.</th>
 														<th>Meno priezvisko</th>
 														<th>Firma</th>
-														<th>Narodenie</th>
+														<th class="time">Dát.&nbsp;nar.</th>
 														<th>Adresa</th>
 														<th>Zamestnanie</th>
 														<th class="no-print">Detaily</th>

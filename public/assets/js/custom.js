@@ -11,8 +11,11 @@
  $(".data-picker").datepicker({
 	 startView: 2,
 	 format: 'dd-mm-yyyy'
-	 })
+ })
 
+ window.onafterprint=function(){
+   location.reload(); 
+}
 
 	$('.myform').submit(function (e) {
 	    let form = $(this)

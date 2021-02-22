@@ -182,6 +182,11 @@ table th.time {
   min-width: 125px;
 }
 
+table th.pc {
+  min-width: 40px;
+  max-width: 40px;
+}
+
 @media print {
   .course-section, table, .table-wrapper {
     overflow: hidden;
