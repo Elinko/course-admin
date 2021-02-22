@@ -10,19 +10,20 @@ class AdminHP extends BaseController
 		}
 
 		$db = db_connect();
+		$company = $db->table('company');
+		$data['company'] =  $company->orderBy('company_name', 'ASC')->get()->getResultArray();
 
-		$company = $db->query("SELECT company_id, company_name FROM company");
-		$data['company'] =  $company->getResultArray();
-
-		$course = $db->table('course')->orderBy('course_id', 'ASC');
+		$course = $db->table('course')->orderBy('course_name', 'ASC');
 
 		// $course = $db->query("SELECT course_id, name FROM course")->orderBy('course_id', 'DESC');
 		// $data['course'] =  $course->getResultArray();
 		$data['course'] =  $course->get()->getResultArray();
 
 
-		$occupation = $db->query("SELECT DISTINCT  occupation FROM person");
-		$data['occupation'] =  $occupation->getResultArray();
+		$builder2 = $db->table('person');
+		$builder2->select('occupation')->distinct()->orderBy('occupation', 'ASC');
+		// var_dump(($builder2));
+		$data['occupation'] = $builder2->get()->getResultArray();
 
 
 		// var_dump($query[0]['name']);

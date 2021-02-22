@@ -119,7 +119,7 @@
 														<th class="time">Dát.&nbsp;nar.</th>
 														<!-- <th>Firma</th> -->
 														<th>EV</th>
-														<th>Skupina</th>
+														<th class="types">Skupina</th>
 														<th class="time">Posl.&nbsp;OS</th>
 														<th class="time">Posl.&nbsp;AOP</th>
 														<th class="no-print">Zmena</th>
@@ -127,13 +127,13 @@
 												</thead>
 												<tbody class="thbody">
 													<tr class="template personRow">
-														<td>1</td>
+														<td class="pc">1</td>
 														<td class="name">Jozekoooo</td>
 														<td class="birth">2020-12-11</td>
 														<!-- <td class="company_name">firmaa</td> -->
 														<td class="evidence_num">ge98</td>
 														<td class="types">b</td>
-														<td class="os">2020-12-11 </td>
+														<td class="os ">2020-12-11 </td>
 														<td class="aop">2020-12-11 </td>
 														<td  class="no-print"><a href="" target="_blank">Upraviť</a> </td>
 													</tr>
@@ -171,7 +171,7 @@
 												</thead>
 												<tbody class="thbody">
 													<tr class="template personRow">
-														<td>1</td>
+														<td class="pc">1</td>
 														<td class="course">meno kurzu</td>
 														<td class="birth">2020-12-11</td>
 														<td class="evidence_num">ge98</td>

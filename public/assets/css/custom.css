@@ -178,13 +178,24 @@ input {
   margin-bottom: 0!important;
 }
 
-table th.time {
-  min-width: 125px;
+table th, table td {
+  min-width: 145px;
+  max-width: 145px;
 }
 
-table th.pc {
-  min-width: 40px;
-  max-width: 40px;
+/* table th.time {
+  min-width: 125px;
+} */
+
+table th.pc, table td.pc {
+  min-width: 40px!important;
+  max-width: 40px!important;
+}
+
+table th.types, table td.types {
+  min-width: 250px;
+  max-width: 250px;
+
 }
 
 @media print {
