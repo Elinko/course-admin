@@ -78,9 +78,9 @@ class AdminHP extends BaseController
 			$course='';
 			$i=-1;
 			foreach ($result as $key => $value) {
-				$value['os'] = date("d-m-Y", strtotime($value['os']));
-				$value['aop'] = date("d-m-Y", strtotime($value['aop']));
-				$value['birth'] = date("d-m-Y", strtotime($value['birth']));
+				$value['os'] = formatTimePrint($value['os']);
+				$value['aop'] = formatTimePrint($value['aop']);
+				$value['birth'] = formatTimePrint($value['birth']);
 
 				if($course != $value['course_id']) {
 					$i++;
@@ -105,8 +105,8 @@ class AdminHP extends BaseController
 				$result2['count_company'] = 0;
 
 			}
-			$result2['generatedUntil'] = $data['date-to'];
-			$result2['today'] = date("Y-m-d");
+			$result2['generatedUntil'] = formatTimePrint($data['date-to']);
+			$result2['today'] = date("d-m-Y");
 			$result2['type'] = $data['sort'];
 			$result2['data'] = $data2;
 
@@ -151,9 +151,9 @@ class AdminHP extends BaseController
 
 			foreach ($result as $key => $value) {
 
-				$value['birth'] = date("d-m-Y", strtotime($value['birth']));
-				$value['os'] = date("d-m-Y", strtotime($value['os']));
-				$value['aop'] = date("d-m-Y", strtotime($value['aop']));
+				$value['os'] = formatTimePrint($value['os']);
+				$value['aop'] = formatTimePrint($value['aop']);
+				$value['birth'] = formatTimePrint($value['birth']);
 
 				if($person != $value['person_id']) {
 					$i++;
@@ -171,7 +171,7 @@ class AdminHP extends BaseController
 			}
 
 			// var_dump($data);
-			$result2['generatedUntil'] = $data['date-to'];
+			$result2['generatedUntil'] = formatTimePrint($data['date-to']);
 			$result2['today'] = date("Y-m-d");
 			$result2['type'] = $data['sort'];
 			// $result2['count_company'] = count($data['company_id']);

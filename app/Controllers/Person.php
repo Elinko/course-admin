@@ -60,11 +60,13 @@ class Person extends BaseController
 		$builder = $db->table('person');
 		$data = [
 			'name' => $this->request->getVar('name'),
-			'birth' => date("Y-m-d", strtotime($this->request->getVar('birth'))),
+			'birth' => $this->request->getVar('birth'),
 			'occupation' => $this->request->getVar('occupation'),
 			'address' => $this->request->getVar('address'),
 			'company_id' => $this->request->getVar('company_id'),
 		];
+
+		$data['birth'] = formatTimePrint($data['birth']);
 
 		$save = $builder->insert($data);
 
@@ -103,10 +105,8 @@ class Person extends BaseController
 			$data['certificate'][$key] += $builder4[0];
 		}
 
-		foreach ($data['certificate'] as $key => $value) {
-			$value['os'] = date("d-m-Y", strtotime($value['os']));
-			$value['aop'] = date("d-m-Y", strtotime($value['aop']));
-		}
+		$data['certificate'] = cleanCertificatePrint($data['certificate']);
+
 
 		return view('update-person', $data);
 
@@ -129,7 +129,7 @@ class Person extends BaseController
 									->get()->getResultArray();
 
 		foreach ($builder as $key => $value) {
-			$value['birth'] = date("Y-m-d", strtotime($value['birth']));
+		 $builder[$key]['birth'] = formatTimePrint($builder[$key]['birth']);
 		}
 
 		$data['persons'] =  $builder;
@@ -147,11 +147,14 @@ class Person extends BaseController
 		$data = [
 			'person_id' => $this->request->getVar('person_id'),
 			'name' => $this->request->getVar('name'),
-			'birth' =>date("Y-m-d", strtotime($this->request->getVar('birth'))),
+			'birth' => $this->request->getVar('birth'),
 			'occupation' => $this->request->getVar('occupation'),
 			'address' => $this->request->getVar('address'),
 			'company_id' => $this->request->getVar('company_id')
 		];
+
+		$data['birth'] = formatTimeDatabase($data['birth']);
+
 
 		$save = $builder->replace($data);
 		return $this->response->setJSON($save);
@@ -165,8 +168,7 @@ class Person extends BaseController
 		$save = $builder->delete(['person_id' => $this->request->getVar('person_id')]);
 
 		$builder2 = $db->table('person');
-		 $builder2->delete(['person_id' => $this->request->getVar('person_id')]);
-
+		$builder2->delete(['person_id' => $this->request->getVar('person_id')]);
 
 		return $this->response->setJSON($save);
 	}

@@ -178,7 +178,8 @@ input {
   margin-bottom: 0!important;
 }
 
-@media(max-width: 992px ) {
+table th.time {
+  min-width: 125px;
 }
 
 @media print {
@@ -218,15 +219,6 @@ input {
   td {
     border-bottom: 0.5px solid #686868;
   }
-
-  /* thead tr {
-    border-bottom: 1px solid #000;
-  } */
-
-
-  /* table td {
-    border-bottom: 1px solid #686868;
-  } */
 
 }
 

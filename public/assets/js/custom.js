@@ -64,7 +64,12 @@
 								$('#form-success .add-company').hide();
 								$('#form-success .add-person').hide();
 								$('#form-success .update-person').show();
-								form[0].reset();
+
+                setTimeout(function() {
+                  form[0].reset();
+                  location.reload();
+               }, 3000);
+
 
 							} else if(form.hasClass('search')) {
 								let result = JSON.parse(data)
