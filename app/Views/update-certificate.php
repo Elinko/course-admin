@@ -13,7 +13,7 @@
 					<div class="col-1">
 					</div>
 					<div class="col-10 col-12-small">
-					 <form class="myform update" action="/Certificate/updateCertificate"  method="post" novalidate="novalidate" >
+					 <form class="myform update" autocomplete="off" action="/Certificate/updateCertificate"  method="post" novalidate="novalidate" >
 						 <input type="hidden" value="<?=$queri[0]['certificate_id']?>" name="certificate_id" id="certificate_id" required>
 						 <input type="hidden" value="<?=$queri[0]['person_id']?>" name="person_id" id="person_id" required>
 						 <input type="hidden" value="<?=$queri[0]['course_id']?>" name="course_id" id="course_id" required>

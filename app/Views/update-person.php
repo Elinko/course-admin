@@ -17,7 +17,7 @@
 					<div class="col-1">
 					</div>
 					<div class="col-10 col-12-small">
-					 <form class="myform update" action="/Person/updatePerson"  method="post" novalidate="novalidate" >
+					 <form class="myform update" action="/Person/updatePerson" autocomplete="off"  method="post" novalidate="novalidate" >
 						 <input type="hidden" value="<?=$queri[0]['person_id']?>" name="person_id" id="person_id" required>
 
 						 <div class="row gtr-uniform">

@@ -36,8 +36,8 @@ class AdminHP extends BaseController
 			'company_id' => $this->request->getVar('company_id'),
 			'course_id' => $this->request->getVar('course_id'),
 			'occupation' => $this->request->getVar('occupation'),
-			'date-from' => $this->request->getVar('date-from'),
-			'date-to' => $this->request->getVar('date-to'),
+			'date-from' => date("Y-m-d", strtotime($this->request->getVar('date-from'))),
+			'date-to' => date("Y-m-d", strtotime($this->request->getVar('date-to'))),
 			'sort' => $this->request->getVar('sort')
 		];
 
@@ -69,7 +69,8 @@ class AdminHP extends BaseController
 			$builder->where(['os >' => $data['date-from']])
 							->where(['os <' => $data['date-to']])
 							// ->orderBy('company.company_id')
-							->orderBy('course.course_id');
+							->orderBy('course.course_id')
+							->orderBy('name', 'ASC');
 
 			$result = $builder->get()->getResultArray();
 
@@ -77,12 +78,16 @@ class AdminHP extends BaseController
 			$course='';
 			$i=-1;
 			foreach ($result as $key => $value) {
+				$value['os'] = date("d-m-Y", strtotime($value['os']));
+				$value['aop'] = date("d-m-Y", strtotime($value['aop']));
+				$value['birth'] = date("d-m-Y", strtotime($value['birth']));
+
 				if($course != $value['course_id']) {
 					$i++;
 					$course = $value['course_id'];
 					$data2[$i]['row'][]=($value);
 					$data2[$i]['course']=($value['course_name']);
-					$data2[$i]['os_time']=($value['os_time']);
+					$data2[$i]['os_time']=$value['os_time'];
 					$data2[$i]['aop_time']=($value['aop_time']);
 				} else {
 					$data2[$i]['row'][]=($value);
@@ -134,7 +139,9 @@ class AdminHP extends BaseController
 			$builder->where(['os >' => $data['date-from']])
 							->where(['os <' => $data['date-to']])
 							->orderBy('company.company_id')
+							->orderBy('person.name', 'ASC')
 							->orderBy('person.person_id');
+
 
 			$result = $builder->get()->getResultArray();
 
@@ -143,6 +150,11 @@ class AdminHP extends BaseController
 			$i=-1;
 
 			foreach ($result as $key => $value) {
+
+				$value['birth'] = date("d-m-Y", strtotime($value['birth']));
+				$value['os'] = date("d-m-Y", strtotime($value['os']));
+				$value['aop'] = date("d-m-Y", strtotime($value['aop']));
+
 				if($person != $value['person_id']) {
 					$i++;
 					$person = $value['person_id'];

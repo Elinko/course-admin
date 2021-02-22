@@ -18,7 +18,7 @@
 					<div class="col-1">
 					</div>
 					<div class="col-10 col-12-small">
-					 <form class="myform addPerson" action="/Person/addPerson"  method="post" novalidate="novalidate" >
+					 <form class="myform addPerson" autocomplete="off" action="/Person/addPerson"  method="post" novalidate="novalidate" >
 						 <div class="row gtr-uniform">
 								<div class="col-6 col-12-small">
 									<div class="form-group">

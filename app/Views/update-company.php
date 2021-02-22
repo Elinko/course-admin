@@ -17,7 +17,7 @@
 					<div class="col-1">
 					</div>
 					<div class="col-10 col-12-small">
-					 <form class="myform update" action="/Company/updateCompany"  method="post" novalidate="novalidate" >
+					 <form class="myform update" autocomplete="off" action="/Company/updateCompany"  method="post" novalidate="novalidate" >
 						 <input type="hidden" value="<?=$queri[0]['company_id']?>" name="company_id" id="company_id" required>
 
 						 <div class="row gtr-uniform">
@@ -165,7 +165,7 @@
 						<div class="actions">
 							<input type="submit" value="Odstrániť" class="button">
 						</div>
-						
+
 					</form>
 				</div>
 			</div>

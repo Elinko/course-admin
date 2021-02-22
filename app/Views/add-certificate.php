@@ -13,7 +13,7 @@
 					<div class="col-1">
 					</div>
 					<div class="col-10 col-12-small">
-					 <form class="myform update" action="/Certificate/addCertificate"  method="post" novalidate="novalidate" >
+					 <form class="myform update"  autocomplete="off" action="/Certificate/addCertificate"  method="post" novalidate="novalidate" >
 						 <input type="hidden" value="<?=$person[0]['person_id']?>" name="person_id" id="person_id" required>
 
 						 <div class="row gtr-uniform">

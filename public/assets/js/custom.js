@@ -9,7 +9,8 @@
  // });
 
  $(".data-picker").datepicker({
-	 startView: 2
+	 startView: 2,
+	 format: 'dd-mm-yyyy'
 	 })
 
 
@@ -88,7 +89,7 @@
 										let a = 1;
 										$.each(value['row'], function( index2, person ) {
 											let row = courseSection.find('.template.personRow').clone();
-											console.log('row ', row)
+											// console.log('row ', row)
 											courseSection.removeClass('template');
 											row.removeClass('template');
 											row.find('td:nth-child(1)').html(a+'.');
@@ -127,7 +128,7 @@
 										let a = 1;
 										$.each(value['row'], function( index2, person ) {
 											let row = courseSection.find('.template.personRow').clone();
-											console.log('row ', row)
+											// console.log('row ', row)
 											courseSection.removeClass('template');
 											row.removeClass('template');
 											row.find('td:nth-child(1)').html(a+'.');
@@ -158,7 +159,7 @@
  								$('.search-result').fadeIn();
 
 							} else if(form.hasClass('searchPerson')) {
-								console.log('searchPerson')
+								// console.log('searchPerson')
 								let result = JSON.parse(data)
 
 								$('.personRow:not(.template)').remove();
@@ -189,7 +190,7 @@
 
  								$('.search-result').fadeIn();
 								form[0].reset();
-								console.log('repsonsedata ', data)
+								// console.log('repsonsedata ', data)
 								$('html, body').animate({
 									 scrollTop: $("#search-scroll").offset().top -50
 								}, 1000);
@@ -204,7 +205,7 @@
 	          },
 	          error: function (data) {
 							$('#form-failed').modal('show');
-	            console.log(data.message)
+	            // console.log(data.message)
 	          }
 	      });
 	    }else {

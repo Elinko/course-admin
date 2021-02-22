@@ -34,7 +34,8 @@ class Certificate extends BaseController
 		$data['person'] = $builder2->getWhere(['person_id' => $queri_id])->getResultArray();
 
 		$builder3 = $db->table('certificate');
-		$builder3->getWhere(['person_id' =>$queri_id]);
+		$builder3->where(['person_id' =>$queri_id]);
+
 		$data['certificate'] = $builder3->join('course', 'certificate.course_id = course.course_id ', 'inner')->get()->getResultArray();
 
 
@@ -74,8 +75,8 @@ class Certificate extends BaseController
 			'person_id' => $this->request->getVar('person_id'),
 			'course_id' => $this->request->getVar('course_id'),
 			'evidence_num' => $this->request->getVar('evidence_num'),
-			'os' => $this->request->getVar('os'),
-			'aop' => $this->request->getVar('aop'),
+			'os' => date("Y-m-d", strtotime($this->request->getVar('os'))) ,
+			'aop' => date("Y-m-d", strtotime($this->request->getVar('aop'))) ,
 			'types' => $this->request->getVar('types')
 		];
 
@@ -92,8 +93,8 @@ class Certificate extends BaseController
 			'person_id' => $this->request->getVar('person_id'),
 			'course_id' => $this->request->getVar('course_id'),
 			'evidence_num' => $this->request->getVar('evidence_num'),
-			'os' => $this->request->getVar('os'),
-			'aop' => $this->request->getVar('aop'),
+			'os' => date("Y-m-d", strtotime($this->request->getVar('os'))) ,
+			'aop' => date("Y-m-d", strtotime($this->request->getVar('aop'))) ,
 			'types' => $this->request->getVar('types')
 		];
 

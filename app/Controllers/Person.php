@@ -34,7 +34,7 @@ class Person extends BaseController
 		if ((session()->get('loggedIn')) == null) {
 			return redirect()->to('/Home');
 		}
- 
+
 		$db = db_connect();
 		$builder = $db->table('company');
 		$builder->select('company_name, company_id');
@@ -60,7 +60,7 @@ class Person extends BaseController
 		$builder = $db->table('person');
 		$data = [
 			'name' => $this->request->getVar('name'),
-			'birth' => $this->request->getVar('birth'),
+			'birth' => date("Y-m-d", strtotime($this->request->getVar('birth'))),
 			'occupation' => $this->request->getVar('occupation'),
 			'address' => $this->request->getVar('address'),
 			'company_id' => $this->request->getVar('company_id'),
@@ -84,6 +84,7 @@ class Person extends BaseController
 		$db = db_connect();
 		$queri = $db->query("SELECT * FROM person WHERE person_id=$queri_id");
 		$data['queri'] =  $queri->getResultArray();
+		$data['queri'][0]['birth'] = date("d-m-Y", strtotime($data['queri'][0]['birth'])) ;
 
 		$builder = $db->table('company');
 		$builder->select('company_name, company_id');
@@ -100,6 +101,11 @@ class Person extends BaseController
 			$builder4 = $db->table('course');
 			$builder4 = $builder4->getWhere(['course_id' =>$value['course_id']])->getResultArray();
 			$data['certificate'][$key] += $builder4[0];
+		}
+
+		foreach ($data['certificate'] as $key => $value) {
+			$value['os'] = date("d-m-Y", strtotime($value['os']));
+			$value['aop'] = date("d-m-Y", strtotime($value['aop']));
 		}
 
 		return view('update-person', $data);
@@ -121,6 +127,11 @@ class Person extends BaseController
 		$builder = $db->table('person')->like('name', $data['name'], 'both')
 									->join('company', 'company.company_id = person.company_id ', 'inner')
 									->get()->getResultArray();
+
+		foreach ($builder as $key => $value) {
+			$value['birth'] = date("Y-m-d", strtotime($value['birth']));
+		}
+
 		$data['persons'] =  $builder;
 
 		return json_encode($data);
@@ -136,7 +147,7 @@ class Person extends BaseController
 		$data = [
 			'person_id' => $this->request->getVar('person_id'),
 			'name' => $this->request->getVar('name'),
-			'birth' => $this->request->getVar('birth'),
+			'birth' =>date("Y-m-d", strtotime($this->request->getVar('birth'))),
 			'occupation' => $this->request->getVar('occupation'),
 			'address' => $this->request->getVar('address'),
 			'company_id' => $this->request->getVar('company_id')

@@ -14,7 +14,7 @@
 						&nbsp;
 					</div>
 					<div class="col-6 col-12-small">
-						<form method="post" action="/Home/registration" class="myform"  novalidate="novalidate">
+						<form method="post" autocomplete="off" action="/Home/registration" class="myform"  novalidate="novalidate">
 							<div class="fields">
 								<div class="field half">
 									<label for="name">Meno</label>

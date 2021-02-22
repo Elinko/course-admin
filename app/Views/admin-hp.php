@@ -54,13 +54,13 @@
 							<div class="col-4 col-12-medium">
 								<div class="form-group">
 									<label for="date-from">Dátum od</label>
-									<input type="text" name="date-from" id="date-from" value="2000-01-01" class="form-control data-picker">
+									<input type="text" name="date-from" id="date-from" value="01-01-2000" class="form-control data-picker">
 								</div>
 							</div>
 							<div class="col-4 col-12-medium">
 								<div class="form-group">
 									<label for="date-from">Dátum do</label>
-									<input type="text" name="date-to" id="date-to" value="2022-01-01"  class="form-control data-picker">
+									<input type="text" name="date-to" id="date-to" value="01-01-2022"  class="form-control data-picker">
 								</div>
 							</div>
 							<div class="col-4 col-12-medium">
@@ -115,13 +115,13 @@
 												<thead>
 													<tr>
 														<th>P.č.</th>
-														<th>Meno priezvisko</th>
-														<th>Narodenie</th>
+														<th>Meno&nbsp;priezvisko</th>
+														<th>Dát.&nbsp;nar.</th>
 														<!-- <th>Firma</th> -->
 														<th>EV</th>
 														<th>Skupina</th>
-														<th>Posl. OS</th>
-														<th>Posl. AOP</th>
+														<th>Posl.&nbsp;OS</th>
+														<th>Posl.&nbsp;AOP</th>
 														<th class="no-print">Zmena</th>
 													</tr>
 												</thead>
@@ -161,12 +161,12 @@
 													<tr>
 														<th>P.č.</th>
 														<th>Školenie</th>
-														<th>Narodenie</th>
+														<th>Dát.&nbsp;nar.</th>
 														<!-- <th>Firma</th> -->
 														<th>EV.</th>
 														<th>Skupina</th>
-														<th>Posl. OS</th>
-														<th>Posl. AOP</th>
+														<th>Posl.&nbsp;OS</th>
+														<th>Posl.&nbsp;AOP</th>
 														<th class="no-print">Zmena</th>
 													</tr>
 												</thead>
