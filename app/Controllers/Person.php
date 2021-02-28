@@ -66,7 +66,7 @@ class Person extends BaseController
 			'company_id' => $this->request->getVar('company_id'),
 		];
 
-		$data['birth'] = formatTimePrint($data['birth']);
+		$data['birth'] = formatTimeDatabase($data['birth']);
 
 		$save = $builder->insert($data);
 
@@ -86,7 +86,7 @@ class Person extends BaseController
 		$db = db_connect();
 		$queri = $db->query("SELECT * FROM person WHERE person_id=$queri_id");
 		$data['queri'] =  $queri->getResultArray();
-		$data['queri'][0]['birth'] = date("d-m-Y", strtotime($data['queri'][0]['birth'])) ;
+		$data['queri'][0]['birth'] =formatTimePrint($data['queri'][0]['birth']) ;
 
 		$builder = $db->table('company');
 		$builder->select('company_name, company_id');

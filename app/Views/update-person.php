@@ -30,7 +30,7 @@
 								<div class="col-6 col-12-xsmall">
 									<div class="form-group">
 										<label for="birth">Dátum narodenia</label>
-										<input type="text" name="birth" id="birth"  value="<?=$queri[0]['birth']?>" required class="form-control data-picker">
+										<input type="text" name="birth" id="birth"  value="<?=$queri[0]['birth']?>" class="form-control data-picker">
 									</div>
 								</div>
 								<div class="col-12 col-12-xsmall">

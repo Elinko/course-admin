@@ -181,6 +181,7 @@ input {
 table th, table td {
   min-width: 145px;
   max-width: 145px;
+  overflow-wrap: break-word
 }
 
 /* table th.time {
@@ -188,13 +189,19 @@ table th, table td {
 } */
 
 table th.pc, table td.pc {
-  min-width: 40px!important;
-  max-width: 40px!important;
+  min-width: 50px!important;
+  max-width: 50px!important;
 }
 
 table th.types, table td.types {
   min-width: 250px;
   max-width: 250px;
+
+}
+
+table th.email, table td.email {
+  min-width: 300px;
+  max-width: 300px;
 
 }
 

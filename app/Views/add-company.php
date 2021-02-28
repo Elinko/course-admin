@@ -94,7 +94,7 @@
 								<th>Meno</th>
 								<th>Telefón</th>
 								<th>K.&nbsp;osoba</th>
-								<th>E-mail</th>
+								<th >E-mail</th>
 								<th>IČO</th>
 								<th>DIČ</th>
 								<th>IČ&nbsp;DPH</th>

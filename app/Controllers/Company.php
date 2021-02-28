@@ -10,7 +10,7 @@ class Company extends BaseController
 		}
 		$db = db_connect();
 		$builder = $db->table('company');
-		$data['company'] =  $builder->get()->getResultArray();
+		$data['company'] =  $builder->orderBy('company_name', 'ASC')->get()->getResultArray();
 
 		// var_dump($query[0]['name']);
 		return view('add-company', $data);
@@ -31,7 +31,7 @@ class Company extends BaseController
 		$data['person'] = $builder2->getWhere(['company_id' => $queri_id])->getResultArray();
 
 		foreach ($data['person'] as $key => $value) {
-			$data['person'][$key]['birth'] = date("d-m-Y", strtotime($value['birth'])); 
+			$data['person'][$key]['birth'] = formatTimePrint($value['birth']);
 		}
 
 		return view('update-company', $data);

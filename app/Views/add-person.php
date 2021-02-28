@@ -29,7 +29,7 @@
 								<div class="col-6 col-12-small">
 									<div class="form-group">
 										<label for="birth">Dátum narodenia</label>
-										<input type="text" name="birth" id="birth" required data-toggle="datepicker" class="form-control data-picker">
+										<input type="text" name="birth" id="birth" data-toggle="datepicker" class="form-control data-picker">
 									</div>
 								</div>
 
