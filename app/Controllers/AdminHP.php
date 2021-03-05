@@ -47,9 +47,18 @@ class AdminHP extends BaseController
 		if($data['sort'] == 'course') { 		// COURSE PRINT
 
 
+
 			$builder = $db->table('certificate');
-			$builder->where(['os >' => $data['date-from']])
-							->where(['os <' => $data['date-to']]);
+
+			// $array = array('aop >' => $data['date-from'], 'aop <' => $data['date-to'], 'os >' => $data['date-from'], 'os <' => $data['date-to']);
+			$wherecond = "( ( ( aop >'" . $data['date-from'] . " ' AND aop <'" . $data['date-to'] . "') OR ( os >'" .$data['date-from'] . " 'AND os <'" .$data['date-to'] . " ' ) ) )";
+			$builder->where($wherecond);
+
+			// $builder->where(['aop >' => $data['date-from']])
+			// 				->where(['aop <' => $data['date-to']]);
+			// $builder->orWhere(['os >' => $data['date-from']])
+			// 				->where(['os <' => $data['date-to']]);
+
 
 			$builder->join('person', 'person.person_id = certificate.person_id ', 'inner')
 			->join('company', 'company.company_id = person.company_id ', 'inner')
@@ -67,10 +76,7 @@ class AdminHP extends BaseController
 				$builder->whereIn('course.course_id' , $data['course_id']);
 			}
 
-			$builder->where(['os >' => $data['date-from']])
-							->where(['os <' => $data['date-to']])
-							// ->orderBy('company.company_id')
-							->orderBy('course.course_id')
+			$builder->orderBy('course.course_id')
 							->orderBy('name', 'ASC');
 
 			$result = $builder->get()->getResultArray();
@@ -118,8 +124,11 @@ class AdminHP extends BaseController
 		} else { 		//PERSON PRINT
 
 			$builder = $db->table('certificate');
-			$builder->where(['os >' => $data['date-from']])
-							->where(['os <' => $data['date-to']]);
+			// $builder->where(['os >' => $data['date-from']])
+			// 				->where(['os <' => $data['date-to']]);
+
+			$wherecond = "( ( ( aop >'" . $data['date-from'] . " ' AND aop <'" . $data['date-to'] . "') OR ( os >'" .$data['date-from'] . " 'AND os <'" .$data['date-to'] . " ' ) ) )";
+			$builder->where($wherecond);
 
 			$builder->join('person', 'person.person_id = certificate.person_id ', 'inner')
 			->join('company', 'company.company_id = person.company_id ', 'inner')
@@ -137,9 +146,7 @@ class AdminHP extends BaseController
 				$builder->whereIn('course.course_id' , $data['course_id']);
 			}
 
-			$builder->where(['os >' => $data['date-from']])
-							->where(['os <' => $data['date-to']])
-							->orderBy('company.company_id')
+			$builder->orderBy('company.company_id')
 							->orderBy('person.name', 'ASC')
 							->orderBy('person.person_id');
 
