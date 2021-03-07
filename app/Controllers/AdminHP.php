@@ -51,7 +51,7 @@ class AdminHP extends BaseController
 			$builder = $db->table('certificate');
 
 			// $array = array('aop >' => $data['date-from'], 'aop <' => $data['date-to'], 'os >' => $data['date-from'], 'os <' => $data['date-to']);
-			$wherecond = "( ( ( aop >'" . $data['date-from'] . " ' AND aop <'" . $data['date-to'] . "') OR ( os >'" .$data['date-from'] . " 'AND os <'" .$data['date-to'] . " ' ) ) )";
+			$wherecond = "( ( ( aop_exp >'" . $data['date-from'] . " ' AND aop_exp <'" . $data['date-to'] . "') OR ( os_exp >'" .$data['date-from'] . " 'AND os_exp <'" .$data['date-to'] . " ' ) ) )";
 			$builder->where($wherecond);
 
 			// $builder->where(['aop >' => $data['date-from']])
@@ -127,7 +127,7 @@ class AdminHP extends BaseController
 			// $builder->where(['os >' => $data['date-from']])
 			// 				->where(['os <' => $data['date-to']]);
 
-			$wherecond = "( ( ( aop >'" . $data['date-from'] . " ' AND aop <'" . $data['date-to'] . "') OR ( os >'" .$data['date-from'] . " 'AND os <'" .$data['date-to'] . " ' ) ) )";
+			$wherecond = "( ( ( aop_exp >'" . $data['date-from'] . " ' AND aop_exp <'" . $data['date-to'] . "') OR ( os_exp >'" .$data['date-from'] . " 'AND os_exp <'" .$data['date-to'] . " ' ) ) )";
 			$builder->where($wherecond);
 
 			$builder->join('person', 'person.person_id = certificate.person_id ', 'inner')

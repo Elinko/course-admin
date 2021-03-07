@@ -120,6 +120,7 @@
 								<th class="time">Posl.&nbsp;AOP</th>
 								<th>Skupina</th>
 								<th>Upraviť</th>
+								<th>Vymazať</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -132,6 +133,8 @@
 									<td><?= $value['aop'];  ?></td>
 									<td><?= $value['types'];  ?></td>
 									<td><a href="/Certificate/update/<?= $value['certificate_id'];  ?>">Upraviť</a> </td>
+									<td><a href="#" data-toggle="modal" data-id="<?= $value['certificate_id'];  ?>" class="to-delete-certificate" data-target="#delete-certi">Vymazať</td>
+
 								</tr>
 							<?php endforeach; ?>
 
@@ -145,6 +148,26 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="delete-certi" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header text-right">
+					 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<form class="myform deleteCertificate" action="/Certificate/deleteCertificate" data-person="<?=$queri[0]['person_id']?>"  method="post" novalidate="novalidate" >
+						<input type="hidden" value="" name="certificate_id" id="delete-certificate_id" required>
+						<h2 class="text-dark">Naozaj chceš odstrániť tento certifikát?</h2>
+						<div class="actions">
+							<input type="submit" value="Odstrániť" class="button">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 <?= $this->include('partials/form-success') ?>
 
 

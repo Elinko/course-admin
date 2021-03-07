@@ -17,7 +17,7 @@ class Certificate extends BaseController
 		$data['person'] = $builder2->getWhere(['person_id' => $queri_id])->getResultArray();
 
 		foreach ($data['person'] as $key => $value) {
-			$data['person'][$key]['birth'] = date("d-m-Y", strtotime($value['birth']));
+			$data['person'][$key]['birth'] = formatTimePrint( strtotime($value['birth']));
 		}
 
 		// var_dump($query[0]['name']);
@@ -93,9 +93,38 @@ class Certificate extends BaseController
 			'types' => $this->request->getVar('types')
 		];
 
+		//
+		// echo 'ahoocj';
+		// var_dump($result[0]['os_time']);
+
 		$data['os'] = formatTimeDatabase($data['os']);
 		$data['aop'] = formatTimeDatabase($data['aop']);
 
+		$builder2 = $db->table('course');
+		$result = $builder2->where(['course_id' =>$data['course_id']])->get()->getResultArray();
+
+		if($result[0]['os_time'] != null && $result[0]['os_time'] != '' && $result[0]['os_time'] != 0 && $data['os'] != '' && $data['os'] != null) {
+			// echo date('Y-m-d', strtotime("+" .$result[0]['os_time']. "months", strtotime($data['os']))) ;
+			$months = "+" . $result[0]['os_time']. " months";
+			$data['os_exp'] = date('Y-m-d' , (strtotime($months, strtotime($data['os']))));
+			echo'pracujem';
+
+		} else {
+			$data['os_exp'] = '';
+		}
+
+		if($result[0]['aop_time'] != null && $result[0]['aop_time'] != '' && $result[0]['aop_time'] != 0 && $data['aop'] != '' && $data['aop'] != null) {
+			$months = "+" . $result[0]['os_time']. " months";
+			$data['aop_exp'] = date('Y-m-d' , (strtotime($months, strtotime($data['aop']))));
+		} else {
+			$data['aop_exp'] = '';
+		}
+
+		// echo'kurva ';
+		// // echo 'months'.  strtotime($data['os']);
+		// echo 'os_exp'. $data['os_exp'];
+
+		//
 		$save = $builder->insert($data);
 		return $this->response->setJSON($save);
 	}
@@ -117,8 +146,65 @@ class Certificate extends BaseController
 		$data['os'] = formatTimeDatabase($data['os']);
 		$data['aop'] = formatTimeDatabase($data['aop']);
 
+		$builder2 = $db->table('course');
+		$result = $builder2->where(['course_id' =>$data['course_id']])->get()->getResultArray();
+
+		if($result[0]['os_time'] != null && $result[0]['os_time'] != '' && $result[0]['os_time'] != 0 && $data['os'] != '' && $data['os'] != null) {
+			// echo date('Y-m-d', strtotime("+" .$result[0]['os_time']. "months", strtotime($data['os']))) ;
+			$months = "+" . $result[0]['os_time']. " months";
+			$data['os_exp'] = date('Y-m-d' , (strtotime($months, strtotime($data['os']))));
+		} else {
+			$data['os_exp'] = '';
+		}
+
+		if($result[0]['aop_time'] != null && $result[0]['aop_time'] != '' && $result[0]['aop_time'] != 0 && $data['aop'] != '' && $data['aop'] != null) {
+			$months = "+" . $result[0]['aop_time']. " months";
+			$data['aop_exp'] = date('Y-m-d' , (strtotime($months, strtotime($data['aop']))));
+		} else {
+			$data['aop_exp'] = '';
+		}
+
 		$save = $builder->replace($data);
 		return $this->response->setJSON($save);
+	}
+
+	public function modifyCertificategsfgsdfggg()
+	{
+		$db = db_connect();
+		$builder = $db->table('certificate')->get()->getResultArray();
+
+		// var_dump($builder);
+
+		foreach ($builder as $key => $value) {
+			$builder2 = $db->table('course');
+		 	$result = $builder2->where(['course_id' =>$value['course_id']])->get()->getResultArray();
+
+			if($result[0]['os_time'] != null && $result[0]['os_time'] != '' && $result[0]['os_time'] != 0 && $value['os'] != '' && $value['os'] != null) {
+				// echo date('Y-m-d', strtotime("+" .$result[0]['os_time']. "months", strtotime($data['os']))) ;
+				$months = "+" . $result[0]['os_time']. " months";
+				$value['os_exp'] = date('Y-m-d' , (strtotime($months, strtotime($value['os']))));
+			} else {
+				$value['os_exp'] = '';
+			}
+
+			if($result[0]['aop_time'] != null && $result[0]['aop_time'] != '' && $result[0]['aop_time'] != 0 && $value['aop'] != '' && $value['aop'] != null) {
+				$months = "+" . $result[0]['aop_time']. " months";
+				$value['aop_exp'] = date('Y-m-d' , (strtotime($months, strtotime($value['aop']))));
+			} else {
+				$value['aop_exp'] = '';
+			}
+
+			$builder3 = $db->table('certificate');
+			$builder3->replace($value);
+
+
+		}
+
+
+
+
+		// $save = $builder->replace($data);
+		// return $this->response->setJSON($save);
 	}
 
 	public function deleteCertificate()

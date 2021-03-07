@@ -101,6 +101,10 @@
 					</table>
 				</div>
 
+				<div class="col-12 text-center">
+					<a href="/Certificate/add/<?=$queri[0]['person_id'] ?>" class="button primary">Pridať certifikát</a>
+				</div>
+
 			</section>
 		</div>
 	</div>
