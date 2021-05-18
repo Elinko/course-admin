@@ -14,7 +14,7 @@
  })
 
  window.onafterprint=function(){
-   location.reload(); 
+   location.reload();
 }
 
 	$('.myform').submit(function (e) {
@@ -157,13 +157,18 @@
 									printWrap.show();
 
 								}
+                $('#ifCompany').html('')
+
 								if( result['count_company']==1) {
 									// console.log('vvv ', result['data'][0]['row'][0]['company_name'])
-									$('#ifCompany').html('<h2>Firma: '+ result['data'][0]['row'][0]['company_name'] +'</h2>')
-								} else {
-									$('#ifCompany').html('')
-
+                  if( result['data'] == '') {
+                    $('#ifCompany').html('<h2>Žiadne výsledky</h2>')
+                  } else {
+                    $('#ifCompany').html('<h2>Firma: '+ result['data'][0]['row'][0]['company_name'] +'</h2>')
+                  }
 								}
+
+
  								$('.search-result').fadeIn();
 
 							} else if(form.hasClass('searchPerson')) {
