@@ -125,6 +125,40 @@
 					<a href="/Person/indexCompany/<?=$queri[0]['company_id']?>" class="button primary">Pridať zamestnanca</a>
 				</div>
 			</section>
+
+			<hr class="major">
+			<section>
+				<h2>Zoznam zariadení vo firme: <?=$queri[0]['company_name']?> </h2>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Názov zariadenia</th>
+								<th>Lehota</th>
+								<th class="device_revision">Vypršanie lehoty</th>
+								<th>Upraviť</th>
+								<th>Vymazať</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($device as $key => $value):?>
+								<tr>
+									<td><?= $value['device_name'];  ?></td>
+									<td><?= $value['device_time'];  ?></td>
+									<td><?= $value['device_revision'];  ?></td>
+									<td><a href="/Device/update/<?= $value['device_id'];  ?>">Upraviť</a> </td>
+									<td><a href="#" data-toggle="modal" data-id="<?= $value['device_id'];  ?>" data-name="<?= $value['device_name'];  ?>" class="to-delete-person" data-target="#delete-person">Vymazať</td>
+
+								</tr>
+							<?php endforeach; ?>
+
+						</tbody>
+					</table>
+				</div>
+				<div class="col-12 text-center">
+					<a href="/Device/indexCompany/<?=$queri[0]['company_id']?>" class="button primary">Pridať zariadenie</a>
+				</div>
+			</section>
 		</div>
 	</div>
 

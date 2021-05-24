@@ -14,6 +14,8 @@
 							<a href="./Company/" class="button large">&nbsp;&nbsp;&nbsp;Firmy&nbsp;&nbsp;&nbsp;</a>
 							<a href="/Course/" class="button large">&nbsp;Školenia&nbsp;</a>
 							<a href="/Person/" class="button large">&nbsp;&nbsp;&nbsp;Osoby&nbsp;&nbsp;&nbsp;</a>
+							<a href="/Device/" class="button large">&nbsp;Zariadenia&nbsp;</a>
+
 						</div>
 					</div>
 				</div>
@@ -24,7 +26,7 @@
 					<div class="col-12 col-12-small">
 						<form class="myform search" action="/AdminHP/search" method="get">
 							<div class="row">
-								<div class="col-4 col-12-medium">
+								<div class="col-3 col-12-small col-6-medium">
 									<label for="company_id">Firma</label>
 									<select class="multiple" name="company_id[]" multiple id="company_id">
 										<?php foreach ($company as $key => $value): ?>
@@ -32,7 +34,7 @@
 										<?php endforeach; ?>
 									</select>
 								</div>
-								<div class="col-4 col-12-medium">
+								<div class="col-3 col-12-small col-6-medium">
 									<label for="course_id">Školenie</label>
 									<select class="multiple" name="course_id[]" multiple id="course_id">
 										<?php foreach ($course as $key => $value): ?>
@@ -40,11 +42,19 @@
 										<?php endforeach; ?>
 									</select>
 								</div>
-								<div class="col-4 col-12-medium">
-									<label for="occupation">Zamestanec</label>
+								<div class="col-3 col-12-small col-6-medium">
+									<label for="occupation">Zamestnanec</label>
 									<select class="multiple" name="occupation[]" multiple id="occupation">
 										<?php foreach ($occupation as $key => $value): ?>
 											<option value="<?= $value['occupation'] ?>"><?= $value['occupation'] ?></option>
+										<?php endforeach; ?>
+									</select>
+								</div>
+								<div class="col-3 col-12-small col-6-medium">
+									<label for="occupation">Zariadenie</label>
+									<select class="multiple" name="device[]" multiple id="occupation">
+										<?php foreach ($device as $key => $value): ?>
+											<option value="<?= $value['device_name'] ?>"><?= $value['device_name'] ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>

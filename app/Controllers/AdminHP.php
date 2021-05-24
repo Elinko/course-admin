@@ -14,10 +14,10 @@ class AdminHP extends BaseController
 		$data['company'] =  $company->orderBy('company_name', 'ASC')->get()->getResultArray();
 
 		$course = $db->table('course')->orderBy('course_name', 'ASC');
-
-		// $course = $db->query("SELECT course_id, name FROM course")->orderBy('course_id', 'DESC');
-		// $data['course'] =  $course->getResultArray();
 		$data['course'] =  $course->get()->getResultArray();
+
+		$device = $db->table('device')->orderBy('device_name', 'ASC'); 
+		$data['device'] =  $device->get()->getResultArray();
 
 
 		$builder2 = $db->table('person');

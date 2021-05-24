@@ -30,6 +30,9 @@ class Company extends BaseController
 		$builder2 = $db->table('person');
 		$data['person'] = $builder2->getWhere(['company_id' => $queri_id])->getResultArray();
 
+		$builder3 = $db->table('device');
+		$data['device'] = $builder3->getWhere(['company_id' => $queri_id])->getResultArray();
+
 		foreach ($data['person'] as $key => $value) {
 			$data['person'][$key]['birth'] = formatTimePrint($value['birth']);
 		}
