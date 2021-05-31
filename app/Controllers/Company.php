@@ -89,18 +89,27 @@ class Company extends BaseController
 
 		$builder2 = $db->table('person');
 		$builder3 = $db->table('person');
+		$builder5 = $db->table('device');
 
-		$result = $builder3->select('person_id')->getWhere(['company_id' => $this->request->getVar('company_id')])->getResultArray();;
+		$result = $builder3->select('person_id')->getWhere(['company_id' => $this->request->getVar('company_id')])->getResultArray();
 
 		$builder2->delete(['company_id' => $this->request->getVar('company_id')]);
 
 		if(!empty($result)) {
 			$builder4 = $db->table('certificate');
-			$builder4->delete(['person_id' => $result[0]['person_id']]);
 
+			foreach ($result as $key => $value) {
+				$builder4->delete(['person_id' => $value['person_id']]);
+			}
 		}
 
-		return $this->response->setJSON($save);
+		$device = $builder5->select('device_id')->getWhere(['company_id' => $this->request->getVar('company_id')])->getResultArray();
+		if(!empty($device)) {
+			$builder6 = $db->table('device');
+			$builder6->delete(['device_id' => $device[0]['device_id']]);
+		}
+
+		return $this->response->setJSON('$save');
 	}
 
 }

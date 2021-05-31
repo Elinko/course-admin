@@ -52,7 +52,7 @@
 								</div>
 								<div class="col-3 col-12-small col-6-medium">
 									<label for="occupation">Zariadenie</label>
-									<select class="multiple" name="device[]" multiple id="occupation">
+									<select class="multiple" name="device[]" multiple id="device">
 										<?php foreach ($device as $key => $value): ?>
 											<option value="<?= $value['device_name'] ?>"><?= $value['device_name'] ?></option>
 										<?php endforeach; ?>

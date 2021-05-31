@@ -248,6 +248,11 @@
 		$('#delete-certificate_id').val($(this).attr('data-id'))
 	})
 
+  $('.to-delete-device').on('click', function() {
+    $('#delete-device_id').val($(this).attr('data-id'))
+  })
+
+
 	$('.to-delete-person').on('click', function() {
 		$('#delete-person_id').val($(this).attr('data-id'))
 		$('.todelete-name').html($(this).attr('data-name'))

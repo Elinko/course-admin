@@ -124,7 +124,7 @@
   									<td><?= $value['device_time'];  ?></td>
   									<td><?= $value['device_revision'];  ?></td>
   									<td><a href="/Device/update/<?= $value['device_id'];  ?>">Upraviť</a> </td>
-  									<td><a href="#" data-toggle="modal" data-id="<?= $value['device_id'];  ?>" data-name="<?= $value['device_name'];  ?>" class="to-delete-person" data-target="#delete-person">Vymazať</td>
+  									<td><a href="#" data-toggle="modal" data-id="<?= $value['device_id'];  ?>" data-name="<?= $value['device_name'];  ?>" class="to-delete-device" data-target="#delete-device">Vymazať</td>
 
   								</tr>
   							<?php endforeach; ?>
@@ -137,6 +137,28 @@
 
        <?php endif; ?>
 			</section>
+
+			<div class="modal fade" id="delete-device" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header text-right">
+							 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body text-center">
+							<form class="myform " action="/Device/deleteDevice"  method="post" novalidate="novalidate" >
+								<input type="hidden" value="" name="device_id" id="delete-device_id" required>
+								<h2 class="text-dark">Naozaj chceš odstrániť toto zariadenie?</h2>
+								<div class="actions">
+									<input type="submit" value="Odstrániť" class="button">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
 
 		</div>
 	</div>

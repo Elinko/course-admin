@@ -16,29 +16,26 @@
 					</div>
 					<div class="col-10 col-12-small">
 					 <form class="myform updateDevice" autocomplete="off" action="/Device/updateDevice"  method="post" novalidate="novalidate" >
- 
+						 <input type="hidden" name="device_id" value="<?php echo $queri[0]['device_id'] ?>">
+						 <input type="hidden" name="company_id" value="<?php echo $current_company[0]['company_id'] ?>">
+
 							<div class="row gtr-uniform">
 								<div class="col-6 col-12-small">
 									<div class="form-group">
-										<label for="occupation">Druh zariadenia</label>
-										<select name="device_name" id="device">
-											<option selected="true" disabled="disabled" value="false">Vyber zo zoznamu</option>
-											<?php foreach ($device as $key => $value): ?>
-												<?php if(isset($queri[0])): ?>
-													<?php if($value['device_id'] == $queri[0]['device_id']): ?>
-														<option selected value="<?= $value['device_id'] ?>"><?= $value['device_name'] ?></option>
-													<?php endif; ?>
-												<?php else: ?>
-													<option value="<?= $value['device_id'] ?>"><?= $value['device_name'] ?></option>
-												<?php endif; ?>
+										<label for="occupation">Zariadenie</label>
+										<input type="text" name="device_name" value="<?php echo $queri[0]['device_name'] ?>">
 
-											<?php endforeach; ?>
-											</select>
+									</div>
+								</div>
+								<div class="col-6 col-12-small">
+									<div class="form-group">
+										<label for="occupation">Firma</label>
+
+										<p><?php echo $current_company[0]['company_name'] ?></p>
 									</div>
 								</div>
 
 							</div>
-              <br>
               <div class="row">
                 <div class="col-6 col-12-small">
                   <div class="form-group">
@@ -92,13 +89,13 @@
   							</tr>
   						</thead>
   						<tbody>
-  							<?php foreach ($companyDevice as $key => $value):?>
+  							<?php foreach ($company_device as $key => $value):?>
   								<tr>
   									<td><?= $value['device_name'];  ?></td>
   									<td><?= $value['device_time'];  ?></td>
   									<td><?= $value['device_revision'];  ?></td>
   									<td><a href="/Device/update/<?= $value['device_id'];  ?>">Upraviť</a> </td>
-  									<td><a href="#" data-toggle="modal" data-id="<?= $value['device_id'];  ?>" data-name="<?= $value['device_name'];  ?>" class="to-delete-person" data-target="#delete-person">Vymazať</td>
+  									<td><a href="#" data-toggle="modal" data-id="<?= $value['device_id'];  ?>" data-name="<?= $value['device_name'];  ?>" class="to-delete-device" data-target="#delete-device">Vymazať</td>
 
   								</tr>
   							<?php endforeach; ?>
@@ -111,6 +108,28 @@
 
        <?php endif; ?>
 			</section>
+
+			<div class="modal fade" id="delete-device" tabindex="-1" aria-labelledby="success" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header text-right">
+							 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body text-center">
+							<form class="myform " action="/Device/deleteDevice"  method="post" novalidate="novalidate" >
+								<input type="hidden" value="" name="device_id" id="delete-device_id" required>
+								<h2 class="text-dark">Naozaj chceš odstrániť toto zariadenie?</h2>
+								<div class="actions">
+									<input type="submit" value="Odstrániť" class="button">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
 
 		</div>
 	</div>

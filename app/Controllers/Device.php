@@ -62,28 +62,18 @@ class device extends BaseController
 
 		$db = db_connect();
 
-		$builder = $db->table('device');
-		$builder = $builder->select('device_name')->distinct();
-		$builder = $builder->get('device');
-		$data['device'] = $builder->get()->getResultArray();
-
-
-		$builder2 = $db->table('company');
-		$data['company'] = $builder2->get()->getResultArray();
-
-
 
 		$builder4 = $db->table('device');
 		$data['queri'] = $builder4->getWhere(['device_id' =>$queri_id])->getResultArray();
 
 		$data['current_company'] = $db->table('company')->getWhere(['company_id' =>$data['queri'][0]['company_id']])->getResultArray();
 
-		$data['companyDevice'] = $db->table('device')->getWhere(['company_id' =>$data['queri'][0]['company_id']])->getResultArray();
+		$data['company_device'] = $db->table('device')->getWhere(['company_id' =>$data['queri'][0]['company_id']])->getResultArray();
 
 
-		var_dump( $data['device']);
+		// var_dump( $data['companyDevice']);
 
-		// return view('update-device', $data);
+		return view('update-device', $data);
 	}
 
 	public function addDevice()
@@ -104,6 +94,9 @@ class device extends BaseController
 			'device_revision' => formatTimeDatabase($this->request->getVar('device_revision'))
 		];
 
+		$months = "+" . $data['device_time']. " months";
+		$data['device_revision_exp'] = date('Y-m-d' , (strtotime($months, strtotime($data['device_revision']))));
+
 		//
 		$save = $builder->insert($data);
 		return $this->response->setJSON($save);
@@ -115,10 +108,14 @@ class device extends BaseController
 		$builder = $db->table('device');
 		$data = [
 			'device_id' => $this->request->getVar('device_id'),
-			'device_name' => $this->request->getVar('name'),
-			'os_time' => $this->request->getVar('os_time'),
-			'aop_time' => $this->request->getVar('aop_time')
+			'device_name' => $this->request->getVar('device_name'),
+			'company_id' => $this->request->getVar('company_id'),
+			'device_time' => $this->request->getVar('device_time'),
+			'device_revision' => formatTimeDatabase($this->request->getVar('device_revision'))
 		];
+		
+		$months = "+" . $data['device_time']. " months";
+		$data['device_revision_exp'] = date('Y-m-d' , (strtotime($months, strtotime($data['device_revision']))));
 
 		$save = $builder->replace($data);
 		return $this->response->setJSON($save);
@@ -127,11 +124,8 @@ class device extends BaseController
 	public function deleteDevice()
 	{
 		$db = db_connect();
-		$builder = $db->table('certificate');
+		$builder = $db->table('device');
 		$save = $builder->delete(['device_id' => $this->request->getVar('device_id')]);
-
-		$builder2 = $db->table('device');
-		$builder2->delete(['device_id' => $this->request->getVar('device_id')]);
 
 		return $this->response->setJSON($save);
 	}

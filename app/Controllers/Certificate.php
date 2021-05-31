@@ -107,7 +107,7 @@ class Certificate extends BaseController
 			// echo date('Y-m-d', strtotime("+" .$result[0]['os_time']. "months", strtotime($data['os']))) ;
 			$months = "+" . $result[0]['os_time']. " months";
 			$data['os_exp'] = date('Y-m-d' , (strtotime($months, strtotime($data['os']))));
-			echo'pracujem';
+ 
 
 		} else {
 			$data['os_exp'] = '';
