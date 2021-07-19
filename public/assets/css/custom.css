@@ -116,7 +116,7 @@ a {
   background-color: #242943;
 }
 
-.search-result, .person-print, .course-print {
+.search-result, .person-print, .course-print, .device-print {
   display: none;
 }
 

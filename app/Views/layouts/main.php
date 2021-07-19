@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Školenia - Roli</title>
+		<title>Školenia - Jakub</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/css/bootstrap.min.css" />
@@ -22,7 +22,7 @@
 	<body class="is-preload">
 		<div id="wrapper">
 			<header id="header" class="reveal alt">
-				<a href="/AdminHP" class="logo"><strong>Školenia</strong> <span>by Roli</span></a>
+				<a href="/AdminHP" class="logo"><strong>Školenia</strong> <span>by Jakub</span></a>
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>

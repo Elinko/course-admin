@@ -77,7 +77,8 @@
 							} else if(form.hasClass('search')) {
 								let result = JSON.parse(data)
 								$('.course-print').hide();
-								$('.person-print').hide();
+                $('.person-print').hide();
+								$('.device-print').hide();
 
 
 								$('.course-section:not(.template)').remove();
@@ -117,7 +118,7 @@
 
 									});
 									printWrap.show();
-								} else {
+								} else if( result['type'] == 'person') {
 
 									let printWrap = $('.person-print');
 									printWrap.find('.generated').html(result['today']);
@@ -156,7 +157,41 @@
 									});
 									printWrap.show();
 
-								}
+								} else {
+                  let printWrap = $('.device-print');
+                  printWrap.find('.generated').html(result['today']);
+                  printWrap.find('.generated-until').html(result['generatedUntil']);
+                  // console.log('date', result['generatedUntil']);
+                  // console.log('today', result['today']);
+                  // console.log('today', result['data']);
+
+                  $.each(result['data'], function( index, value ) {
+                    // console.log('row1 ', index)
+
+                    let courseSection = printWrap.find('.template.course-section').clone();
+                    courseSection.removeClass('template');
+                    courseSection.find('.device_company_name').html(value['company_name'])
+
+                    let a = 1;
+                    $.each(value['row'], function( index2, person ) {
+                      let row = courseSection.find('.template.deviceRow').clone();
+                      // console.log('row ', row)
+                      courseSection.removeClass('template');
+                      row.removeClass('template');
+                      row.find('td:nth-child(1)').html(a+'.');
+                      row.find('td.device_name').html(person['device_name'] );
+                      row.find('td.device_time').html(person['device_time']);
+                      row.find('td.device_revision').html(person['device_revision']);
+                      row.find('td.device_revision_exp').html(person['device_revision_exp']);
+                      row.find('.no-print a').attr('href', '/Device/update/'+ person['device_id']);
+                      courseSection.find('.thbody').append(row);
+                      a = a + 1;
+                    });
+
+                    printWrap.append(courseSection)
+                  });
+                  printWrap.show();
+                }
                 $('#ifCompany').html('')
 
 								if( result['count_company']==1) {

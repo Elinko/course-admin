@@ -113,6 +113,7 @@
   								<th>Názov zariadenia</th>
   								<th>Lehota</th>
   								<th class="device_revision">Vypršanie lehoty</th>
+									<th class="device_revision_exp">Vypršanie lehoty</th>
   								<th>Upraviť</th>
   								<th>Vymazať</th>
   							</tr>
@@ -123,6 +124,7 @@
   									<td><?= $value['device_name'];  ?></td>
   									<td><?= $value['device_time'];  ?></td>
   									<td><?= $value['device_revision'];  ?></td>
+										<td><?= $value['device_revision_exp'];  ?></td>
   									<td><a href="/Device/update/<?= $value['device_id'];  ?>">Upraviť</a> </td>
   									<td><a href="#" data-toggle="modal" data-id="<?= $value['device_id'];  ?>" data-name="<?= $value['device_name'];  ?>" class="to-delete-device" data-target="#delete-device">Vymazať</td>
 

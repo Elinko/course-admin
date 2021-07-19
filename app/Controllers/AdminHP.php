@@ -16,7 +16,7 @@ class AdminHP extends BaseController
 		$course = $db->table('course')->orderBy('course_name', 'ASC');
 		$data['course'] =  $course->get()->getResultArray();
 
-		$device = $db->table('device')->orderBy('device_name', 'ASC');
+		$device = $db->table('device')->select('device_name')->distinct()->orderBy('device_name', 'ASC');
 		$data['device'] =  $device->get()->getResultArray();
 
 
@@ -193,31 +193,26 @@ class AdminHP extends BaseController
 
 		} else {
 
-			$builder = $db->table('device_id');
+			$builder = $db->table('device');
 			// $builder->where(['os >' => $data['date-from']])
 			// 				->where(['os <' => $data['date-to']]);
 
 			$wherecond = "( (  device_revision_exp >'" . $data['date-from'] . " ' AND device_revision_exp <'" . $data['date-to'] . "'  ) )";
 			$builder->where($wherecond);
 
-			$builder->join('company', 'company.company_id = person.company_id ', 'inner')
-			->join('course', 'certificate.course_id = course.course_id', 'inner');
+			$builder->join('company', 'company.company_id = device.company_id ', 'inner');
+			// ->join('course', 'certificate.course_id = course.course_id', 'inner');
 
 			if($data['company_id']) {
-				$builder->whereIn('person.company_id' , $data['company_id']);
+				$builder->whereIn('device.company_id' , $data['company_id']);
 			}
 
-			if($data['occupation']) {
-				$builder->whereIn('occupation' , $data['occupation']);
+			if($data['device']) {
+				$builder->whereIn('device.device_name' , $data['device']);
 			}
 
-			if($data['course_id']) {
-				$builder->whereIn('course.course_id' , $data['course_id']);
-			}
-
-			$builder->orderBy('company.company_id')
-			->orderBy('person.name', 'ASC')
-			->orderBy('person.person_id');
+			$builder->orderBy('company.company_name')
+			->orderBy('device.device_name', 'ASC');
 
 
 			$result = $builder->get()->getResultArray();
@@ -228,29 +223,28 @@ class AdminHP extends BaseController
 
 			foreach ($result as $key => $value) {
 
-				$value['os'] = formatTimePrint($value['os']);
-				$value['aop'] = formatTimePrint($value['aop']);
-				$value['birth'] = formatTimePrint($value['birth']);
+				$value['device_revision_exp'] = formatTimePrint($value['device_revision_exp']);
+				$value['device_revision'] = formatTimePrint($value['device_revision']);
 
-				if($person != $value['person_id']) {
+				if($person != $value['company_id']) {
 					$i++;
-					$person = $value['person_id'];
+					$person = $value['company_id'];
 					$data2[$i]['row'][]=($value);
-					$data2[$i]['person']=($value['name']);
-					$data2[$i]['os_time']=($value['os_time']);
-					$data2[$i]['aop_time']=($value['aop_time']);
+					$data2[$i]['company_name']=($value['company_name']);
+					$data2[$i]['device_revision']=($value['device_revision']);
+					$data2[$i]['device_revision_exp']=($value['device_revision_exp']);
 				} else {
 					$data2[$i]['row'][]=($value);
-					$data2[$i]['person']=($value['name']);
-					$data2[$i]['os_time']=($value['os_time']);
-					$data2[$i]['aop_time']=($value['aop_time']);
+					$data2[$i]['company_name']=($value['company_name']);
+					$data2[$i]['device_revision']=($value['device_revision']);
+					$data2[$i]['device_revision_exp']=($value['device_revision_exp']);
 				}
 			}
 
 			// var_dump($data);
 			$result2['generatedUntil'] = formatTimePrint($data['date-to']);
 			$result2['today'] = date("Y-m-d");
-			$result2['type'] = $data['sort'];
+			$result2['type'] = 'device';
 			// $result2['count_company'] = count($data['company_id']);
 			$result2['data'] = $data2;
 

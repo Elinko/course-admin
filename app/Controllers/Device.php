@@ -113,7 +113,7 @@ class device extends BaseController
 			'device_time' => $this->request->getVar('device_time'),
 			'device_revision' => formatTimeDatabase($this->request->getVar('device_revision'))
 		];
-		
+
 		$months = "+" . $data['device_time']. " months";
 		$data['device_revision_exp'] = date('Y-m-d' , (strtotime($months, strtotime($data['device_revision']))));
 

@@ -197,6 +197,47 @@
 									</div>
 								</div>
 
+								<div class="device-print">
+									<div class="row">
+										<div class="col-6 medium text-left">
+											<h4>Dátum vygenerovania: <span class="generated"></span> </h4>
+										</div>
+										<div class="col-6 medium text-right">
+											<h4>Vygenerované do: <span class="generated-until"></span> </h4>
+										</div>
+									</div>
+
+									<div class=" template course-section">
+										<h3 class="device_company_name">Meno cloveka</h3>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th class="pc">P.č.</th>
+														<th>Názov zariadenia</th>
+														<th>Lehota</th>
+														<th class="time">Dátum revízie</th>
+														<th class="time">Vypršanie lehoty</th>
+														<th class="no-print">Zmena</th>
+													</tr>
+												</thead>
+												<tbody class="thbody">
+													<tr class="template deviceRow">
+														<td class="pc">1</td>
+														<td class="device_name">meno zariadenia</td>
+														<td class="device_time">2020-12-11</td>
+														<td class="device_revision">2020-12-11</td>
+														<td class="device_revision_exp">2020-12-11</td>
+														<td  class="no-print"><a href="" target="_blank">Upraviť</a> </td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+									</div>
+								</div>
+
+
 							</div>
 
 							<input type="button" onclick="printDiv('result')" value="Vytlaciť PDF" />
