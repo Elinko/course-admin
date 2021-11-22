@@ -6,14 +6,14 @@
 -->
 <html>
 	<head>
-		<title>Školenia - Jakub</title>
+		<title>Školenia - Roli</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/css/bootstrap.min.css" />
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/main.css?v1.18" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/datepicker.css?v1.18" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css?v1.18" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/main.css?v1.2" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/datepicker.css?v1.2" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css?v1.2" />
 		<noscript><link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/noscript.css" /></noscript>
 		<meta name="robots" content="noindex">
 		<meta name="googlebot" content="noindex">
@@ -22,7 +22,7 @@
 	<body class="is-preload">
 		<div id="wrapper">
 			<header id="header" class="reveal alt">
-				<a href="/AdminHP" class="logo"><strong>Školenia</strong> <span>by Jakub</span></a>
+				<a href="/AdminHP" class="logo"><strong>Školenia</strong> <span>by Roli</span></a>
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>
@@ -82,7 +82,7 @@
 			<script src="<?php echo base_url(); ?>/assets/js/util.js"></script>
 			<script src="<?php echo base_url(); ?>/assets/js/main.js"></script>
 			<script src="<?php echo base_url(); ?>/assets/js/datepicker.min.js"></script>
-			<script src="<?php echo base_url(); ?>/assets/js/custom.js?v1.18"></script>
+			<script src="<?php echo base_url(); ?>/assets/js/custom.js?v1.2"></script>
 
 
 	</body>
