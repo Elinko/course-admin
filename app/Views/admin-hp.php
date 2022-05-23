@@ -125,7 +125,7 @@
 												<thead>
 													<tr>
 														<th class="pc">P.č.</th>
-														<th>Meno&nbsp;priezvisko</th>
+														<th>Priezvisko&nbsp;meno</th>
 														<th class="time">Dát.&nbsp;nar.</th>
 														<!-- <th>Firma</th> -->
 														<th>EV</th>

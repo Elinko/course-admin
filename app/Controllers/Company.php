@@ -28,7 +28,10 @@ class Company extends BaseController
 		$data['queri'] = $builder->getWhere(['company_id' => $queri_id])->getResultArray();
 
 		$builder2 = $db->table('person');
-		$data['person'] = $builder2->getWhere(['company_id' => $queri_id])->getResultArray();
+		$data['person'] = $builder2->orderBy('name', 'ASC')->getWhere(['company_id' => $queri_id])->getResultArray();
+		// $data['person'] = $data['person']
+		// $data['company'] =  $company->orderBy('person_name', 'ASC')->get()->getResultArray();
+
 
 		$builder3 = $db->table('device');
 		$data['device'] = $builder3->getWhere(['company_id' => $queri_id])->getResultArray();

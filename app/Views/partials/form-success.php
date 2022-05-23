@@ -10,7 +10,7 @@
          <h2 style="color: #000;">Formulár úspešne odoslaný</h2>
          <a href="/Company" class="button add-company">Pridať firmu</a><br><br>
          <a href="/Person" class="button add-person">Pridať osobu</a>
-         <a href="/Certificate/add/" class="button update-person" style="display:none;">Pridať certifikát</a>
+         <a href="/Course/add/" class="button update-person" style="display:none;">Pridať školenie</a>
 
       </div>
     </div>

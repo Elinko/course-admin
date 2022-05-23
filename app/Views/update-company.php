@@ -97,7 +97,8 @@
 					<table>
 						<thead>
 							<tr>
-								<th>Meno</th>
+								<th  style="min-width: 50px; max-width: 50px;">P.č.</th>
+								<th>Priezvisko&nbsp;meno</th>
 								<th class="time">Dát.&nbsp;nar.</th>
 								<th>Adresa</th>
 								<th>Zamestnanie</th>
@@ -108,6 +109,7 @@
 						<tbody>
 							<?php foreach ($person as $key => $value):?>
 								<tr>
+									<td style="min-width: 50px; max-width: 50px;"><?= $key+1  ?>.</td>
 									<td><?= $value['name'];  ?></td>
 									<td><?= $value['birth'];  ?></td>
 									<td><?= $value['address'];  ?></td>
