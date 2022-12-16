@@ -143,7 +143,14 @@ a {
 }
 
 select[multiple] {
-  min-height: 135px;
+  min-height: 170px;
+}
+
+select option:checked {
+  background-color: #0098fa;
+}
+select option::selection {
+  background-color: #0098fa;
 }
 
 .course-section table td {

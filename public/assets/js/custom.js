@@ -23,11 +23,11 @@
 	    form.addClass('validated')
 
 	    if (form[0].checkValidity()) {
-	      $.ajax({
-	          url: form.attr("action"),
-	          type: 'GET',
-	          data: form.serialize(),
-	          success: function (data) {
+	     	 $.ajax({
+				url: form.attr("action"),
+				type: 'GET',
+				data: form.serialize(),
+				success: function (data) {
 							form.removeClass('validated');
 							if(!form.hasClass('searchPerson')) {
 								$('#form-success').modal('show');
@@ -36,20 +36,20 @@
 							if(form.hasClass('update')){
 								setTimeout(function() {
 									location.reload();
-								}, 2000);
+								}, 4000);
 							} else if(form.hasClass('deleteCertificate')) {
 								let url = window.location.origin + '/Person/update/' + form.attr('data-person')
 								$('#form-success').modal('show');
 								setTimeout(function() {
 									location.replace(url)
-								}, 2000);
+								}, 4000);
 
 							} else if(form.hasClass('deleteCompany')) {
 								let url = window.location.origin + '/Company/';
 								$('#form-success').modal('show');
 								setTimeout(function() {
 									location.replace(url)
-								}, 2000);
+								}, 4000);
 
 							}
 							else if(form.hasClass('logging')) {
@@ -59,7 +59,7 @@
 									location.replace(url)
 								}, 1000);
 
-							}else if(form.hasClass('addPerson')) {
+							}else if(form.hasClass('addPerson')) { 
 								$('#form-success').modal('show');
 								let href = $('#form-success .update-person').attr('href');
 								href = href+data;
@@ -68,16 +68,16 @@
 								$('#form-success .add-person').hide();
 								$('#form-success .update-person').show();
 
-                setTimeout(function() {
-                  form[0].reset();
-                  location.reload();
-               }, 3000);
+								setTimeout(function() {
+								form[0].reset();
+								location.reload();
+							}, 5000);
 
 
-							} else if(form.hasClass('search')) {
+				} else if(form.hasClass('search')) {
 								let result = JSON.parse(data)
 								$('.course-print').hide();
-                $('.person-print').hide();
+              					  $('.person-print').hide();
 								$('.device-print').hide();
 
 
@@ -248,7 +248,7 @@
 								 setTimeout(function() {
 									 form[0].reset();
 									 location.reload();
- 								}, 2000);
+ 								}, 4000);
 							}
 	          },
 	          error: function (data) {

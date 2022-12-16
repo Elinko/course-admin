@@ -114,7 +114,7 @@ class Certificate extends BaseController
 		}
 
 		if($result[0]['aop_time'] != null && $result[0]['aop_time'] != '' && $result[0]['aop_time'] != 0 && $data['aop'] != '' && $data['aop'] != null) {
-			$months = "+" . $result[0]['os_time']. " months";
+			$months = "+" . $result[0]['aop_time']. " months";
 			$data['aop_exp'] = date('Y-m-d' , (strtotime($months, strtotime($data['aop']))));
 		} else {
 			$data['aop_exp'] = '';
@@ -179,13 +179,13 @@ class Certificate extends BaseController
 			$builder2 = $db->table('course');
 		 	$result = $builder2->where(['course_id' =>$value['course_id']])->get()->getResultArray();
 
-			if($result[0]['os_time'] != null && $result[0]['os_time'] != '' && $result[0]['os_time'] != 0 && $value['os'] != '' && $value['os'] != null) {
-				// echo date('Y-m-d', strtotime("+" .$result[0]['os_time']. "months", strtotime($data['os']))) ;
-				$months = "+" . $result[0]['os_time']. " months";
-				$value['os_exp'] = date('Y-m-d' , (strtotime($months, strtotime($value['os']))));
-			} else {
-				$value['os_exp'] = '';
-			}
+			// if($result[0]['os_time'] != null && $result[0]['os_time'] != '' && $result[0]['os_time'] != 0 && $value['os'] != '' && $value['os'] != null) {
+			// 	// echo date('Y-m-d', strtotime("+" .$result[0]['os_time']. "months", strtotime($data['os']))) ;
+			// 	$months = "+" . $result[0]['os_time']. " months";
+			// 	$value['os_exp'] = date('Y-m-d' , (strtotime($months, strtotime($value['os']))));
+			// } else {
+			// 	$value['os_exp'] = '';
+			// }
 
 			if($result[0]['aop_time'] != null && $result[0]['aop_time'] != '' && $result[0]['aop_time'] != 0 && $value['aop'] != '' && $value['aop'] != null) {
 				$months = "+" . $result[0]['aop_time']. " months";
